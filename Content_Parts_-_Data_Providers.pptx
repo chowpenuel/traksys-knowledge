@@ -1,0 +1,102 @@
+## Slide 1
+
+Content Parts: Data Providers
+
+## Slide 2
+
+Review | Types and Initialization Order
+
+Each part on a page has an Initialization Order integer setting.  In general parts fall into one of three categories.
+Filter Parts
+Order = 2.  Retrieve information from a User and pass on to other Parts to use.
+Data Provider Parts
+Order = 5.  Consume filter information and other values, retrieve data from the TrakSYS database or other source.  Pass data on to other Parts to use.
+Data Consumer Parts
+Order = 10.  Retrieve data from providers and format for display to the user interface.
+The Initialization Order of a part can be modified for special situations.
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 3
+
+Content Parts | Data Table Parts
+
+Designed to execute pre-defined queries on the TrakSYS Database
+Return commonly used sets of data as DataTable objects deposited in the Values Dictionary
+Contain properties and settings allowing the Developer to manipulate and configure aspects of the query without writing SQL
+Filters
+Selected Columns
+Sorting
+Custom Columns
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 4
+
+Content Parts | Data Table Range and Filters
+
+By default the Data Table Part looks for the standard SD, ED, SDT and EDT Keys to determine Date Range filter Values
+Range Key Prefix allows for customizing the expected Values Dictionary Keys
+Range Key Prefix = Custom.
+Keys expected = Custom.ED, Custom.SD, Custom.SDT, Custom.EDT
+Filters allow constant values or Values Dictionary Keys to be mapped to Properties
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 5
+
+Content Parts | Data Table Columns and Sorting
+
+The Columns that are returned by the Data Table Part can be selected from a pre-configured list of Options
+Selecting only the needed fields can improve the Query Performance
+The resultant DataTable can be sorted by one ore more configurable Columns (Ascending or Descending)
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 6
+
+Content Parts | Data Table Target
+
+The Target Values Key property specifies the Values Key for the resultant DataTable
+Consumer Parts must be configured with a matching Source Values Key
+Data Table Parts must have a lower Initialization Order than Consumer Parts
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 7
+
+Content Parts | Data Table Example
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 8
+
+Content Parts | Data Table Simulation
+
+Simulation Mode allows a fake set of data to be provided to the Consumers
+Query parameters and settings are ignored in Simulation Mode
+Useful for Demonstrations and user interface Prototyping
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 9
+
+Configuring a Data Provider
+
+## Slide 10
+
+Custom SQL Data Tables

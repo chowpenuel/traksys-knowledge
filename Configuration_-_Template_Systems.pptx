@@ -1,0 +1,72 @@
+## Slide 1
+
+Template Systems
+
+## Slide 2
+
+Template Systems 
+
+Used to facilitate rapid modeling of Manufacturing Equipment that produce/process similar products and have similar data requirements
+Can be created for each type of System (Batch, Discrete, and Storage)
+Template Parents contain configuration elements identical to the non-template versions
+Most properties are configured on the Template Parent and are locked on the Template Children
+Template Parents are for configuration only and do not produce data
+
+## Slide 3
+
+Creating a Parent Template System
+
+Template Parents can be created from scratch, or from an existing non-template System
+When creating from scratch:
+All properties will start with the defaults and must be configured individually
+All Tags will need to be configured and assigned to the Parent manually
+When creating from an existing non-template System:
+A “Template Tag Prefix” should be configured on the non-template System
+A “Parent Template Tag Prefix” must be provided
+A target “Tag Group ID” must be provided
+Matching Template Tags will be created automatically for the new Template Parent
+
+## Slide 4
+
+Configuring a Template System
+
+Available properties will be the same as a normal system of the same type
+Properties relating to the way data is process and recorded will be configured on the Template Parent
+Types
+Script Classes
+Event Logic
+Properties relating to defining or recording context will be configured individually the Template Children
+Schedules
+Product Sets
+Production Scheduling Sets
+Tags will be configured using Template Tag Mapping
+
+Template Parent
+Template Child
+
+## Slide 5
+
+Template Tag Mapping 
+
+Template Parent Systems will use Template Tags for all tag-based properties
+Template Children Systems can use any tag type for tag-based properties
+Template Children cannot have tags directly assigned to them through their configuration. They must use one of the Assign Tags actions.
+Template tag prefix is required for the mapping to take place
+Tag Duplication can be utilized to quickly prepare tags for new template children, but will not be effective for all Tag Types
+
+## Slide 6
+
+Mapping Example 
+
+## Slide 7
+
+Template Systems and Template Tags
+
+## Slide 8
+
+Template Tips 
+
+Existing Systems can be turned into Template Systems. The new Template Parent System will have a set of Template Tags created and assigned to it.
+Tag Duplication can be utilized to quickly prepare tags for new template children. Tags can be duplicated with new Prefixes through the Tag Configuration options.
+A Template can be detached from a Parent but cannot be reattached.
+A Parent Template System does not need to have any Children Template Systems

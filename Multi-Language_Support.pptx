@@ -1,0 +1,131 @@
+## Slide 1
+
+Translations
+
+## Slide 2
+
+Language Translation
+
+Supports displaying text in the language appropriate for the User
+Supports displaying different languages from the same application Install
+Supports both built-in and solution-specific text Translations
+
+## Slide 3
+
+Basic Page Request
+
+## Slide 4
+
+Basic Page Request
+
+## Slide 5
+
+Language Text (strings) in TrakSYS
+
+Built-In
+Menus
+Captions
+Standard Parts
+Standard Pages
+Solution-Specific
+Operations-Specific Terms
+Site-Specific Parts and Pages
+Anything YOU Create
+
+## Slide 6
+
+Translation Entities
+
+## Slide 7
+
+Translation Entities
+
+A string identifier that references a specific Language
+Known as Culture Names in the Windows Environment
+Examples
+en = US English
+es = Spanish
+
+A grouping, context and organization mechanism for Resource Items and Translations
+Has a Key which is the prefix for the unique identifier that will be used to reference a Translation
+
+A text string for translation and display within the TrakSYS User  Interface
+Has a Key which is the suffix for the unique identifier that will be used to reference a Translation
+
+Each Resource Item will contain multiple Translations
+A Translation is na alternate language string for the Resource Item – for a specific Locale
+
+Locale
+
+Resource Group
+
+Resource Item
+
+Translation
+
+## Slide 8
+
+Locales
+
+A string identifier that references a specific Language
+Known as Culture Names in the Windows Environment
+http://www.csharp-examples.net/culture-names/ 
+Examples
+en = US English
+es = Spanish
+fr = French
+de = German
+
+## Slide 9
+
+Resource Groups
+
+A grouping and organization mechanism for Resource Items and Translations
+Each Resource Group is assigned a Key which is the prefix for the unique identifier that will be used to reference a Translation
+The Resource Group Key must be Unique
+
+## Slide 10
+
+Resource Items
+
+A text string that will be available for translation and display within the TrakSYS User  Interface
+Each Resource Item is assigned a Key which is the suffix for the unique identifier that will be used to reference a Translation
+The Resource Item Key must be unique within the parent Group
+A Default Value must be assigned.  This is essentially the English translation for the Item
+
+## Slide 11
+
+Translations
+
+Each Resource Item should contain multiple Translations
+A Translation is an alternate language string for the Resource Item – for a specific Locale
+If a Translation does not exist for a specific Resource Item – Locale combination, the Default Value (English) is Assumed
+
+## Slide 12
+
+Configuring Translations
+
+## Slide 13
+
+Using Translations
+
+## Slide 14
+
+Referencing Translations
+
+Translations can be referenced with a special TrakSYS Expression
+The Expression syntax uses a combination of the Resource Group and Item Keys
+Note there is NO curly braces!
+The Locale is determined by information passed from the client Browser (not the client Operating System language)
+
+## Slide 15
+
+TODO Translations
+
+Use the "TODO:" to mark strings for later Translation
+Can be configured through the TODOs Hub and automatically replaced later
+Supports rapid page development while accommodating multi-language development patterns
+
+## Slide 16
+
+Referencing Translations

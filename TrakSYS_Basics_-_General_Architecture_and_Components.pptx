@@ -1,0 +1,215 @@
+## Slide 1
+
+Components Overview
+
+## Slide 2
+
+Component Overview
+
+Business
+Applications
+ERP, Quality, Maintenance, Batch,
+Planning & Scheduling, etc.
+
+TrakSYS™ Platform
+Real-Time Data Collection,
+Execution, Alerts, Reports, Analytics
+
+IIoT  •  PLC  •  OPC  •  API  •  CSV  •  Structured Data Files 
+
+Business and Operations Users
+Line Managers, Quality, CI, Lean, Plant Managers, Corporate, etc.
+
+Web Browser
+
+Standard APIs
+
+Receiving  •  Testing  •  Preparation  •  Production  •  Packaging  •  Warehouse  •  Shipping
+
+## Slide 3
+
+Component Overview
+
+Client
+Application Services
+Data
+Installation
+Manager
+TrakSYS™
+Web
+SQL Server 2012+
+Logic
+Historian
+Data
+Management
+Workflow
+Maintenance
+
+## Slide 4
+
+Installation
+
+## Slide 5
+
+Installation Pre-Requisites
+
+Platform Pre-Requisites
+Windows Server 2012 R2/2014/2016/2019, .NET Framework and Internet Information Services.  Installation guides available on the TrakSYS Support Site.
+SQL Server
+Version 2012 / 2014 / 2016.  Standard or Enterprise.  Scripted install from the TrakSYS setup DVD/ISO or manual installation instructions available on the Support Site.
+TrakSYS Installation Manager
+After the TrakSYS files are deployed, the Installation Manager is used to configure the database, connection, services, web and other platform settings.
+TrakSYS Setup
+The TrakSYS setup executable deploys all the executable files to the target machine.  Additional setup options and configuration is continued from the Installation Manager.
+2
+3
+4
+1
+
+## Slide 6
+
+Installation Manager: Overview
+
+Overview
+Primary tool used to manage the installation of TrakSYS™ services and components.
+Manage, troubleshoot and maintain an implementation after the initial deployment.
+Main Screen 
+Acts as a status overview of the various elements of the installation
+Provides a menu to interact with details and options in each section.
+Has various installation-wide settings for capabilities like Auditing, Notifications, and Web settings.
+
+## Slide 7
+
+Installation Manager: Database
+
+Database Connection Overview
+Displays the current status of the application connection to the TrakSYS database. Including login information, SQL version, and TrakSYS version.
+Database Operations
+Edit Connection
+Repair Logins
+Create / Upgrade Database
+Backup / Restore Database
+Transfer Export / Import
+Audit Trigger Operations
+(available when TrakSYS Audit features are licensed)
+Create / Delete Audit Triggers
+
+## Slide 8
+
+Installation Manager: License
+
+License Overview
+Displays the current TrakSYS license and status. The TrakSYS license file must be imported into the database and activated for the software and components to be utilized. 
+License Operations
+Import License
+Delete
+Activate License Online
+Activate License Manually
+License Features
+List the TrakSYS features from the current license. Allows the assignment of server name (Host) to license features which are required to be locked to a specific host machine.
+
+## Slide 9
+
+Installation Manager: Services
+
+Services Overview
+Lists the TrakSYS services that are currently installed on the local server. Includes the current server running status.
+Web Operations
+Install Logic
+Install Historian
+Install Data Management
+Install Workflow
+Install Maintenance
+Web Operations
+TrakSYS Services can be started, stopped and restarted from the Installation Manager. They can also be controlled from the standard Windows Services management interface. 
+
+## Slide 10
+
+Installation Manager: Webs
+
+Web Application Overview
+Displays the status of the TrakSYS web user interface application that is installed on Windows Internet Information Services (IIS). TrakSYS requires specific IIS features to be installed on the server in order to support its deployment and use.
+Web Operations
+Setup TS Web
+Remove TS Web
+Setup / Remove WEBTrak (legacy)
+
+## Slide 11
+
+Installation Manager: Other Features
+
+Reporting Services
+Allows management of TrakSYS reports hosted in SQL Reporting Services. Includes Reporting Services status and operations for installing and removing standard reports
+Sites
+Allows for the creation and management of TrakSYS Sites. This feature is only available when an appropriate multi-site license is present.
+Diagnostics and Troubleshooting
+Access to OPC and Mail connection statuses and TrakSYS log/trace entries. Includes operations to export application messages for convenient transport to support staff.
+
+## Slide 12
+
+Installation Manager
+
+## Slide 13
+
+Services
+
+## Slide 14
+
+The Services: Logic Service
+
+Real-time Data Collection Engine
+Receives inputs from OPC Sources
+Executes Business Rules to calculate Events, Tasks, Steps, Transfers and Sample Processing
+Calculates KPIs
+Broadcasts Notifications
+Collects data from I/O, LIMS, PLCs, Historians, SCADA, ERP, and other Business Applications
+
+Supports Multiple and/or Distributed Instances
+
+## Slide 15
+
+The Services: Historian Service
+
+Monitors and records changing TrakSYS Tag values for historical Trending and Analysis
+Supports Store and Forward when TrakSYS Database is Unavailable
+Supports algorithmic Data Compression (SLIM 3)
+Licensable TrakSYS component Tag History Definitions Required
+
+Supports Multiple and/or Distributed Instances
+
+## Slide 16
+
+The Services: Data Management Service
+
+Independent multi-threaded service used for executing Non-Real Time Operations
+Facilitates processing large Data Aggregation
+Connects to external Business Systems for Import and Export of Configuration and Data
+Schedules periodic execution of scripted Modules
+
+Supports Multiple and/or Distributed Instances
+
+## Slide 17
+
+The Services: Workflow Service
+
+Decision Control and Orchestration Engine
+Executes Processes over long periods of time
+Records Process Logs and execution history
+Designed to be stateless to withstand restarts and outages without disrupting business logic
+Supports versioning and parallel execution of Processes
+
+Supports Multiple and/or Distributed Instances
+
+## Slide 18
+
+The Services: Maintenance Service
+
+Continually executing in the Background of every TrakSYS Installation
+Executes core built-in TrakSYS application Functions
+Monitors and Trims Database Log Tables
+Distributes programmatic Notifications
+Executes built-in KPI and Event data modifications after Updates and Edits
+
+## Slide 19
+
+Services

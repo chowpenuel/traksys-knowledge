@@ -1,0 +1,76 @@
+## Slide 1
+
+Library Parts and Pages
+
+## Slide 2
+
+Content Pages and Parts Use Cases
+
+## Slide 3
+
+Content Library
+
+Re-useable Pages and Parts that can be developed for a specific Implementation
+Stored in the TrakSYS Database
+Available in the standard Page and Part Catalog Pickers
+Can be Parameterized (allowing configuration / settings)
+
+## Slide 4
+
+Content Pages Properties
+
+Front-End (HTML)
+Uses an open HTML editor.  Any valid HTML Tags or ASP.NET User Controls can be arranged.
+Back-End (Script)
+Uses the same Script editor and page lifecycle as Visual Page Definitions.
+May be instanced as Content Page Definitions, or called directly using C Equals URL Syntax
+
+## Slide 5
+
+Open Content Page Layout
+
+Supports HTML (5) Syntax
+Supports ASP.NET Controls
+Supports TrakSYS Parts
+<part:TsPartName
+ID=“PartID”
+Property=“Value”
+…
+/>
+Recommend creating a Grid layout using a Visual Page Definition
+
+## Slide 6
+
+Open Content Part Layout
+
+Similar to Open Pages and Content Pages
+Front-End (HTML)
+Uses an open HTML editor.  Any valid HTML Tags or ASP.NET User Controls can be arranged.
+Back-End (Script)
+Define script that is run when the Part is loaded and rendered.  A slightly different lifecycle that the Page Definitions.
+
+## Slide 7
+
+Content Property Mapping
+
+Defines Properties to be displayed when the Part or Page is instanced
+Example Attributes:
+Set a label
+Show or Hide Values Key Mapping
+Connect to an Enum List
+Group into different Tabs
+Identify Default Values and Key
+Mapping from the Property Page to the Script will be done automatically
+
+## Slide 8
+
+Using Library Pages and Parts
+
+Content Library Pages and Parts are available in the standard Page and Part Catalog Pickers
+Displayed at the top of the Picker under the Implementation Group
+Can be added to the Page Definition hierarchy or called directly using “C Equals”
+Catalog Picker Tree includes Compiled Pages and Parts
+
+## Slide 9
+
+Example Content

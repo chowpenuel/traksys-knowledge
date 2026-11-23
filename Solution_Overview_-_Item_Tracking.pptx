@@ -1,0 +1,148 @@
+## Slide 1
+
+Items and Locations
+
+## Slide 2
+
+Items and Locations
+
+Items and Locations are abstract structures that can be used to track the actions, statuses, and movements of various physical items throughout the manufacturing environment.
+Tanks, pallets, and containers used to transport and hold raw materials or work in process.
+Components and their respective lot numbers used in the assembly of a semi-finished or final good.
+Individual production units (bottles, cans, cartons) serialized for Track and Trace.
+
+## Slide 3
+
+Locations
+
+Represent a physical place in the Manufacturing Environment
+Room, Isle, Shelf Number, etc…
+Each Location can be assigned a Unique ID
+Typically an external Identifier
+Hierarchical Structure (Locations can contain other Locations)
+Independent of the Area and System Hierarchy
+Systems may be assigned to a specific Location (for tracking the location of material as it is transferred around)
+
+## Slide 4
+
+Item Definitions
+
+Types of physical items used, produced, or consumed within the Manufacturing Process
+Bottle
+Case
+Pallet
+Bin
+Etc…
+Allows multiple types of Items to be stored/tracked in the same Data Structures
+
+## Slide 5
+
+Items
+
+An abstract entity representing a single, physical Thing
+Bottle 1234, Case A9388, Pallet D529, etc…
+Could represent a (moveable) Container
+Bin 82, Tote 21, Cart 45, etc…
+Typically something that is physically Mobile (meaning it can be moved to different Locations)
+Items can contain other Items (Parent –Child)
+Pallet (Item) contains many Cases (Items)
+
+## Slide 6
+
+Items
+
+Represents the Item and its Present State (most fields are optional)
+UniqueID
+A unique string identifier for the Item within the business process.
+ItemDefinitionID
+Specifies the type of Item.
+LocationID
+The current Location of the Item.
+JobID, BatchID, ProductID, MaterialID, Lot, SubLot
+Identifies the Item in terms of manufacturing entities.
+Quantity
+If the item is a container, specifies the quantity stored within.
+ValidFrom/ToDateTime
+Timestamps that can be used for expiration business rules.
+UserState and Attribute<01-20>
+Developer-use-only fields for assigning custom states and related data.
+
+## Slide 7
+
+Item Log Definitions and Item Logs
+
+Defines types of actions and status transitions that can be recorded for  an Item
+Created in Groups of related Actions (typically for a specific type of Item)
+An Item Log entry is essentially a snapshot of an Item’s state, at the time that a specific type of action occurred.
+
+## Slide 8
+
+Item Log Definitions and Item Logs
+
+Item Log entries for an Item represent its History
+An Item Log record has the same structure as the Item, but include User and Notes for Traceability, and a TaskID for context.
+Item Log records are typically created using API script in Logic Service, Data Management Service, or via web User Interfaces (as Items transition states)
+
+## Slide 9
+
+Item and Location Scenario
+
+## Slide 10
+
+Item and Location Scenario
+
+## Slide 11
+
+Item and Location Scenario
+
+## Slide 12
+
+Item and Location Scenario
+
+## Slide 13
+
+Item and Location Scenario
+
+Item
+Parent Item
+Item Log Definition
+Location
+Case 452
+(none)
+Case Created
+Line 1
+Case 452
+Pallet 113
+Added to Pallet
+(None)
+
+Item
+Parent Item
+Item Log Definition
+Location
+Case 452
+(none)
+Case Created
+Line 1
+Case 452
+Pallet 113
+Added to Pallet
+Line 1
+Case 452
+Pallet 113
+Moved
+Rack 2
+
+Scenario 1 – Becomes a Part of the Parent
+
+Scenario 2 – Remains independently tracked
+
+Depending on the desired data and scenario, the logic behind Item Log generation will differ.
+
+## Slide 14
+
+Item Configuration
+
+## Slide 15
+
+Inventory Demonstration

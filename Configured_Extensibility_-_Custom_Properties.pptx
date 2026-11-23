@@ -1,0 +1,49 @@
+## Slide 1
+
+Custom Properties
+
+## Slide 2
+
+Custom Properties
+
+Schemes identify the Name that will be used in the configuration and the Key Prefix that will be used in the API
+
+Once configured, Custom Properties appear as additional tabs in the assigned Property Pages.
+
+Groups identify the header for a collection of Custom Properties within the Scheme
+
+Custom Properties identify the new attributes as well as acceptable data structures, and the Key Suffix for the API
+
+Entities identify where the scheme will appear in the standard configuration pages.
+
+## Slide 3
+
+Custom Properties
+
+A Custom Property is set of configured attributes that are associated with one or more entities
+
+## Slide 4
+
+Referencing Custom Configuration
+
+Views that contain Custom Properties are generated for each Entity
+
+Custom configuration can be referenced with both the API and with SQL
+
+Types can be loaded by key or used when loading their parent entities.
+Custom Properties Dictionaries are available as a property of the parent entity. 
+Custom Permissions can be checked against a user with a single-line API call.
+
+## Slide 5
+
+Custom Editors
+
+Use Visual Pages and TrakSYS API to create Custom Editors for your Custom Properties
+
+Standard Editor
+
+Visual Page – Custom Editor
+
+## Slide 6
+
+Custom Properties

@@ -1,0 +1,320 @@
+## Slide 1
+
+Template Development
+
+## Slide 2
+
+Introduction
+
+Template Development
+
+Designing and building template solutions
+
+Template Transfer Tooling Environment
+
+Development
+
+Tools
+
+UI & Configuration
+
+Site-Specific Configurations and Overrides
+
+Developer Checklist
+
+## Slide 3
+
+Introduction
+
+Template Development
+
+Designing and building template solutions
+
+Template Transfer Tooling Environment
+
+Development
+
+Tools
+
+UI & Configuration
+
+Site-Specific Configurations and Overrides
+
+Developer Checklist
+
+## Slide 4
+
+Environment
+
+Central environment for template creation and maintenance
+
+Contains and uses generic configurations, not site-specific ones.
+
+Includes subset of systems/products for testing
+
+Defines what is / isn’t part of the template
+
+Ensure template and non-template components can work together.
+
+Supports simulation tags and scripts for validation
+
+Template Development
+
+## Slide 5
+
+Template Environments
+
+Template Transfer Tooling
+
+Central Cloud or Data Center
+
+Customer – Template Core
+Template Content & Configuration
+Central Development
+
+Customer - Template Test
+Testing and Verification
+Central Test QC
+
+Site Development License 1
+Site Configuration
+Pre-Production
+
+Site Development License 2
+Test and Verification
+Test QC
+
+Site Production License
+Production System
+Production
+
+Site 1 Infrastructure
+
+Site 2
+Site 3
+Site N
+
+The Site’s Configuration is added/adjusted in the Pre-Production environment.  This is achieved via the standard TrakSYS Configuration user interfaces.
+3
+
+Template Content and Configuration are transferred for testing and verification.  Any adjustments must be re-applied to the Central Development environment.
+1
+
+Template Content and Configuration are transferred to the Site’s Pre-Production environment for merging with the Site’s Configuration.
+2
+
+The combined Template and Site Content / Configuration are transferred for testing and verification.  Any adjustments must be re-applied to the Pre-Production environment.
+4
+
+The verified Site and Template  Content / Configuration is transferred to the Production environment. This transfer is achieved using the standard TrakSYS Database Transfer utility.
+5
+
+## Slide 6
+
+Development
+
+Template Transfer Tooling
+
+EXPORT
+
+IMPORT
+Pre-production environment of a Site or SIMS Implementation
+
+DEPLOY
+Production environment via DB Transfer Tool after testing is completed.
+
+TEMPLATE DATA FIELDS
+Determine what will be included in the template
+
+Page Definitions
+Most common area for templatization
+
+Instance and Values Scripts
+Essential to populate pages dynamically for different system types
+
+Custom Properties
+May be needed to support FLEXIBILITY
+
+Type Filter
+This can be leveraged in TrakSYS to enhance ADAPTABILITY.
+
+## Slide 7
+
+What’s In – Template Content
+
+Template Transfer Tooling
+
+Scripts
+Handles centralized business logic such as Event or OEE calculations.
+
+DMS Modules
+Handles global interfaces and exchanged data
+
+Workflows
+Handles organization-wide Task-based processes or custom content parts and pages throughout the implementation.
+
+Centralizing scripts
+ Values Scripts
+
+Roles & Permissions
+
+Page Definitions
+Re-usable Implementation UI
+
+## Slide 8
+
+What’s In – Template Content
+
+Template Transfer Tooling
+
+## Slide 9
+
+What’s In – Template Content
+
+Template Transfer Tooling
+
+## Slide 10
+
+What’s In – Template Content
+
+Template Transfer Tooling
+
+Centralize shared logic in templates
+
+Follow consistent naming and documentation
+
+Consult the support portal for best practices
+
+## Slide 11
+
+What’s Out – Site-Specific Content
+
+Template Transfer Tooling
+
+Detailed Configuration
+Conforming to Template Requirements
+Automation Configuration
+Tag and Access Name Settings/Logic
+Site-Specific Interfaces
+Unique External System Interactions
+Site-Specific Reporting
+Local Views for Optimized Consumption
+Additional Functionality
+Not Interfering with Template
+
+## Slide 12
+
+Site-Specific Customizations & Overrides
+
+Template Transfer Tooling
+
+Governance note: 
+Document all local overrides to maintain traceability.
+
+Template Bypass
+Use Template Bypass to prevent a page from being overwritten on import.
+
+Combine
+Combine shared template content with site-specific configuration.
+
+Add Local Pages
+Add local pages under a template tree (ignored by importer).
+
+## Slide 13
+
+Site-Specific Customizations & Overrides
+
+Template Transfer Tooling
+
+Governance note: 
+Document all local overrides to maintain traceability.
+
+Template Bypass
+Use Template Bypass to prevent a page from being overwritten on import.
+
+Combine
+Combine shared template content with site-specific configuration.
+
+Add Local Pages
+Add local pages under a template tree (ignored by importer).
+
+## Slide 14
+
+SIMS Considerations
+
+Template Transfer Tooling
+
+Central Cloud or Data Center
+Customer ESL
+Template Content & Configuration
+Central Development
+Customer ESL
+Testing and Verification
+Central Test QC
+Site Development License 1
+Site Configuration
+Pre-Production
+Site Development License 2
+Test and Verification
+Test QC
+Site Production License
+Production System
+Production
+Site Licensing Model (per Site)
+Each Site will be fitted with a matching set of Production and Non-Production Licenses to fulfill local Configuration, Testing and Production needs.
+Site Environments
+Customer ESL
+Support of older Versions
+Central Support
+Customer ESL
+Training of new Users
+Central Training
+Some Sites may be covered by a single set of SIMS licenses installed to a centralized infrastructure.  A secure and robust connection from the centralized infrastructure to the sites is required.
+SIMS 1
+Site 1
+Site 2
+Site 3
+Site 4
+Larger Sites may be covered by a single set of SIMS licenses.  Distinct production Areas can be split out and managed as separate Sites for improved isolation and management.
+SIMS 2
+Area 1
+Area 2
+Area 3
+Area 4
+Site 6
+Site 7
+Other Sites are covered by independent single-site or SIMS license sets as required.
+The figure below provides an example of a properly orchestrated Enterprise Solutioning License architecture, both within the cloud and at Site levels. This example shows a mix of regular on-premises (single Site) deployments along with SIMS (Single Instance Multi-Site).
+
+## Slide 15
+
+Developer Checklist
+
+Template Transfer Tooling
+
+1
+Verify Environment Licenses
+
+Turn template flag on
+2
+
+Create a Template Definition
+3
+
+Mark Entities
+4
+
+5
+Export
+
+Import
+6
+
+Template Development Pre-requisites
+
+What is In a Template…
+
+Site-specific content
+
+Test
+7

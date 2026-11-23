@@ -1,0 +1,157 @@
+## Slide 1
+
+Device Integration
+
+## Slide 2
+
+Direct Input
+
+Device Integration
+
+TrakSYS Server
+TrakSYS UI
+Input
+General input Data Flow
+
+Implementation
+Device
+TrakSYS UI
+Attached to TrakSYS Client via USB or Serial to USB
+Streams to the UI as Keystrokes
+Parsed by TrakSYS Keystroke Listener or Solution JavaScript
+Deposited in the appropriate UI Form Field(s)
+
+Barcode Scanners
+Scanning labels for raw materials, packages materials, or production identifiers.
+
+Scales
+Recording weights for measuring raw materials, or quality logging.
+
+Measuring Tools
+Taking precision measurements for SPC sampling and quality logging.
+
+Scenarios where input must flow directly into a user interface, before being submitted to the server.
+
+## Slide 3
+
+Image Capture
+
+Device Integration
+
+Scenarios where images must be taken from a device and uploaded as part of a data record…
+
+Capture | Store | Upload
+This involves taking the image, saving it to the device’s local storage, and then selecting the image to upload using the TrakSYS user interface.
+This method requires several different distinct steps and can be cumbersome but is the correct approach when images must be taken independently from the upload process.
+
+Capture and Upload
+With certain devices /  OS, TrakSYS upload pages can include specially formatted file upload boxes that allow the camera to be launched, image taken and upload to the server all within the same action.
+
+UI to Camera Integration
+Using 3rd party JavaScript libraries, specialized user interfaces can be created to allow the camera to be accesses, image taken, and previewed within TrakSYS before submitting to the server.
+This approach is useful when complex requirements exist around the capture and upload process.
+
+## Slide 4
+
+Label Printing
+
+Device Integration
+
+TrakSYS integrates with label printers by sending the information to be rendered to a label to a printer software layer, where it is combined with a specified layout and sent to the hardware.
+Label information is typically sent via web-service, file upload (FTP) or label software-specific API calls.
+
+Label Software
+
+TrakSYS Server
+
+Label Printer
+
+Label Design
+
+TrakSYS User
+
+Product Code
+Date/Time
+Label Format Identifier
+Target Printer
+
+Label
+
+## Slide 5
+
+Direct Input
+
+Device Integration
+
+Barcode Scanners
+Scanning labels for raw materials, packages materials, or production identifiers.
+Scales
+Recording weights for measuring raw materials, or quality logging.
+Measuring Tools
+Taking precision measurements for SPC sampling and quality logging.
+Scenarios where input must flow directly into a user interface, before being submitted to the server.
+
+TrakSYS Server
+TrakSYS UI
+Input
+General input Data Flow
+
+Implementation
+Device
+TrakSYS UI
+Attached to TrakSYS Client via USB or Serial to USB
+Streams to the UI as Keystrokes
+Parsed by TrakSYS Keystroke Listener or Solution JavaScript
+Deposited in the appropriate UI Form Field(s)
+
+## Slide 6
+
+Label Printing
+
+Device Integration
+
+TrakSYS integrates with label printers by sending the information to be rendered to a label to a printer software layer, where it is combined with a specified layout and sent to the hardware.
+Label information is typically sent via web-service, file upload (FTP) or label software-specific API calls.
+
+Label Software
+
+TrakSYS Server
+
+Label Printer
+
+Label Design
+
+TrakSYS User
+
+Product Code
+Date/Time
+Label Format Identifier
+Target Printer
+
+Label
+
+## Slide 7
+
+Label Printing
+
+Device Integration
+
+TrakSYS integrates with label printers by sending the information to be rendered to a label to a printer software layer, where it is combined with a specified layout and sent to the hardware.
+Label information is typically sent via web-service, file upload (FTP) or label software-specific API calls.
+
+Label Software
+
+TrakSYS Server
+
+Label Printer
+
+Label Design
+
+TrakSYS User
+
+Product Code
+Date/Time
+Label Format Identifier
+Target Printer
+
+Label

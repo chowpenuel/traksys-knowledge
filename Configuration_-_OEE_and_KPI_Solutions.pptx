@@ -1,0 +1,129 @@
+## Slide 1
+
+KPI Configuration
+
+## Slide 2
+
+KPI Calculations	
+
+Allows the collection of real-time production counts and event information to record Interval records in the TrakSYS Database
+An Interval contains raw data over a period of time (typically 30 to 60 minutes) that can be used to calculate Key Performance Indicators (KPIs)
+Configurable at the System Level
+
+OEE : An industry standard calculation for measuring Asset Effectiveness [ OEE = A * P * Q ]
+Availability : % of time a process is available for Production
+Performance : Ratio of Total Units vs. Theoretical over Available Time
+Quality : Ratio of Good vs. Total Production
+TEEP : A variation of OEE that re-interprets un-scheduled time as Availability Losses
+
+Configuration
+
+Common KPIs
+
+## Slide 3
+
+KPI Calculation Properties 
+
+Interval Duration
+A raw KPI data record is recorded every Interval Duration (minutes).
+Update Interval 
+Frequency that the Interval will be updated within an Interval Duration. 
+Derived Input
+One of the three Inputs that should be calculated based on the other two.
+
+## Slide 4
+
+KPI Calculation Properties 
+
+Theoretical Rate
+Maximum Calculation Units per minute the measured asset can be operated.
+Target Rate
+Ideal Calculation Units per minute the measured asset should be operated.
+Calculation Units
+Unit of measure for the smallest counted piece on produced on the System.
+
+## Slide 5
+
+KPI Counters 	
+
+Production Flow
+Filler
+Labeler
+Caser
+Total Units
+
+(Bottles)
+Good Units
+
+(Cases)
+Bad Units
+
+(Bottles)
+Bad Units
+
+(Bottles)
+
+Allows the real-time accumulation of automated counters (Tags) to record Production Count data in the TrakSYS Database
+Counters are characterized as Total, Good, or Bad
+Multipliers can be configured to allow conversion of Raw Units to Calculation Units (Cases to Bottles)
+
+Loaded and executed by the Logic Service
+Counters must move Forward Only with the exception of being Reset to Zero
+Counter Tags are polled on every scan (~1 second) and the difference is Accumulated
+
+Execution 
+
+Configuration 
+
+## Slide 6
+
+KPI Counter Properties 
+
+Counter
+The automation Tag to be monitored and accumulated.
+Counter to Input Units Multiplier
+Multiplication factor to convert the raw Counter Units to Input/Calculation Units (Cases to Bottles).
+Maximum Increment per Scan
+Counter Tag movement that exceeds this setting (within 1 Logic Service Scan – typically 1 second) will be ignored.
+Rollover
+This setting indicates a value where the Counter Tag is expected to rollover back to zero (a setting of 0 indicates that the rollover point is unknown).
+
+## Slide 7
+
+KPI Counter Example 
+
+## Slide 8
+
+KPI Calculations
+
+## Slide 9
+
+KPI Groupings	
+
+## Slide 10
+
+KPI Groupings	
+
+## Slide 11
+
+KPI Calculations
+
+## Slide 12
+
+KPI Extensibility
+
+## Slide 13
+
+KPI Script Events 
+
+The following transitions are monitored by the Logic Service for Interval records…
+On Start
+On Update
+On End
+TrakSYS allows for these transitions to be used to trigger real-time functionality such as…
+Email Notifications
+Entity Script Class Events
+
+## Slide 14
+
+KPI Data Structures

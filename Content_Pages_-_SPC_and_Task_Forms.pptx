@@ -1,0 +1,46 @@
+## Slide 1
+
+SPC and Tasks 
+Content Pages
+
+## Slide 2
+
+Review - Content Pages
+
+Pages that are constructed by assembling Content Parts using a grid based visual editor.  The behavior of the Visual Page is primarily manipulated by setting properties through user friendly form based interfaces.  For more advanced needs, the server side behavior of the page can be controlled using ASP.NET script.
+
+Pages built by hand-coding the user interface portion (HTML, CSS and JavaScript), and the server side code (ASP.NET).  While these types of pages are more complex to create, there are no limitations or restrictions as to the functionality and layout that can be created.
+
+Content built into the TrakSYS product.  These Pages cannot be altered (other than what is exposed via Parameters and configuration settings).
+
+Content Page (out-of-the-box)
+
+Visual
+
+Open
+
+## Slide 3
+
+Task New/Edit
+
+## Slide 4
+
+Task Overview
+
+System ID is Required
+
+## Slide 5
+
+SPC Variable New/Edit
+
+## Slide 6
+
+SPC Variable List
+
+## Slide 7
+
+SPC Variable Report
+
+## Slide 8
+
+SPC and Task Pages

@@ -1,0 +1,72 @@
+## Slide 1
+
+Values Editor
+
+## Slide 2
+
+Page Values 
+
+Allows programmatic setting of items to the Values Dictionary for a Page and all of its Children (Hubs and/or Spokes)
+Values set via .NET script Editor
+Retrieve data from TrakSYS
+API is Available
+Add to Values Dictionary
+Occurs before Page Class Script is Executed
+
+## Slide 3
+
+Page Values Script - Example
+
+## Slide 4
+
+Using the Values Editor
+
+## Slide 5
+
+Instances Editor
+
+## Slide 6
+
+Page Instances 
+
+Allows a single Page Definition to be rendered multiple times in the User Interface
+Instances based on one of three modes:
+System by Area Key: Get one Instance per System in an Area
+Page Definition Instance: Configure instances with IDs and Keys
+Custom Script: Use API and SQL to build a list of Instances
+Instances set via .NET script Editor
+Retrieve data from TrakSYS
+API is Available
+Add to Instances List
+Occurs before Values Script is Executed
+
+## Slide 7
+
+Page Instances - Custom Script Example
+
+## Slide 8
+
+Page Values  - Example Referencing Instancing
+
+## Slide 9
+
+Page Instance URLs by Key 
+
+Base Pages URL
+http://servername/ts/pages/
+http://servername/ts/pages/site
+http://servername/ts/pages/ocv
+http://servername/ts/pages/site/section
+http://servername/ts/pages/ocv/packaging
+http://servername/ts/pages/site/section/hub1$instancekey
+http://servername/ts/pages/ocv/packaging/line$L1
+http://servername/ts/pages/site/section/hub1$instancekey
+http://servername/ts/pages/ocv/packaging/line$L2
+
+## Slide 10
+
+Using the Instances Editor
+
+## Slide 11
+
+Using Both Editors

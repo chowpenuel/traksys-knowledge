@@ -1,0 +1,118 @@
+## Slide 1
+
+Storage Systems
+
+## Slide 2
+
+Review -  Storage Systems 
+
+Used to model Manufacturing Equipment which store a Quantity of Material (Storage Zones (S95))
+Facilitate Inventory and Material Management Solutions
+Contain child configuration elements to model Material Transfers , Events, Tasks, and SPC Sampling
+
+## Slide 3
+
+Storage System Properties 
+
+Similar to Discrete Systems
+Product Set
+Identifies the set of Products that may be stored within the System (if applicable)
+Storage Units
+String description for the unit of measure stored within the System
+Maximum Capacity
+Maximum quantity that may be stored within the System
+
+## Slide 4
+
+Storage System Layers 
+
+Storage System contents may be recorded in Layers
+Each Layer identifies…
+Product, Material
+Lot, Sub-Lot
+Quantity
+Transfer Definitions enable to tracking of content movement in and out of the Storage System
+A transfer (out) may draw from multiple Layers
+
+## Slide 5
+
+Review - Transfer Definitions
+
+Allows the real-time examination of an input condition to record instances of Transfer records in the TrakSYS Database
+A Transfer represents a movement of a specific Material to or from a Storage System
+Configurable at the System Level Only
+A Discrete Trigger Tag property indicates when a Transfer Starts and Ends
+
+Loaded and executed by the Logic Service
+Transfers contain reference to related information such as Job, Batch, Product, Shift, etc…
+Data records include captured information such as the Material Code and Quantity that is Transferred
+
+Configuration 
+
+Execution 
+
+Storage Silo 3
+In from WH 
+Out to Mixer
+Clear
+Transfer Records
+Transfer Definition
+
+## Slide 6
+
+Transfer Definition Properties 
+
+Trigger Tag
+A Discrete Tag indicating when the Transfer starts and ends.  A value of 1 = transferring.  Transfers have duration.
+Transfer Direction
+Describes the type of Transfer…
+In : Adding material to the System
+Out : Removing material from the System
+Set : Adjusting/correcting the quantity in the System
+End Point System
+A reference to a System where the material being transferred is coming from, or moving to.
+
+## Slide 7
+
+Transfer Definition Properties 
+
+Quantity Tag
+A Tag storing a quantity to be transferred in or out of the System.  The Tag value must be accurate at the moment the Transfer starts or ends.
+Capture Quantity On
+Indicates when the Quantity Tag should be captured and recorded in the Transfer record (Start or End).
+Capture Tags
+These Tags hold TrakSYS production entity Codes or Names (Job, Batch, Product, Material, etc…).  When a Transfer begins, the associated entity ID is captured and stored with the record.
+
+## Slide 8
+
+Storage Configuration
+
+## Slide 9
+
+Storage Extensibility
+
+## Slide 10
+
+Transfer by User Interface
+
+Standard Content Parts
+Visual Page Definition Forms for solution-specific User Interfaces
+Scripting / API
+Transfer / tTransfer
+Historical record of material movement in/out of the Storage System
+SystemStorage / tSystemStorage
+Real-time contents of the Storage System with one record per Layer.
+
+## Slide 11
+
+Storage Script Events 
+
+The following transitions are monitored by the Logic Service for Batching records…
+On Transfer Start/End
+TrakSYS allows for these transitions to be used to trigger real-time functionality such as…
+Email Notifications
+Entity Script Class Events
+
+## Slide 12
+
+Storage Data Structures

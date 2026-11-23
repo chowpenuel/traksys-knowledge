@@ -1,0 +1,210 @@
+## Slide 1
+
+Values Dictionary
+
+## Slide 2
+
+Decoupling
+
+Coupling describes the degree of dependency between one entity to another entity. Often classes or objects.
+Loose coupling is good because we don't want the components of our system to heavily depend on each other. We want to keep our system modular, where we can safely change one part without affecting the other.
+Strong coupling usually occurs when entity A knows too much about entity B. If entity A makes too many assumptions about how entity B operates or how it is built, than there is a high risk that a change in entity B will affect entity A. This is because one of it's assumptions about entity B are now incorrect.
+
+## Slide 3
+
+Decoupling
+
+Sharing/Passing data during Page Execution
+Values Passed-In
+Values Created or Manipulated by Parts and Script
+Values Passed-On to Parts and Script later in the Execution
+Reduce Direct Contact and Coupling between Parts
+Think Answering Machines, Email, Texting vs. Face to Face Meetings and Scheduled Interactions
+
+## Slide 4
+
+Values Dictionary
+
+Alternatively referred to as Values, “ETS Values”, or the Values Collection
+A repository for holding variables during Page Execution.
+Is cleared and rebuilt on every Page GET or POST (refresh)
+Is technically a .NET Dictionary<string, object>
+String is the Key (or the way to look things up)
+Object is the actual Value (it can be of any data type)
+Populated automatically by the TrakSYS Infrastructure
+
+## Slide 5
+
+Tracing
+
+Show/Hide the ASP.NET Trace results using the Eyeball Icon (lower left corner)
+Trace contents are displayed at the bottom of the Page
+The Trace contents contain…
+Built-in ASP.NET Page Lifecycle Information
+TrakSYS Page Lifecycle Information
+Values Dictionary Contents
+User Defined / Script Inserted Entries
+
+## Slide 6
+
+Writing to the Values Dictionary
+
+Passing values on the QueryString
+http://localhost/ts/pages/ocv?SystemID=3
+Form controls during a POST (clicking save on a form)
+ASP.NET Script
+this.Ets.Values[“SystemID”] = 3; 
+		// adds or overwrites
+this.Ets.Values.ContainsKey(“SystemID”); 
+		// check if exists
+Added by developers using the Page Definition’s Values Editor (advanced – will be covered later)
+
+## Slide 7
+
+Reading from the Values Dictionary
+
+Mapped via configuration to Page and Part Properties
+Expressions {SystemID}
+ASP.NET Script
+int value = this.Ets.Values.GetAsInt(“SystemID", -1);
+string value = this.Ets.Values.GetAsString(“Name", "");
+
+## Slide 8
+
+Expression Syntax
+
+Allow the retrieval of Values Dictionary items for integration into string display Properties
+Basic syntax is Curly Braces around the desired Values Dictionary Key {SystemID}
+Optional formatting suffix supports .NET Format Codes {Key:FormatCode}
+Default values can be provided using Square Brackets {SystemID[-1]}
+Property fields supporting Expressions are  marked with the Script Icon
+
+## Slide 9
+
+Expression Syntax: Row-Based Expressions
+
+Properties for Row based Parts also allow Expressions to retrieve data for the current Row by Column Name.
+Row based Parts include:
+Most Charts
+List Views
+Table View
+Etc.
+If Column Name is not found, the Expression will use the Values Dictionary next.
+
+Data Source
+
+Part Configuration
+
+Part Rendering
+
+## Slide 10
+
+Visual Page Definitions
+
+## Slide 11
+
+Visual Page Editors
+
+Visual Pages are created through a series of different Editors
+Editors can be accessed and revisited in any order as needed
+Users with Developer permissions can also access some of the Editors from the Developer Toolbar on the bottom center of a page
+
+## Slide 12
+
+Grid Editor
+
+Used to configure and layout the Visual Page’s Rows and Columns
+A Row may contain one or more Columns
+A Column may contain Rows
+Content Parts are added to Columns (not Rows)
+Columns may be Fixed (pixel) or Dynamic (bootstrap 1-12) Width
+
+## Slide 13
+
+Responsive Design
+
+Responsive Web Design (RWD) is an approach to web design aimed at crafting sites to provide an optimal viewing and interaction experience with a minimum of resizing, panning, and scrolling across a wide range of devices.
+A site using RWD adapts the layout to the viewing environment by using fluid, proportion-based grids.
+TrakSYS utilizes the Bootstrap 3 framework in for implementing screens with Responsive Design.
+It is recommended that TrakSYS developers become familiar with the Bootstrap Grid system (http://getbootstrap.com/css/#grid), which is designed to appropriately scale up to 12 columns depending on screen/viewport size.
+
+12
+6
+6
+4
+4
+4
+3
+3
+3
+3
+2
+2
+2
+2
+2
+2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+
+## Slide 14
+
+Parts Editor
+
+Simplified view of the configured Page Grid for adding and manipulating Content Parts
+Multiple Parts can be added to a Column (Stacked)
+Parts can be Duplicated and Moved
+Select Content Part Properties are displayed for Convenience (Height, Width, Data Source/Target)
+
+## Slide 15
+
+Adding a Content Part
+
+Select the Column where the Part will be Added
+Select the Add Part menu option in the right Menu
+Parts are added to the bottom of the Column
+
+The recommended naming convention for Parts is  Pascal Case, with the first word representing the type of Part (see examples above).
+
+## Slide 16
+
+Script Editor
+
+Allows the creation of server-side ASP.NET code that executes as the Page is Rendered
+Common uses include…
+Setting Content Part Properties
+Retrieving data Programmatically and setting it to Parts
+Consuming the output of Content Parts, modifying it and setting it back to other Parts
+API Access
+Form POST Processing (saving and updating data and configuration)
+
+## Slide 17
+
+JavaScript and CSS Editors
+
+Enables advanced Page Functionality and Layout Extensibility
+JavaScript
+Client-Side Scripting
+Hide/Show
+Confirmation Dialogs
+Web Service Interactions
+CSS (Cascading Style Sheets)
+Alter Standard Component Look/Feel
+
+## Slide 18
+
+A Simple Visual Page
+
+## Slide 19
+
+Using the Values Dictionary

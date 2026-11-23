@@ -1,0 +1,22 @@
+## Slide 1
+
+TrakSYS Connect
+
+## Slide 2
+
+Overview
+
+Low-Code Payload and Interface Creation
+Connects to external Business Systems for Import and Export of Configuration and Data
+Orchestrates data via TrakSYS Workflow and DMS
+Full Logging of all Interface Transactions
+
+## Slide 3
+
+Components
+
+Payload Definitions
+The message being sent or received by TrakSYS. 
+
+Interface Definitions
+How TrakSYS will transmit a Payload when receiving or responding.

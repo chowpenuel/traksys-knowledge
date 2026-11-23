@@ -1,0 +1,3 @@
+# TS Web
+
+The TrakSYS Web (TS web) is the end-user interface for the entire TrakSYS product and its implementations. TS Web is a .NET-based site that is served from the TrakSYS server through the Microsoft Internet Information Services (IIS) web server. The site is installed and configured as part of the standard TrakSYS setup procedures. The user interfaces in the TS web cover the full range of business rule configuration, standard user interface definition, custom page creation and platform administration.

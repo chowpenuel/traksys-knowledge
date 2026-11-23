@@ -1,0 +1,116 @@
+## Slide 1
+
+Smart Devices Overview
+
+## Slide 2
+
+Objectives
+
+Limited Knowledge
+Limited capabilities for maintaining complex automation solutions.
+Complex Setup
+Complexity of deploying as effective solution is often a major roadblock.
+Connectivity
+Setting up unfamiliar communication drivers and servers is another major stumbling factor.
+
+## Slide 3
+
+IIoT Devices
+
+Power
+Standard AC Adapter
+Antenna
+Lightweight RF Wireless with Smart Data Collectors
+Ethernet
+Connection to
+TrakSYS™ Network
+Web Interface
+Simple Configuration
+Settings and Diagnostics
+Processing Module
+Data Push
+Collector Heartbeat
+
+Power
+Quick Disconnect
+12-27VDC (1W)
+Logic Module
+Local Logic Processing
+Data Push and Heartbeat
+Communication Module
+Lightweight RF Wireless
+Mesh Network
+Sensor Connection
+Quick Disconnect
+Analog, Digital, Serial, Frequency
+Mounting
+Flexible Attachment & Mounting Options
+Sealed
+IP65 Rated
+Enclosure
+
+Coordinator
+
+Collector
+
+## Slide 4
+
+Smart Devices
+
+Updates to both the Smart Coordinator and Smart Data Collector.
+
+## Slide 5
+
+Example Network
+
+## Slide 6
+
+Mesh Network
+
+Zero Configuration
+New Data Collectors connect and begin communicating automatically
+
+Data Relay
+Data is relayed to the Coordinator through the closest device
+
+Self Mending
+Self-Optimization to find the quickest path back to the Coordinator
+
+Add and Expand
+Add new Data Collectors to the Edge of the Network as Needed
+
+## Slide 7
+
+TrakSYS Connectivity
+
+Integrated
+Natively linked to TrakSYS without communication servers.
+
+Efficient
+Messages are sent to the TrakSYS server on data change and heartbeat.
+
+Firewall Friendly
+Port 80 is the only required firewall configuration. This is typically already allowed.
+
+Secure
+Communication flows only from the Coordinator to the TrakSYS server.
+
+## Slide 8
+
+TrakSYS Configuration
+
+Create a Tag
+Smart Tags built in to TrakSYS™ directly support Smart Devices.
+1
+
+Copy Item Address
+Simple click-to-copy functionality from Coordinator user interface.
+2
+
+Link to Smart Tag
+Paste the item, Save, and the Tag will immediately begin updating.
+3
+
+## Slide 9
+
+Smart Tag Configuration

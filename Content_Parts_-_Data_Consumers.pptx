@@ -1,0 +1,80 @@
+## Slide 1
+
+Content Parts: Data Consumers
+
+## Slide 2
+
+Review | Types and Initialization Order
+
+Each part on a page has an Initialization Order integer setting.  In general parts fall into one of three categories.
+Filter Parts
+Order = 2.  Retrieve information from a User and pass on to other Parts to use.
+Data Provider Parts
+Order = 5.  Consume filter information and other values, retrieve data from the TrakSYS database or other source.  Pass data on to other Parts to use.
+Data Consumer Parts
+Order = 10.  Retrieve data from providers and format for display to the user interface.
+The Initialization Order of a part can be modified for special situations.
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 3
+
+Content Parts | Simple Consumers
+
+Do NOT have a configured Source Values Key property for receiving a DataTable
+Individual values are mapped to Part properties using the Values Key settings or Content Expressions
+Examples include…
+Headers
+Details
+Single Tiles
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 4
+
+Simple Consumers
+
+## Slide 5
+
+Content Parts: Complex Consumers
+
+## Slide 6
+
+Content Parts | Complex Consumers
+
+Parts that expect one or more DataTable sources as inputs to be Rendered
+The Source Values Key property specifies the Values Key for the expected DataTable
+Provider Parts must be configured with a matching Source Values Key
+Consumer Parts must have a higher Initialization Order than Provider Parts
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 7
+
+Content Parts | Consumer Part Examples
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 8
+
+Content Parts | Consumer Part Examples
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 9
+
+Complex Consumers
+
+## Slide 10
+
+Using Row-Based Expressions

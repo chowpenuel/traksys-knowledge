@@ -1,0 +1,227 @@
+## Slide 1
+
+Batch Systems
+
+## Slide 2
+
+Review - Batch Systems	
+
+Used to model Manufacturing Equipment which produce / process Batch or Volumes of Material (Process Cells (S95) / Batching Lines)
+Contain one or more Sub-Systems or Units (e.g. Blender, Mixer, Granulator, and Dryer)
+Contain child configuration elements to model Batch Steps, Events, Tasks, and SPC Sampling
+
+## Slide 3
+
+Batch System Properties 
+
+Similar to Discrete Systems
+Product Set
+Identifies the set of Products that may be stored within the System (if applicable)
+Event Split
+Settings allow Events to be automatically End and Restart Events when specific transitions occur…
+Day Change
+Shift Change
+Batch Change
+Batch Size (Planned and Actual)
+Can be defined dynamically for a Batch System using Tags
+
+## Slide 4
+
+Batch Sub-Systems
+
+Allows for the creation of all Data Definitions (Function, Event, Task, Sample).
+All data definitions are executed at the sub-system level, not at the system level.
+Sub-systems model the actual process options available for the Batch system.
+
+## Slide 5
+
+Sub-System Properties 
+
+Job and Batch Tags are configured at the Sub-System level in Batch Systems
+A Batch System must have at least one Sub-System
+The Job Tag should contain a unique identifier for the current Job running on the Sub-System
+The Batch Tag should contain a unique identifier for the current Batch running on the Sub-System
+TrakSYS creates new Job and Batch records for a System when the Job and Batch Tags change Values
+
+## Slide 6
+
+Batches
+
+Batches are smaller sub-sets of production within a Job
+Batches apply only to Batch type Systems
+A single Batch Job may contain one or more Batches
+A single Batch System (containing many Batch Sub-Systems) may be processing more than one Batch Simultaneously
+Each Batch Sub-System may only be operating on one Batch Simultaneously
+
+Scale
+Job : ADRA-7655
+Batch : 3
+Mixer
+Job : ADRA-7655
+Batch : 2
+Dryer
+Job : ADRA-7655
+Batch : 1
+System : Batch Line 2
+
+## Slide 7
+
+Function Definitions
+
+Allows the real-time examination of an input condition to record instances of Batch Step records in the TrakSYS Database
+A Batch Step represents a span of time that a Batch System is engaged in a specific activity (Step)
+Configurable at the Sub-System Level Only
+A Discrete Trigger Tag property indicates when a Batch Step Starts and Ends
+
+Loaded and executed by the Logic Service
+Batch Steps contain reference to related information such as Job, Batch, Product, Shift, etc…
+It is possible for multiple Batch Steps in a single Sub-System to be simultaneously active, with each Batch Step having a corresponding Batch Step Record
+
+Configuration 
+
+Execution 
+
+Batch Line 2
+Scale
+Load
+Measure
+Clean
+Mixer
+Load
+Mix
+Clean
+Batch Step Records
+Function Definition
+
+## Slide 8
+
+Function Definition Properties 
+
+Batch-specific data definition used to model potential operations or actions that a Batch Sub-System (Unit) can perform
+Trigger Tags are used to record Function data in TrakSYS™
+Step Categories can be used to assign reasons to functions the execute longer than their planned duration
+The actual sequence and duration of Function Definitions required to complete a Batch is defined as a Recipe in the Product configuration
+
+## Slide 9
+
+Products and Recipes
+
+## Slide 10
+
+Product Materials 	
+
+Represent a physical material that is consumed or produced by a manufacturing process
+May be used for all System types
+Does not require the TrakSYS™ batching feature line
+May be simple ingredients or compounds of other materials defined in the configuration
+May be associated with a product in a configured Product Set to define a Bill of Material for a product
+
+## Slide 11
+
+Product Materials 	
+
+Product Materials are configured against an expected Standard Size
+At the start of a Batch, expected quantities are automatically scaled based upon the Batch Size
+Expected Material Consumption is calculated using linear ratios.
+
+## Slide 12
+
+Product Recipe 
+
+A Recipe is a formula or a set of production directions for a specific Product on a specific Batch System
+Product and System must exist prior to Recipe creation
+May be assigned to a System Template
+Defines the size and overall duration for a single run of the Recipe
+A Recipe is made up of one or more Recipe Step Definitions
+Recipes may be versioned with their associated Products
+
+## Slide 13
+
+Recipe Properties 
+
+A product Recipe is created and assigned to the Line 1 Batch System
+Support for different planned durations based on “multiples” of the Recipes Planned Batch Size
+Recipes have versioning where the most recent version (version X) is the active Recipe for this combination of Product and System
+
+## Slide 14
+
+Recipe Step Definitions 	
+
+Define the sequence and duration of steps required for the completion of a batch
+Assigned to an existing Function Definition from a subsystem
+Steps may be executed in parallel or sequentially
+Does not support complex workflow structures (repeat until, conditional branching, etc.)
+A Recipe step is automatically started when its associated Function Definition becomes active based on its Trigger Tag logic
+
+## Slide 15
+
+Recipe Step Materials 
+
+List of Materials can be added to individual Recipe Steps in order to track accurate batch records
+Materials are assigned quantities that represent percentages of the entire Batch size specified
+Materials are consumed by the Batch process at each specific Recipe Step Definition
+
+## Slide 16
+
+Batch Product Configuration Hierarchy 
+
+## Slide 17
+
+Batching Configuration
+
+## Slide 18
+
+Batch Data
+
+## Slide 19
+
+Batch Steps 
+
+Batch Steps are created when a Batch is started
+Batch Steps have an expected Start and End Sequence, as well as an expected duration
+The Start and End timestamp for each Batch Step is based upon the associated Function Definition’s Trigger Tag
+Multiple Batch Steps can occur at the same time
+
+## Slide 20
+
+Batch Step Overages 
+
+When a Function Definition’s Trigger Tag is active, a Batch Step will start for that Function on that System
+Batch Steps have an expected duration and sequence based upon the Recipe configuration
+If step occurs out of sequence, it will be marked as Unexpected and have a duration of 0 seconds
+A Batch Step Overage is created any time a Batch Step exceeds its expected duration
+Batch Step Overages can be assigned Step Categories to assist with reporting
+
+## Slide 21
+
+Material Use Planned/Actual
+
+Material Use Planned Records are created when the Batch first starts
+The expected quantity of materials is based off the combination of Product and Recipe configuration, as well as the planned Batch
+Actual material consumption can be recorded as Material Use Actual records
+Planned and Actual records are related Job and BatchStep records
+
+## Slide 22
+
+Example Batch Interface
+
+## Slide 23
+
+Batching Extensibility
+
+## Slide 24
+
+Batching Script Events 
+
+The following transitions are monitored by the Logic Service for Batching records…
+On Job Start/End
+On Batch Start/End
+On Batch Step Start/End
+On Batch Step Overage Start
+TrakSYS allows for these transitions to be used to trigger real-time functionality such as…
+Email Notifications
+Entity Script Class Events
+
+## Slide 25
+
+Batching Data Structures

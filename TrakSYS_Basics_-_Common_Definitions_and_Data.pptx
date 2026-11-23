@@ -1,0 +1,371 @@
+## Slide 1
+
+Systems
+
+## Slide 2
+
+Systems Overview
+
+Batch Systems
+Process Steps and Durations
+Function Definitions (Steps)
+Event Definitions (Downtime)
+Task Definitions (Quality)
+Sample Definitions (SPC)
+
+Discrete Systems
+Throughput and Downtime
+KPI Calculations (OEE/TEEP)
+Event Definitions (Downtime)
+Task Definitions (Quality)
+Sample Definitions (SPC)
+
+Storage Systems
+Quantities and Transfers
+Transfer Definitions (Material)
+Event Definitions (Downtime)
+Task Definitions (Quality)
+Sample Definitions (SPC)
+
+## Slide 3
+
+Event Definitions
+
+## Slide 4
+
+Event Definitions
+
+Configuration
+Represents configurable data entry fields to be collected during execution of a specific Event
+An Event represents a span of time (typically a downtime) associated with a specific asset (System)
+Configurable at the System OR Sub-System Level
+A Discrete Trigger Tag property indicates when an Event Starts and Ends
+
+Execution
+Loaded and executed by the Logic Service
+Events contain reference to related information, such Job, Batch, Product, Shift, OEE Type, and more.
+When multiple downtimes occur at once, configurable rules will identify one as the primary cause for the Event record.
+
+Packaging Line 1
+Filler
+Changeover
+Jam
+Tipped Bottle
+Labeler
+Jam
+No Labels
+Event Records
+Event Definition
+
+Available on Batch, Discrete and Storage Systems
+
+## Slide 5
+
+Event Definitions: Examples
+
+Lunch
+Maintenance
+General Fault
+Trigger Source: 
+	Automation
+OEE Type:
+	Availability Loss
+MTBF Type:
+	Failure
+Requires User Input: 
+	Yes
+Trigger Source: 
+	Manual
+OEE Type: 
+	Availability Loss
+MTBF Type:
+	Non-Failure
+Requires User Input: 
+	Yes, if longer than 30m
+Trigger Source: 
+	Logic Tag (Daily at Noon)
+OEE Type: 
+	Not Scheduled
+MTBF Type:
+	Excluded
+Requires User Input: 
+	No
+
+## Slide 6
+
+Event Definitions
+
+## Slide 7
+
+Task Definitions
+
+## Slide 8
+
+Task Definitions
+
+Configuration
+Allows the real-time examination of an input condition to record instances of Task records in the TrakSYS Database
+A Task represents a request with pre-defined user inputs required (a form) associated with a specific asset (System)
+Task Definitions are configured to require 1 or more user input fields (Task Form Items)
+Configurable at the System OR Sub-System Level
+A Discrete Trigger Tag property indicates when a Task is Generated
+
+Execution
+Loaded and executed by the Logic Service
+Tasks contain reference to related information, such Job, Batch, Product, Shift, User and more.
+Task Forms are implemented and completed in the TS Web User Interface
+
+Available on Batch, Discrete and Storage Systems
+
+## Slide 9
+
+Task Definitions: Examples
+
+[ Filler ]
+Regular Maintenance
+[ Filler ]
+Maintenance Request
+[ Line 1 ]
+Start-up Checklist
+Trigger:
+	Job Start
+Time to Complete:
+	15 Minutes
+Evaluation Logic:
+	None can Fail
+Inputs:
+	BOM Verified
+	Safety Sign-off
+	Quality Standards Reference
+Trigger:
+	Manual
+Time to Complete:
+	60 Minutes
+Evaluation Logic:
+	Always Pass
+Inputs:
+	Affected Machine
+	Cause of Issue
+	Resolution
+Trigger:
+	Machine Bottle Count
+Time to Complete:
+	30 Minutes
+Evaluation Logic:
+	Manual Pass/Fail
+Inputs:
+	Inspect Fill Heads
+	Inspect Valve
+	Clean Machine
+
+## Slide 10
+
+Task Definitions
+
+## Slide 11
+
+Sample Definitions
+
+## Slide 12
+
+Sample Definitions
+
+Configuration
+Defines the parameters for taking quality SPC samples of a specific type to record instances of Sample Sub-Group records in the TrakSYS Database
+A Sample Sub-Group represents a set of 1-N samples measured together and associated with a specific asset (System)
+Configurable at the System Level Only
+Constants or Tags can be defined to specify SPC Limits
+
+Execution
+SPC data typically logged against a Sample Definition via user interface data entry Forms
+Sample Sub-Groups contain reference to related information, such Job, Batch, Product, historical limits, and more.
+Automated SPC sampling can be achieved using the API and Scripting to capture values and create Sample Sub-Groups
+
+Available on Batch, Discrete and Storage Systems
+
+## Slide 13
+
+Sample Definitions: Examples
+
+Bottle Inspection
+Temperature
+Fill Weight
+Type: 
+	Variable
+Control Limits:
+	61-63g
+Specification Limits:
+	>60g
+Rules:
+	Western Electric
+Type: 
+	Variable
+Control Limits:
+	Auto-Calculate
+Specification Limits:
+	68-72 F
+Rules:
+	6 Trending
+	Above/Below CLs
+Type: 
+	Attribute
+Control Limits:
+	Auto-Calculate
+Specification Limits:
+	None
+Rules:
+	Western Electric
+
+## Slide 14
+
+Sample Definitions
+
+## Slide 15
+
+Function Definitions
+
+## Slide 16
+
+Function Definitions
+
+Configuration
+Allows the real-time examination of an input condition to record instances of Batch Step records in the TrakSYS Database
+A Batch Step represents a span of time than an asset (Batch Sub-System) is engaged in a specific activity (Step)
+Configurable only on Batch Sub-Systems
+A Discrete Trigger Tag property indicates when a Batch Step Starts and Ends
+
+Execution
+Loaded and executed by the Logic Service
+Batch Steps contain reference to related information, such Job, Batch, Product, Shift, and more.
+Multiple Batch Steps can occur simultaneously, even for the same Job, Batch, and Sub-System. Each one will be recorded with their own Batch Step Record.
+
+Batching Line 1
+Scale
+Measure
+Clean
+Mixer
+Load
+Mix
+Batch Step Records
+Function Definition
+
+Available on Batch Systems only
+
+Load
+
+## Slide 17
+
+Function Definitions: Examples
+
+[ Granulator ]
+Unload
+[ Dryer ]
+Heat Up
+[ Scale ]
+Measure / Weigh
+Trigger Source: 
+	Manual
+Parameters: 
+	None
+Used in Recipes:
+	ADRA (Step 2)
+	DRIS (Step 3)
+	SAFS (Step 3)
+Trigger Source: 
+	Automatic
+Parameter:
+	Temperature
+Used in Recipes:
+	ADRA (Step 6/10)
+	DRIS (Step 8)
+	SAFS (Step 9)
+Trigger Source: 
+	Manual
+Parameters: 
+	RPM
+Used in Recipes:
+	DRIS (Step 16)
+	SAFS (Step 17)
+
+## Slide 18
+
+Function Definitions
+
+## Slide 19
+
+KPI Calculations
+
+## Slide 20
+
+KPI Calculations
+
+Configuration
+Allows the collection of real-time production counts and event information to record Interval records in the TrakSYS Database
+An Interval contains raw data over a timespan (typically 30 to 60 minutes) that can be used to calculate Key Performance Indicators (KPIs)
+Configurable at the System Level
+
+Execution
+Loaded and executed by the Logic Service
+KPI Calculations contain reference to related information, such Job, Batch, Product, Shift, and more.
+Standard TrakSYS has built-in TEEP and OEE aggregations and reports but can be extended to use variants 
+
+Available on Discrete Systems only
+
+## Slide 21
+
+KPI Calculations: Aggregations
+
+## Slide 22
+
+KPI Calculations
+
+## Slide 23
+
+Transfer Definitions
+
+## Slide 24
+
+Transfer Definitions
+
+Configuration
+Allows the real-time examination of an input condition to record instances of Transfer records in the TrakSYS Database
+A Transfer represents a movement of a specific Material to or from a Storage System
+Configurable at the System Level Only
+A Discrete Trigger Tag property indicates when a Transfer Starts and Ends
+
+Execution
+Loaded and executed by the Logic Service
+Transfers contain reference to related information such as Job, Batch, Product, Shift, and more.
+Data records include captured information such as the Material Code and Quantity that is Transferred
+
+Available on Storage Systems only
+
+## Slide 25
+
+Transfer Definitions: Examples
+
+Set/Adjust
+Transfer Out
+Transfer In
+Trigger:
+	Manual
+Context Input:
+	Manual Form Input
+Target System:
+	Loading Bay A
+Trigger:
+	Automatic
+Context Input:
+	Barcode Scan
+Target System:
+	Shipping Bay B
+Trigger:
+	Manual
+Context Input:
+	Machine Reading
+Target System:
+	(Self)
+
+## Slide 26
+
+Transfer Definitions

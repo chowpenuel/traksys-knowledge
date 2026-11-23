@@ -1,0 +1,126 @@
+## Slide 1
+
+Auditing
+
+## Slide 2
+
+Audit and Regulatory Management
+
+Requires a user digital signature any time a change is made to the Configuration or Data
+Audit features can be configured in TrakSYS Settings (Installation Manager)
+Configuration entities include an Audit link which displays related Change History
+Required database Triggers can be managed from the Database section in Installation Manager
+Create Audit Triggers
+Delete Audit Triggers
+
+## Slide 3
+
+21 CFR Part 11
+
+Objective
+To allow the industry to use electronic records and signatures alternatively to paper records and hand-written signatures.
+Scope
+FDA Regulated Environments
+When using computers to create, modify, maintain, archive, retrieve or transmit data or records.
+Records required by predicate rules (GLP, GCP, GMP) with high impact of patient safety.
+Applies to new and existing systems.
+
+## Slide 4
+
+21 CFR Part 11
+
+Validation
+Accurate and Complete Copies
+Protection and Retrieval of Records
+Limited Access to Authorized Users
+Electronic Audit Trail
+Operational System Checks
+Authority Checks
+Device Checks
+People Qualification
+Individual Accountability
+Controls over System Documentation
+Digital Signatures for Open Systems
+Requirements for Signed Electronic Records
+Linking Signatures to e-Records
+
+## Slide 5
+
+Auditing Configuration
+
+## Slide 6
+
+Audit Settings
+
+The Audit settings are controlled through the Installation Manager by navigating to the TrakSYS Settings from the Overview tab
+Changes to settings are saved to the Database, but do not immediately take effect
+Access to the Server is required to access these settings
+
+## Slide 7
+
+Audit Settings
+
+Control by Section
+Administration, Configuration, Developer, Data
+Signature Type
+None
+No signature prompts, no Audit recorded.
+Auto
+Reason prompts only.  User is auto recorded.
+Name Only
+Prompt for name only.
+Single
+Prompt for one login and password.
+Dual
+Prompt for 2 sets of logins and passwords.
+
+## Slide 8
+
+Audit Settings
+
+Notes Type
+Hide
+Notes field is not displayed.
+Optional
+Notes field is displayed, but is not required.
+Required
+Notes field is displayed and is required.
+Excluded Tables
+Table Names to be excluded from the Audit Triggers
+Reason Resources
+The text that is displayed when prompting for a Signature
+
+## Slide 9
+
+Audit Triggers
+
+Once Audit Settings are in place, the Database Triggers must be created 
+Triggers can be created through the Installation Manager, under the Database tab
+Creating Triggers requires SQL credentials
+
+## Slide 10
+
+Audit Enforcement
+
+After enabling new settings in the Installation Manager, it is recommended that the Application be reloaded to enforce the changes, including Auditing.
+
+In TS Web, Auditing may not be immediately enforced. The changes are stored in the database but are not checked on page that have been recently loaded.
+
+To reload the Application, go to the Administration Section and use the Settings Hub. Use the Reload Application button at the bottom of the page.
+
+## Slide 11
+
+Audit Triggers
+
+Signature Fields are automatically displayed based on Audit Settings
+Reason is displayed in Audit Header
+Login and Password is verified against a TrakSYS User or Windows Credentials
+Audit Triggers automatically create a record including the Signature and the record Modifications
+
+## Slide 12
+
+Audit Results
+
+## Slide 13
+
+Auditing Example

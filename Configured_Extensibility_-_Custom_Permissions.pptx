@@ -1,0 +1,28 @@
+## Slide 1
+
+Form Lifecycle
+
+## Slide 2
+
+Custom Permission Sets
+
+A Custom Permission Set is a user-defined collection of Role capabilities.
+Custom Permissions can be either Flat (with only Items) or Grid (with Items and Actions)
+Once configured, Custom Permissions appear as an additional tab when configuring Roles.
+Evaluating Custom Permissions is supported with the API.
+
+## Slide 3
+
+Referencing Custom Configuration
+
+Views that contain Custom Properties are generated for each Entity
+
+Custom configuration can be referenced with both the API and with SQL
+
+Types can be loaded by key or used when loading their parent entities.
+Custom Properties Dictionaries are available as a property of the parent entity. 
+Custom Permissions can be checked against a user with a single-line API call.
+
+## Slide 4
+
+Custom Permissions

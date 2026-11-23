@@ -1,0 +1,93 @@
+## Slide 1
+
+Bulk Translations
+
+## Slide 2
+
+Global Platform
+
+Bulk Translations
+
+As needed, additional language packs can be downloaded and added to the product without needing a full product update.
+
+ 
+
+## Slide 3
+
+User Specific Language
+
+Bulk Translations
+
+TrakSYS™
+English
+Español
+Italiano
+Italiano
+English
+Español
+
+This means Operators can view and utilize the software in one language while Supervisors, Administrators, and other high-level users can view and utilize the software in another language, all at the same time.
+
+Via configuration settings on the User in TrakSYS™, or simply using the browser / device language, TrakSYS™ automatically adjusts the language being displayed to best suit the user.
+
+## Slide 4
+
+User Specific Language
+
+Bulk Translations
+
+TrakSYS™
+English
+Español
+Italiano
+Italiano
+English
+Español
+
+This means Operators can view and utilize the software in one language while Supervisors, Administrators, and other high-level users can view and utilize the software in another language, all at the same time.
+
+Via configuration settings on the User in TrakSYS™, or simply using the browser / device language, TrakSYS™ automatically adjusts the language being displayed to best suit the user.
+
+## Slide 5
+
+Standard Content
+
+Bulk Translations
+
+Standard Pages
+Standard Parts
+Menus
+Captions
+TrakSYS™ Standard Content Includes…
+Distribution and Updates
+Compiled DLLs
+Cannot be edited or altered from within the product.
+Built & Distributed by Parsec
+Parsec maintains the text translations and publishes them for download.
+Language Updates
+Updated translation DLLs can be added to the installation via simple file copy.
+
+## Slide 6
+
+Extensible Content
+
+Bulk Translations
+
+Database Driven
+Solution specific translations are stored in the database and ready for real-time manipulation rather than being compiled in an immutable DLL.
+In-Product UI
+TrakSYS™ includes a standard user interface for managing solution specific translations, importing/exporting bulk translations, and replacing temporary placeholders.
+Live Updates
+Once changes are made to solution specific translations, these updates are immediately visible to users of the system viewing TrakSYS™ in the updated language.
+Seamless Use
+Solution specific translations can be used in the same way as standard translations. They can be searched for, used within Content Parts such as Headers/Table Column Names, and accessed from Script.
+
+## Slide 7
+
+Point & Click Translations
+
+Bulk Translations
+
+Built-in Pages offer bulk extensible translations using Excel Exports and imports.
+
+Templates provide a framework for translations to be managed and edited as needed.

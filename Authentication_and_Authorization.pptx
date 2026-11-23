@@ -1,0 +1,293 @@
+## Slide 1
+
+Authentication and Authorization
+
+## Slide 2
+
+Login Types
+
+Authentication and Authorization
+
+Windows (Integrated)
+Defined and Managed external to TrakSYS
+Automatically passed via Brower based on Windows Login
+Internet Explorer | Edge | Chrome on Windows Client
+Ideal for personal Laptops / Desktops
+
+Open Connect
+Defined and Managed external to TrakSYS
+Must Login with Username and Password
+Redirected to Provider’s Login Page
+Ideal for non-Domain Devices
+
+Considerations
+Shared Workstations on Plant Floor with Roaming Users
+Shared Workstations with same/different Windows Account
+Permissions by Location/Workstation
+Use a Common Login and check/record User as Needed
+
+TrakSYS
+Defined and Managed within TrakSYS
+Must Login with Username and Password
+Can be used from any Browser/Device
+Ideal for identifying Users on Shared Clients
+
+## Slide 3
+
+Login Types
+
+Authentication and Authorization
+
+Windows (Integrated)
+Defined and Managed external to TrakSYS
+Automatically passed via Brower based on Windows Login
+Internet Explorer | Edge | Chrome on Windows Client
+Ideal for personal Laptops / Desktops
+
+Open Connect
+Defined and Managed external to TrakSYS
+Must Login with Username and Password
+Redirected to Provider’s Login Page
+Ideal for non-Domain Devices
+
+TrakSYS
+Defined and Managed within TrakSYS
+Must Login with Username and Password
+Can be used from any Browser/Device
+Ideal for identifying Users on Shared Clients
+
+TrakSYS
+Defined and Managed within TrakSYS
+Must Login with Username and Password
+Can be used from any Browser/Device
+Ideal for identifying Users on Shared Clients
+
+Windows (Integrated)
+Defined and Managed external to TrakSYS
+Automatically passed via Brower based on Windows Login
+Internet Explorer | Edge | Chrome on Windows Client
+Ideal for personal Laptops / Desktops
+
+Open Connect
+Defined and Managed external to TrakSYS
+Must Login with Username and Password
+Redirected to Provider’s Login Page
+Ideal for non-Domain Devices
+
+Considerations
+Shared Workstations on Plant Floor with Roaming Users
+Shared Workstations with same/different Windows Account
+Permissions by Location/Workstation
+Use a Common Login and check/record User as Needed
+
+## Slide 4
+
+User Grouping
+
+Authentication and Authorization
+
+Batching Operators
+
+Packaging Operators
+
+Supervisors
+
+Charlie
+
+Janice
+
+Mary
+
+Steve
+
+Steve
+Janice
+
+Charlie
+Janice
+
+Mary
+
+TrakSYS User Groups
+The following point characterize the capabilities of TrakSYS User Groups…
+Any type of User (TrakSYS, Windows or Open Connect) can be added to a TrakSYS User Group.
+A single User can be a member of any number of Groups.
+Groups can be assigned to Roles to allocate Permissions (typically a better strategy than assigning users individually).
+Groups can be the target of Notifications.
+
+Users
+
+User Groups
+
+## Slide 5
+
+Roles
+
+Authentication and Authorization
+
+TrakSYS Roles
+The following point characterize the capabilities of TrakSYS Roles…
+Roles contain one or more Permission assignments that indicate which pages and functions/operations are allowed.
+Individual Users can be assigned to a Role.
+User Groups can be assigned to a Role.
+Users and Groups can be assigned to more than one Role.
+
+Users and Groups
+
+Roles
+
+Charlie
+Janice
+Mary
+Steve
+Batching Operators
+Steve
+Janice
+Packaging Operators
+Charlie
+Janice
+Supervisors
+Mary
+
+Operators
+Batching Operators (Group)
+Packaging Operators (Group)
+
+Report Users
+Supervisors (Group)
+Janice (User)
+
+Power Users
+Mary (User)
+
+## Slide 6
+
+Page Permissions
+
+Authentication and Authorization
+
+Page Permissions
+A Role can be associated with one or more Page Permissions which indicate how Users within the Role can access the user interface.
+A Page Permission is made up of a  URL and an Ability assignment as follows…
+URL
+A specific Page within the TrakSYS UI hierarchy.
+Yes to All
+Role Users can access the URL Page and its children.
+Yes
+Role Users can access the URL Page, but not its children.
+No Access
+Role Users cannot access the URL Page.
+
+Operators (Role)
+Batching Operators (Group)
+Packaging Operators (Group)
+Page Permissions
+Page 0 | Yes
+Page 2 | Yes to All
+Page 5 | No Access
+OR
+Page 0 | Yes to All
+Page 1 | No Access
+Page 5 | No Access
+
+Page 0 (Section)
+Page 1 (H1)
+Page 2 (H1)
+Page 3 (H2)
+Page 4 (H2)
+Page 5 (H3)
+Page 6 (H3)
+Desired Access
+
+## Slide 7
+
+Standard Permissions
+
+Authentication and Authorization
+
+Standard Permissions
+A Role can be associated with one or more Standard Permissions which indicate hard coded privileges for Users within the Role.
+
+TrakSYS Standard Permissions
+
+TrakSYS Configuration and Data Permissions
+
+## Slide 8
+
+Standard Permissions
+
+Authentication and Authorization
+
+Standard Permissions
+A Role can be associated with one or more Standard Permissions which indicate hard coded privileges for Users within the Role.
+
+TrakSYS Standard Permissions
+
+TrakSYS Configuration and Data Permissions
+
+## Slide 9
+
+Standard Permissions
+
+Authentication and Authorization
+
+TrakSYS Configuration and Data Permissions
+
+## Slide 10
+
+Custom Permissions
+
+Authentication and Authorization
+
+Custom Permissions
+A Role can be associated with one or more Custom Permissions which indicate solution-specific privileges for Users within the Role.
+
+Flat Permission Set Example
+
+## Slide 11
+
+Custom Permissions
+
+Authentication and Authorization
+
+Custom Permissions
+A Role can be associated with one or more Custom Permissions which indicate solution-specific privileges for Users within the Role.
+
+Grid Permission Set Example
+
+## Slide 12
+
+Checking Permissions from Script
+
+Authentication and Authorization
+
+Checking Permissions
+Standard or Custom permissions can be verified programmatically (within TS Web) by calling the following API method…
+
+Has Permission
+this.Ets.HasPermission(string set, string item, [string action]);
+Permission Set Key
+OR from ETS.Core.Api.PermissionKeys…
+EntitySet
+EtsSet
+Item Key
+OR…
+Area
+System
+Event
+Etc…
+OR from ETS.Core.Api.PermissionKeys…
+ItemIsAdmin
+ItemIsAdminService
+ItemIsAdminServiceControl
+ItemIsAdminUser
+ItemIsAdminDiagnostics
+ItemIsTranslator
+ItemIsAuditor
+ItemAllowReservedUser
+Action Key
+OR from ETS.Core.Api.PermissionKeys…
+EntityActionView
+EntityActionCreate
+EntityActionModify
+EntityActionDelete

@@ -1,0 +1,63 @@
+## Slide 1
+
+Logging
+
+## Slide 2
+
+Overview
+
+Logging
+
+Built in logging for every interface transaction
+Filter transactions to locate for monitoring and troubleshooting
+Transaction specific view and retry actions
+View transmitted payload for monitoring and troubleshooting
+
+## Slide 3
+
+Transaction vs Log
+
+Logging
+
+tInterfaceTransaction
+Top level information for the transaction.  One entry for every call or receive.
+tInterfaceTransactionLog
+Child information concerning a specific transaction.
+
+## Slide 4
+
+Content Pages
+
+Logging
+
+Interface Transaction Viewer
+Standard log page specific to an Interface Definition
+Payload Viewer
+Standard view payload page 
+Note: this page is already referenced as part of the Interface Transaction Viewer page
+
+## Slide 5
+
+Transaction Log Page Overview
+
+Logging
+
+Filters
+Standard table filtering functions
+Transactions
+List of interface transactions associated with the interface definition referencing in the page properties
+Details
+More information from the transaction when its row is clicked on
+Logs
+A sub-log for the interface transaction where additional messages about the transaction can be stored and viewed
+
+## Slide 6
+
+Transaction Log Page Configuration
+
+Logging
+
+Interface Definition ID
+Interface for which the page with reference when displaying information
+Action Links
+A set of up to 5 links that can be added to the transaction view table. These links will have access to transaction specific details and can use those as parameters when loading pages.

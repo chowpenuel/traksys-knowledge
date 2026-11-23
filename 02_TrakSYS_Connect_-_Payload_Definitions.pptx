@@ -1,0 +1,82 @@
+## Slide 1
+
+Payload Definitions
+
+## Slide 2
+
+Overview
+
+Payload Definitions
+
+The Payload Definition Hub can be accessed from the Developer page, under the Connect Hub. 
+Payload Definitions can be nested in a Group folder for organization and maintainability.
+Payload Definitions consist of header information as well as Field Definitions.
+Payload Definitions and their Field Definitions can be manually created or imported if the user has an example message file (CSV, JSON, etc..).
+
+## Slide 3
+
+Common Configuration
+
+Payload Definitions
+
+Name
+Name of Payload Definition (non-programmatic)
+
+Key
+Unique identifier of the Payload Definition. This is important as it will be used to reference the Payload Definition during data processing.
+
+Enabled
+Whether or not the Payload Definition is enabled and accessible
+
+## Slide 4
+
+File Type Dependent Configuration
+
+Payload Definitions
+
+Line Separator (CSV)
+Option for new line in the CSV file. \r\n and \n supported
+Column Separator (CSV)
+Text field for the column delineator in the CSV file
+Header Line (CSV)
+Definition of the column numbers in the file. Example would be 0,2,4,5
+First Row Contains Header (CSV)
+Whether or not the first row of the CSV file contains column headers
+Root List (JSON)
+When true, this JSON payload is expected to contain a list of objects at the root level.
+Root Content (XML)
+Defines the root node of the XML data. This becomes more important if TrakSYS is sending the Payload, as this content gets added to the file when it’s built.
+
+## Slide 5
+
+Field Definitions
+
+Payload Definitions
+
+Generate Automatically via Import
+Payload Definitions and their Fields can be generated automatically via the Import option. Fields will be automatically assigned a data type which can later be changed through configuration.
+Create Manually
+Instead of importing a sample payload, a Payload Definition can be manually created, and Field Definitions can be manually added to it. 
+Nesting
+Payload definitions support field nesting
+
+## Slide 6
+
+Field Definition Configuration
+
+Payload Definitions
+
+Name
+Name of the field (non-programmatic)
+Key
+Unique identifier of the field. This is important as it will be used to reference the field in script.
+List
+Whether of not the field is a list node
+Source Path
+Specifies the actual field name in the payload
+Required Mode
+Whether or not the field is required to be included in the payload
+Data Type
+Type of data: Object, String, Integer, Double, Boolean, Date Time, Date Time Offset, Enum, Long
+Format String
+Applies specific string formatting to the data. Commonly use with dates

@@ -1,0 +1,122 @@
+## Slide 1
+
+Content Parts Types 
+and Initialization Order
+
+## Slide 2
+
+Content Parts | Types and Initialization Order
+
+Each part on a page has an Initialization Order integer setting.  In general parts fall into one of three categories.
+Filter Parts
+Order = 2.  Retrieve information from a User and pass on to other Parts to use.
+Data Provider Parts
+Order = 5.  Consume filter information and other values, retrieve data from the TrakSYS database or other source.  Pass data on to other Parts to use.
+Data Consumer Parts
+Order = 10.  Retrieve data from providers and format for display to the user interface.
+The Initialization Order of a part can be modified for special situations.
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 3
+
+Content Parts | Common Filter Properties
+
+Have a Caption to describe the Filter
+Target Values Key determines how the part Reads and Writes to the Values Dictionary
+Additional Formatting properties determine the appearance
+Includes TextBox and Checkbox filters
+
+Filters
+Data Providers
+Data Consumers
+
+Properties Example
+Rendering
+SomeKey = ‘Default Value’
+Values Dictionary
+
+## Slide 4
+
+Content Parts | Data Table Parts
+
+Designed to execute pre-defined queries on the TrakSYS Database
+Return commonly used sets of data as DataTable objects deposited in the Values Dictionary
+Contain properties and settings allowing the Developer to manipulate and configure aspects of the query without writing SQL
+Filters
+Selected Columns
+Sorting
+Custom Columns
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 5
+
+Content Parts | Consumer Part Examples
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 6
+
+Content Parts | Consumer Part Examples
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 7
+
+Content Parts | Complex Initialization Example
+
+Parts must initialize in the correct order for data to  be passed properly
+In this example, the groups of parts have the following dependencies:
+[4] is filtered based upon [2]
+[6] is filtered based upon [2] and [4]
+
+Filters
+Data Providers
+Data Consumers
+
+2
+4
+6
+
+## Slide 8
+
+Content Parts | Complex Initialization Example
+
+Parts must initialize in the correct order for data to  be passed properly
+In this example, the groups of parts have the following dependencies:
+[4] is filtered based upon [2]
+[6] is filtered based upon [2] and [4]
+Some of the Filter Parts require their own Data Providers
+
+Filters
+Data Providers
+Data Consumers
+
+2
+4
+6
+
+## Slide 9
+
+Content Parts | Complex Initialization Example
+
+Filters
+Data Providers
+Data Consumers
+
+2
+4
+6
+
+1
+3
+5

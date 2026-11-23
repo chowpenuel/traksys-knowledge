@@ -1,0 +1,116 @@
+## Slide 1
+
+Downtime, Events, 
+and KPI Content Pages
+
+## Slide 2
+
+Review - Content Pages
+
+Pages that are constructed by assembling Content Parts using a grid based visual editor.  The behavior of the Visual Page is primarily manipulated by setting properties through user friendly form based interfaces.  For more advanced needs, the server side behavior of the page can be controlled using ASP.NET script.
+
+Pages built by hand-coding the user interface portion (HTML, CSS and JavaScript), and the server side code (ASP.NET).  While these types of pages are more complex to create, there are no limitations or restrictions as to the functionality and layout that can be created.
+
+Content built into the TrakSYS product.  These Pages cannot be altered (other than what is exposed via Parameters and configuration settings).
+
+Content Page (out-of-the-box)
+
+Visual
+
+Open
+
+## Slide 3
+
+Review - System Real-Time Overview 
+
+## Slide 4
+
+Review - System Real-Time Overview Properties 	
+
+System and KPI Calculation IDs are Required
+
+## Slide 5
+
+Performance Related Pages 
+
+## Slide 6
+
+Job List Pages 	
+
+Planned Jobs
+Lists Jobs assigned to the System that have yet to begin.
+Completed Jobs
+Lists Jobs assigned to the System that have ended.
+Allow filtering by Date Range and Product
+Support common Actions
+
+## Slide 7
+
+Job Action Pages 	
+
+Start Job
+Confirmation and execution.  Sets Job and Product Tags based on System configuration.
+End Job
+Confirmation and execution.  Clears Job and Product Tags based on System configuration.
+Redirects to System Overview
+
+## Slide 8
+
+Real-Time Event List
+
+Contains Events for the System which have been configured to display for Categorization and/or Acknowledgement
+Displays Active and Ended Events
+Can show Events for multiple Systems
+Supports common Actions
+
+## Slide 9
+
+Event Attention
+
+Displays details for a selected Event
+Offers Options
+Change Event Definition
+Change Event Category
+Edit Notes
+Split
+Acknowledge clears Event from the Attention List
+
+## Slide 10
+
+Event Categorization 
+
+Displays Event Category Hierarchy based on Configuration
+Selecting a Category with children drills down to the next level of Event Categories
+Saving applies the Category to the Event
+
+## Slide 11
+
+Reporting Lists
+
+Display Jobs or Shifts related to a System
+Simple Date and Product Filters
+Navigate to 
+Event List and Editor
+Interval List and Editor
+Full Overview Report
+
+## Slide 12
+
+Overview Report
+
+Context provided on the Left
+KPI Aggregations provided in the middle
+Event Breakdown provided on the right
+
+## Slide 13
+
+KPI Reports
+
+Selectable Filters that can be Pre-Set and Locked
+Multiple Group By options, including the use of Capture Fields for Extensibility
+Built in Export to Excel button
+Links to related reports for Drill-Down capabilities
+
+## Slide 14
+
+Performance Management Pages

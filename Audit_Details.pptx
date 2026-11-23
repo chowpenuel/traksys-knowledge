@@ -1,0 +1,172 @@
+## Slide 1
+
+Audit Details
+
+## Slide 2
+
+Overview
+
+Audit Details
+
+Audit Features
+The following are general capabilities available when the TrakSYS Audit feature is enabled…
+Requires a user digital signature any time a change is made to the Configuration or Data
+Configuration entities include an Audit link which displays related Change History
+Audit features can be configured in TrakSYS Settings within Installation Manager
+Required database Triggers can be managed from the Database section in Installation Manager
+
+## Slide 3
+
+Overview
+
+Audit Details
+
+Audit Features
+The following are general capabilities available when the TrakSYS Audit feature is enabled…
+Requires a user digital signature any time a change is made to the Configuration or Data
+Configuration entities include an Audit link which displays related Change History
+Audit features can be configured in TrakSYS Settings within Installation Manager
+Required database Triggers can be managed from the Database section in Installation Manager
+
+## Slide 4
+
+Settings
+
+Audit Details
+
+Audit Settings
+Control by Section
+Administration
+Configuration
+Developer
+Data
+Signature Type
+None
+Auto
+Name Only
+Single
+Dual
+Notes Type
+Hide
+Optional
+Required
+Excluded Tables
+Table Names to be excluded from the Audit Triggers
+Reason Resources
+The text that is displayed when prompting for a Signature
+
+## Slide 5
+
+Table Structure
+
+Audit Details
+
+tAuditHeader
+DateTime
+User01
+User02
+Entity Information
+Reason
+…
+ Primary Signature
+ Secondary Signature
+ Job | PO1234 | ID = 385
+
+ User Selection, Typically New, Modify, or Delete (21 CFR Part 11)
+
+tAuditDetail
+AuditHeaderID
+DateTime
+TableName
+EntityName
+Primary Key Information
+Operation
+Data
+…
+1 : N
+ Insert, Update or Delete
+ tJob
+PO1234
+385
+ Full details on which fields and values changed (XML)
+
+Header
+An Audit Header record is created (1 per database transaction) by the TrakSYS API infrastructure when Auditing is enabled, and a change is made via the standard UI or using appropriate API techniques.
+
+Detail
+An Audit Detail record is created (1 per insert, update or deleted row within a database transaction) by the TrakSYS Audit Triggers when they are deployed, and a change is made in any way (even direct to database).
+
+## Slide 6
+
+API Example
+
+Audit Details
+
+Executing with Auditing
+In this example, a multi-insert API call is made with support for creating the Audit Header and binding to it all resultant Audit Detail records.
+The API calls shown here will create the following TrakSYS data records…
+tJob
+tJobDiscrete (related 1:1 to tJob)
+tJobSystemPlanned
+The following Audit records will also be created…
+tAuditHeader
+tAuditDetail (tJob)
+tAuditDetail (tJobDiscrete)
+tAuditDetail (tJobSystemPlanned)
+
+## Slide 7
+
+Database Transfer
+
+Audit Details
+
+Audit Transfer
+For scenarios where Non-Production (Development) instances are in use, and the changes made there must be tracked, the ExportAuditInformation setting allows for the change details to be passed down to the Production instance.
+Audit Records that are transferred will be marked in the Header as IsDatabaseTransfer = True.  The original date/time, user and all details are retained.
+
+Development
+Production
+User
+Admin
+Configuration Changes Made
+Audit Records
+Generated
+Configuration
+Transferred
+Audit Records
+Generated
+Original Audit
+Records
+Transferred
+
+## Slide 8
+
+Database Transfer
+
+Audit Details
+
+Audit Transfer
+For scenarios where Non-Production (Development) instances are in use, and the changes made there must be tracked, the ExportAuditInformation setting allows for the change details to be passed down to the Production instance.
+Audit Records that are transferred will be marked in the Header as IsDatabaseTransfer = True.  The original date/time, user and all details are retained.
+
+## Slide 9
+
+Database Transfer
+
+Audit Details
+
+Development
+Production
+User
+Admin
+
+Configuration Changes Made
+Audit Records
+Generated
+Configuration
+Transferred
+Audit Records
+Generated
+Original Audit
+Records
+Transferred

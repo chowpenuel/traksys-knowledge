@@ -1,0 +1,207 @@
+## Slide 1
+
+Events
+
+## Slide 2
+
+Sub Events and Priority
+
+Events
+
+The Logic Service records active Event Definitions as Events and Sub-Events.  An Event represents a contiguous period where one or more of a System’s Event Definitions are active.  When two or more Event Definitions become active at the same time, the Logic Service assigns the Event Definition with the highest Priority (lowest numerical value) as the root cause of the Event. It logs the each active Event Definitions (including the root cause) as Sub-Events.
+
+In the chart above, the Jam Sub-Event is the root cause because it has a Priority of 1, whereas the Misfeed Sub-Event has a Priority of 2.  The Misfeed, E-Stop and Low Temperature Sub-Events are only visible in special detailed reports.  For the purposes of general stoppage reporting, Jam is assigned as the Event Definition that is responsible for the entire 35-minute Line 1 stoppage.
+
+Jam Event
+35 Minutes
+Jam (Priority 1)
+10 Minutes
+Misfeed (Priority 2)
+25 Minutes
+E-Stop
+15 Minutes
+Low Temperature
+20 Minutes
+
+The example below depicts a sample Event and its Sub-Events for a hypothetical Line 1 System with Jam, Misfeed, E-Stop and Low Temperature Event Definitions.
+
+## Slide 3
+
+Sub Events and Priority
+
+Events
+
+The Logic Service records active Event Definitions as Events and Sub-Events.  An Event represents a contiguous period where one or more of a System’s Event Definitions are active.  When two or more Event Definitions become active at the same time, the Logic Service assigns the Event Definition with the highest Priority (lowest numerical value) as the root cause of the Event. It logs the each active Event Definitions (including the root cause) as Sub-Events.
+
+In the chart above, the Jam Sub-Event is the root cause because it has a Priority of 1, whereas the Misfeed Sub-Event has a Priority of 2.  The Misfeed, E-Stop and Low Temperature Sub-Events are only visible in special detailed reports.  For the purposes of general stoppage reporting, Jam is assigned as the Event Definition that is responsible for the entire 35-minute Line 1 stoppage.
+
+Jam Event
+35 Minutes
+Jam (Priority 1)
+10 Minutes
+Misfeed (Priority 2)
+25 Minutes
+E-Stop
+15 Minutes
+Low Temperature
+20 Minutes
+
+The example below depicts a sample Event and its Sub-Events for a hypothetical Line 1 System with Jam, Misfeed, E-Stop and Low Temperature Event Definitions.
+
+Jam Event
+35 Minutes
+Jam (Priority 1)
+10 Minutes
+Misfeed (Priority 2)
+25 Minutes
+E-Stop
+15 Minutes
+Low Temperature
+20 Minutes
+
+## Slide 4
+
+Automatically Splitting Events with Re-Evaluate
+
+Events
+
+In some cases, a higher Priority Event Definition should override an Event caused be an already active lower Priority Event Definition.  To achieve this, the Re-Evaluate System Event on Start and on Re-Evaluate System Event on End Event Definition properties can be used to split and start new Events as shown in the examples below…
+
+In this first example, the Misfeed Event Definition is configured with Re-Evaluate System Event on Start, and since it is a higher Priority, splits and starts a new Event.
+
+Jam Event - 10 Minutes
+Jam (Priority 2)
+20 Minutes
+Misfeed (Priority 1)
+25 Minutes
+Misfeed Event - 25 Minutes
+
+In this next example, the Jam Event Definition is configured with Re-Evaluate System Event on End.  At this point, the Misfeed takes over as the new root cause.
+
+Jam Event - 20 Minutes
+Jam (Priority 2)
+20 Minutes
+Misfeed (Priority 1)
+25 Minutes
+Misfeed Event -15 Minutes
+
+## Slide 5
+
+Automatically Splitting Events with Re-Evaluate
+
+Events
+
+In some cases, a higher Priority Event Definition should override an Event caused be an already active lower Priority Event Definition.  To achieve this, the Re-Evaluate System Event on Start and on Re-Evaluate System Event on End Event Definition properties can be used to split and start new Events as shown in the examples below…
+
+In this first example, the Misfeed Event Definition is configured with Re-Evaluate System Event on Start, and since it is a higher Priority, splits and starts a new Event.
+
+Jam Event - 10 Minutes
+Jam (Priority 2)
+20 Minutes
+Misfeed (Priority 1)
+25 Minutes
+Misfeed Event - 25 Minutes
+
+In this next example, the Jam Event Definition is configured with Re-Evaluate System Event on End.  At this point, the Misfeed takes over as the new root cause.
+
+Jam Event - 20 Minutes
+Jam (Priority 2)
+20 Minutes
+Misfeed (Priority 1)
+25 Minutes
+Misfeed Event -15 Minutes
+
+In this first example, the Misfeed Event Definition is configured with Re-Evaluate System Event on Start, and since it is a higher Priority, splits and starts a new Event.
+
+Jam Event - 10 Minutes
+Jam (Priority 2)
+20 Minutes
+Misfeed (Priority 1)
+25 Minutes
+Misfeed Event - 25 Minutes
+
+In this next example, the Jam Event Definition is configured with Re-Evaluate System Event on End.  At this point, the Misfeed takes over as the new root cause.
+
+Jam Event - 20 Minutes
+Jam (Priority 2)
+20 Minutes
+Misfeed (Priority 1)
+25 Minutes
+Misfeed Event -15 Minutes
+
+## Slide 6
+
+Manually Splitting and Acknowledging Events
+
+Events
+
+In some cases, the automation may not record the desired pattern or split of Events. The more detailed and complex the configuration is, the higher the likelihood that some data becomes over tuned or missed entirely. If the Event is not attributed to the proper root cause by TrakSYS automation, it can be manually re-assigned through manual Acknowledgement processes.
+
+In the example above, the Jam Event Definition took the entire duration of the downtime, but operations wants to reflect it as two different root causes. The original Event can be split into two root causes with the total duration split between the two. In manual assignment, the Sub-Events can be used to help with assigning proper root causes, but they do not limit operations from making the desired corrections.
+
+Jam (Priority 1)
+10 Minutes
+Misfeed (Priority 2)
+25 Minutes
+E-Stop
+15 Minutes
+Low Temperature
+20 Minutes
+
+Desired Event
+Jam Event - 15 Minutes
+Misfeed Event - 20 Minutes
+Original Event
+Jam Event - 35 Minutes
+
+## Slide 7
+
+Manually Splitting and Acknowledging Events
+
+Events
+
+In some cases, the automation may not record the desired pattern or split of Events. The more detailed and complex the configuration is, the higher the likelihood that some data becomes over tuned or missed entirely. If the Event is not attributed to the proper root cause by TrakSYS automation, it can be manually re-assigned through manual Acknowledgement processes.
+
+In the example above, the Jam Event Definition took the entire duration of the downtime, but operations wants to reflect it as two different root causes. The original Event can be split into two root causes with the total duration split between the two. In manual assignment, the Sub-Events can be used to help with assigning proper root causes, but they do not limit operations from making the desired corrections.
+
+Jam (Priority 1)
+10 Minutes
+Misfeed (Priority 2)
+25 Minutes
+E-Stop
+15 Minutes
+Low Temperature
+20 Minutes
+
+Desired Event
+Jam Event - 15 Minutes
+Misfeed Event - 20 Minutes
+Original Event
+Jam Event - 35 Minutes
+
+Desired Event
+Jam Event - 15 Minutes
+Misfeed Event - 20 Minutes
+Original Event
+Jam Event - 35 Minutes
+
+Jam (Priority 1)
+10 Minutes
+Misfeed (Priority 2)
+25 Minutes
+E-Stop
+15 Minutes
+Low Temperature
+20 Minutes
+
+## Slide 8
+
+Sub-Systems
+
+Events
+
+## Slide 9
+
+Sub-Systems
+
+Events

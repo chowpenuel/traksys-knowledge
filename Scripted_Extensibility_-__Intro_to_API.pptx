@@ -1,0 +1,152 @@
+## Slide 1
+
+Application Programming Interface
+
+## Slide 2
+
+Traksys API 	
+
+Publicly supported set of Classes and Methods used to create custom functionality for TrakSYS and to integrate with External Applications
+Accessible through C#.NET code or via Web Services
+ETS.Core.Api namespace within the TrakSYS Core Library (Core.dll) contains all classes within the API
+ETS.Core.Api.ApiService is the primary C#.NET class used to access the API Service Objects
+DOCS available on the TrakSYS Support Site
+
+## Slide 3
+
+API Availability 
+
+Logic Service
+Advanced Script Tags
+Logic Service Script Classes
+SPC Rule Definitions
+Data Management Service
+Module Script Steps
+TrakSYS Web
+Visual Pages and Content Parts
+Externally
+As a .NET DLL Reference
+Instantiated and made available from within TrakSYS script Editors
+
+## Slide 4
+
+Models and Services 	
+
+The API contains two different types of Classes
+Model classes are data structures only.  They typically represent and mirror tables in the TrakSYS database.
+tSystem = DbSystem
+tEvent = DbEvent
+Service classes take Model classes and perform actions on them, typically inserting, updating and deleting the related records from the TrakSYS database.
+
+Model
+
+Service
+
+Database
+
+## Slide 5
+
+Model and Service Example	
+
+Model
+ETS.Core.Api.Models.Data.DbEvent
+ID
+StartDateTime
+EndDateTime
+EventDefinitionID
+…
+Notes
+
+Services
+ETS.Core.Api.Data.DbEvent
+.Load.ByID(int)
+.Save.InsertAsNew(DbEvent)
+.Save.UpdateExisting(DbEvent)
+.Delete.ByID(int)
+
+## Slide 6
+
+API Example	
+
+Example of loading an Event model object, changing the Notes field, and then saving it back to the database.
+Common patterns for loading, inserting, updating and deleting can be used on any TrakSYS database entity.
+
+// get a reference to the api service
+ETS.Core.Api.ApiService api = ETS.Core.Api.ApiService.GetInstance();
+// create a model object to hold the results of the load
+ETS.Core.Api.Models.Data.DbEvent ev;
+// load the entity with ID 123 from the database
+ev = api.Data.DbEvent.Load.ByID(123);
+// modify the properties of the model object as needed
+ev.Notes = "new notes have been added";
+// etc...
+// create a result object to determine the success of the operation
+ETS.Core.Api.Models.Result<ETS.Core.Api.Models.Data.DbEvent> result;
+// update the entity in the database
+result = api.Data.DbEvEent.Save.UpdateExisting(ev);
+// examine the results of the operation
+if (result.Success)
+// etc...
+
+## Slide 7
+
+Referencing DLLs	
+
+Support for referencing .NET assemblies written and compiled outside of the TrakSYS Environment (DLLs)
+TrakSYS .NET script can consume public classes and code from these referenced DLLs
+DLLs must be placed in specific TrakSYS folder locations (depending on the scripting application)
+Logic Service
+Data Management Service
+TrakSYS Web
+
+## Slide 8
+
+Common Scripting Examples
+
+## Slide 9
+
+Data Service	
+
+Facilitates structured interactions with the Database through script. 
+Every table in the database has matching API and models. 
+Some more complex models may have Composite objects that allow for loading and saving of two records at once.
+Examples:
+Api.Data.DbEvent.Delete.ByID(int ID)
+Api.Data.DbSystem.GetList.ForAreaID(int AreaID)
+Api.Data.DbProduct.Create.FromParentProductGroup(DbProductGroup parent)
+Api.Data.DbMaterial.Load.WithSql(string Sql)
+Api.Data.DbOeeCalculation.Save.UpdateExisting(DbOeeCalculation item)
+Api.Data.DbJobDiscreteComposite.Load.ByID(int ID)
+
+## Slide 10
+
+Common Entity Services	
+
+Services exist to assist with functionality that utilize multiple tables at once.
+Includes special models specifically for the intended functionality
+Includes specialized calls for data loading, processing, and support
+Examples:
+Api.Events.CalculateJobID(DbEvent ev);
+Api.Historian.GetTagHistory([...]);
+Api.Kpi.LoadOeeDataByProductionDateRange([...]);
+Api.Notification.CreateAlertNotificationForLogin(login, title, body);
+Api.ProdSched.Schedule(settings);
+Api.Spc.Variable.CalculateStandardDeviationS(List<double> values);
+Api.Tags.GetList.ForTagNames(List<string> names);
+Api.Tasks.CreateFromParentTaskDefinitionID(int TaskDefinitionID);
+
+## Slide 11
+
+Utilities and Util Service	
+
+General Util services exist to assist with troubleshooting and logging
+Based upon the scripting location, additional information is exposed
+TS Web utilities include web-specific troubleshooting and user information
+Examples:
+Api.Util.Db.ExecuteSql(sql);
+Api.Util.Log.WriteInformation(message, category);
+Api.Util.LogCustom.WriteWarningsFromResultObject(result, category);
+Api.Site.GetCurrentSiteID();
+Debug.Trace(message);
+Device.Name();
+User.DisplayName();

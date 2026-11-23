@@ -1,0 +1,37 @@
+## Slide 1
+
+Custom Types
+
+## Slide 2
+
+Custom Types
+
+A Custom Type is an entity-specific,  user-defined Enum list.
+Custom Types have an ID and key that can be referenced when writing implementation-specific logic.
+Once configured, Custom Types can be selected from their entity’s standard property page. 
+Loading and filtering by Custom Types is supported in standard Data Providers and API.
+
+## Slide 3
+
+Custom Types
+
+A Custom Type is an entity-specific,  user-defined Enum list.
+Custom Types have an ID and key that can be referenced when writing implementation-specific logic.
+Once configured, Custom Types can be selected from their entity’s standard property page. 
+Loading and filtering by Custom Types is supported in standard Data Providers and API.
+
+## Slide 4
+
+Referencing Custom Configuration
+
+Views that contain Custom Properties are generated for each Entity
+
+Custom configuration can be referenced with both the API and with SQL
+
+Types can be loaded by key or used when loading their parent entities.
+Custom Properties Dictionaries are available as a property of the parent entity. 
+Custom Permissions can be checked against a user with a single-line API call.
+
+## Slide 5
+
+Custom Types

@@ -1,0 +1,166 @@
+## Slide 1
+
+Database Conventions
+
+## Slide 2
+
+Tables
+
+Database Conventions
+
+Table Naming
+TrakSYS Table names begin with t
+tArea
+tSystem
+tJob
+Etc…
+
+Foreign Key Convention
+Naming…
+Typically, RelatedTableNameID
+In some cases, PrefixRelatedTableNameID
+
+Unique Identifier
+Nearly all TrakSYS tables contain a unique ID Column
+(there are a few exceptions)
+
+## Slide 3
+
+Views, Stored Procedures and Functions
+
+Database Conventions
+
+Naming
+TrakSYS View names begin with view
+viewEvent
+viewJob
+Etc…
+TrakSYS Stored Procedure names begin with sp
+spCore_Sequence_NextID
+spUpdateOeeInterval
+Etc…
+TrakSYS Function names begin with uf
+ufConvertIntToColorHex
+ufGetDateValue
+Etc…
+
+## Slide 4
+
+Sequences
+
+Database Conventions
+
+Never!
+Attempt to determine the next ID by MAX
+Manipulate the tSequence Table
+
+Manual Record Creation
+When creating (inserting) records into TrakSYS tables without using the API, special care must be taken!
+Api.Util.Db.GetNextSequenceByKey
+spCore_Sequence_NextID_Out
+
+Overview
+tSequence stores the highest ID value (last) for each TrakSYS Table
+New IDs are assigned and managed from within TrakSYS
+API DB Objects automatically create new IDs on Insert
+
+## Slide 5
+
+Sequences
+
+Database Conventions
+
+Never!
+Attempt to determine the next ID by MAX
+Manipulate the tSequence Table
+
+Manual Record Creation
+When creating (inserting) records into TrakSYS tables without using the API, special care must be taken!
+Api.Util.Db.GetNextSequenceByKey
+spCore_Sequence_NextID_Out
+
+Overview
+tSequence stores the highest ID value (last) for each TrakSYS Table
+New IDs are assigned and managed from within TrakSYS
+API DB Objects automatically create new IDs on Insert
+
+## Slide 6
+
+Managed Columns
+
+Database Conventions
+
+Modified and Uploaded DateTime
+These are standard fields on most TrakSYS tables.
+ModifiedDateTime
+Not currently implemented, but in the future, will be system-controlled field and contain a date/time stamp of the last time the record was inserted, or modified.
+UploadedDateTime
+A reserved field to be used to mark the last time the information in a record was transferred/synced to an external location.  Can be written to in solution-specific implementations.
+
+GUID
+Standard field on most TrakSYS tables to uniquely identify a configuration or data element across multiple TrakSYS installations where the ID cannot be synced.
+.NET GUID
+Assigned on record Insert
+Assigned at the API Level
+Manual record creation requires Custom Handling
+Can be manipulated / updated during Custom Synching
+
+## Slide 7
+
+Extensibility
+
+Database Conventions
+
+TrakSYS Schema
+Do NOT modify any of the built-in TrakSYS database elements (Tables, Indexes, Views, Stored Procedures, Functions).
+
+Add New Schema
+Feel free to ADD new elements as a specific solution may require (remaining sensitive to the customer’s opinions on customization).
+
+Custom Indexes
+Feel free to ADD custom indexes to tables based on solution-specific needs.  Note that altering TrakSYS indexes will be reset after platform updates.
+
+Custom Schema Naming
+Strive to consistently and distinctly name custom schema elements to make them easily identifiable and separate from standard TrakSYS.  Recommend prefixing with underscore and customer abbreviation ( _JM_Layers ).
+
+## Slide 8
+
+Extensibility
+
+Database Conventions
+
+TrakSYS Schema
+Do NOT modify any of the built-in TrakSYS database elements (Tables, Indexes, Views, Stored Procedures, Functions).
+
+## Slide 9
+
+Extensibility
+
+Database Conventions
+
+Add New Schema
+Feel free to ADD new elements as a specific solution may require (remaining sensitive to the customer’s opinions on customization).
+
+Custom Indexes
+Feel free to ADD custom indexes to tables based on solution-specific needs.  Note that altering TrakSYS indexes will be reset after platform updates.
+
+Custom Schema Naming
+Strive to consistently and distinctly name custom schema elements to make them easily identifiable and separate from standard TrakSYS.  Recommend prefixing with underscore and customer abbreviation ( _JM_Layers ).
+
+## Slide 10
+
+Extensibility
+
+Database Conventions
+
+TrakSYS Schema
+Do NOT modify any of the built-in TrakSYS database elements (Tables, Indexes, Views, Stored Procedures, Functions).
+
+Add New Schema
+Feel free to ADD new elements as a specific solution may require (remaining sensitive to the customer’s opinions on customization).
+
+Custom Indexes
+Feel free to ADD custom indexes to tables based on solution-specific needs.  Note that altering TrakSYS indexes will be reset after platform updates.
+
+Custom Schema Naming
+Strive to consistently and distinctly name custom schema elements to make them easily identifiable and separate from standard TrakSYS.  Recommend prefixing with underscore and customer abbreviation ( _JM_Layers ).

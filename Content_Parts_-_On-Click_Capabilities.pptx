@@ -1,0 +1,78 @@
+## Slide 1
+
+On-Click Properties
+
+## Slide 2
+
+Click and Navigation 
+
+Many parts have on-click options built-in
+Some parts can have additional buttons added that each support individual on-click options
+Using multiple on-click options at once is generally not recommended
+
+## Slide 3
+
+Click and Navigation | URL
+
+Renders a simple HTML anchor link (<a href=“”>) containing the URL string Specified
+Expressions are Allowed
+URL click text allows for a special syntactical element called self:
+self: is a placeholder for the current Page’s URL
+Any Name=Value pairs following self: are merged into the QueryString
+
+## Slide 4
+
+Click and Navigation | Client Click 
+
+Allows JavaScript to be executed when the Part element is Clicked
+Single or Multiple Lines of JavaScript may be Executed
+May call Functions defined in the JavaScript (JS) editor for the Page
+Expressions are Allowed
+
+## Slide 5
+
+Click and Navigation | Server Click
+
+Forces a POST back and calls the specified ASP.NET server side method in the Page’s script Class
+For individual items (Buttons, Menus, Images, etc…) the referenced method must implement the following signature…
+	(object sender, EventArgs e)
+For complex consumers (Tables, Lists, Charts, etc…) the referenced method must implement the following signature…
+	(object sender, RowItemEventArgs e)
+
+## Slide 6
+
+Getting Values from a Click
+
+## Slide 7
+
+Making Parts React
+
+## Slide 8
+
+Selected Value | Data Providers
+
+Properties and settings that allow the identification of a specific row to be Selected
+When Field and Equals Value determine the Selected Row
+The columns of the Selected Row are emitted to the Values Dictionary
+Values are prefixed with the Target Values Key + .Selected.
+
+## Slide 9
+
+Selected Value | Data Consumers
+
+Properties and settings that allow specific row to be rendered as Selected
+When Field and Equals Value determine the Selected Row
+Or use the Selected Index Values Key from the Data Source
+The Selected Row is highlighted in the Table / List / Chart
+
+## Slide 10
+
+Part Visibility
+
+Show or Hide any Part based on a Values Dictionary variable  (Boolean)
+When a Part is NOT visible is does NOT render (it does not take up space on the Page)
+Visibility on a Consumer is commonly mapped to one of the Data Source
+
+## Slide 11
+
+Interactive Screens

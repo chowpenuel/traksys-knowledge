@@ -1,0 +1,169 @@
+## Slide 1
+
+Form Content Parts
+
+## Slide 2
+
+Generic Form Visual Page Template 	
+
+Visual Page template for rapid development of a data entry / edit Form
+Form Layout
+Tabs
+Inputs
+Validation
+Buttons
+Script Class
+Skeleton Script
+Comments
+
+## Slide 3
+
+Generic Form Visual Page Template
+
+## Slide 4
+
+Form Content Parts
+
+Form Parts can be added and arranged to Visual Pages
+Configurable properties such as…
+Caption
+Sub-Caption
+Widths
+Form Key Mapping
+Inputs can be configured for Vertical or Horizontal Layout
+Buttons Part provides common Form Operations
+Standard TrakSYS Styling
+
+## Slide 5
+
+Form Lifecycle
+
+## Slide 6
+
+Form Lifecycle
+
+Load data from the Database to Model
+Push Model to Values Dictionary
+Populate Controls from the Values Dictionary
+User interacts with Form and Saves
+Populate the Values Dictionary from the Controls
+Update Model from the Values Dictionary
+Validate the Model
+Save the Model to the Database
+Redirect / Navigate
+
+## Slide 7
+
+Load Data to Model
+
+Load data from the Database to Model
+Push Model to Values Dictionary
+Populate Controls from the Values Dictionary
+User interacts with Form and Saves
+Populate the Values Dictionary from the Controls
+Update Model from the Values Dictionary
+Validate the Model
+Save the Model to the Database
+Redirect / Navigate
+
+## Slide 8
+
+Push Model to Values 
+
+Load data from the Database to Model
+Push Model to Values Dictionary
+Populate Controls from the Values Dictionary
+User interacts with Form and Saves
+Populate the Values Dictionary from the Controls
+Update Model from the Values Dictionary
+Validate the Model
+Save the Model to the Database
+Redirect / Navigate
+
+## Slide 9
+
+TS Web Interaction
+
+Load data from the Database to Model
+Push Model to Values Dictionary
+Populate Controls from the Values Dictionary
+User interacts with Form and Saves
+Populate the Values Dictionary from the Controls
+Update Model from the Values Dictionary
+Validate the Model
+Save the Model to the Database
+Redirect / Navigate
+
+## Slide 10
+
+Update Model from Values 
+
+Load data from the Database to Model
+Push Model to Values Dictionary
+Populate Controls from the Values Dictionary
+User interacts with Form and Saves
+Populate the Values Dictionary from the Controls
+Update Model from the Values Dictionary
+Validate the Model
+Save the Model to the Database
+Redirect / Navigate
+
+## Slide 11
+
+Validate the Model
+
+Load data from the Database to Model
+Push Model to Values Dictionary
+Populate Controls from the Values Dictionary
+User interacts with Form and Saves
+Populate the Values Dictionary from the Controls
+Update Model from the Values Dictionary
+Validate the Model
+Save the Model to the Database
+Redirect / Navigate
+
+## Slide 12
+
+Save Model
+
+Load data from the Database to Model
+Push Model to Values Dictionary
+Populate Controls from the Values Dictionary
+User interacts with Form and Saves
+Populate the Values Dictionary from the Controls
+Update Model from the Values Dictionary
+Validate the Model
+Save the Model to the Database
+Redirect / Navigate
+
+## Slide 13
+
+Unit of Work
+
+Load data from the Database to Model
+Push Model to Values Dictionary
+Populate Controls from the Values Dictionary
+User interacts with Form and Saves
+Populate the Values Dictionary from the Controls
+Update Model from the Values Dictionary
+Validate the Model
+Save the Model to the Database
+Redirect / Navigate
+
+## Slide 14
+
+Redirect/Navigate
+
+Load data from the Database to Model
+Push Model to Values Dictionary
+Populate Controls from the Values Dictionary
+User interacts with Form and Saves
+Populate the Values Dictionary from the Controls
+Update Model from the Values Dictionary
+Validate the Model
+Save the Model to the Database
+Redirect / Navigate
+
+## Slide 15
+
+Building a Form

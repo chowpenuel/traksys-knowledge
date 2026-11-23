@@ -1,0 +1,118 @@
+## Slide 1
+
+Messaging and Notifications
+
+## Slide 2
+
+Introduction to Notifications
+
+Notification Definitions: Message content Templates
+Notification Targets: Groups of Users
+Configure Trigger Conditions
+Notifications are sent via email using SMTP
+Alerts are sent in-browser.
+The Logic Service processes Business Rules and trigger conditions to generate Messages
+The Maintenance Service connects to the configured Mail Service and dispatches Messages
+
+## Slide 3
+
+Notification Definitions
+
+Message templates that can be re-used for different Notification Triggers
+TrakSYS Content Expressions may be used to add dynamic content to a Notification’s Title (Subject) and Body
+Notifications can be sent as Alerts or Emails from a web address (URL)
+Emails support file attachments based on existing URLs or web-accessible Documents
+
+## Slide 4
+
+Notification Targets
+
+Distribution list of Users who are eligible to receive a Notification
+May be re-used for multiple Notification Definitions
+Message delivery to a Target User may be filtered by day of week and by the active Shift or Team
+Notifications are sent to the email addresses configured for Target Users
+Alerts are sent to the Login configured for the Target Users
+
+## Slide 5
+
+Triggering Notifications
+
+Notifications are triggered based on conditions related to Configuration Entities or via API
+Notification arguments are parameters passed from an Entity to a related Notification Definition
+Notification Triggering Entities
+
+Systems
+Event Definitions
+Function Definitions
+SPC Rule Definitions
+Task Definitions
+Tags
+Modules
+Module Steps
+Logic Services
+
+## Slide 6
+
+Notification Arguments
+
+Legacy Expression Syntax
+{args|ArgName}
+Arguments can be used to make the notification dynamic
+Additional Arguments can be added through configuration and scripting for added customization
+
+Common
+NotificationID
+NotificationName
+System and Event Definition
+SystemID
+EventDefinitionID
+EventDefinitionName
+EventID
+Function Definition
+SystemID
+SystemName
+SubSystemName
+FunctionDefinitionID
+FunctionDefinitionName
+BatchStepID
+
+SPC Rule Definition
+SystemID
+SystemName
+SampleSubGroupRuleID
+SampleDefinitionRuleDefinitionID
+Task Definition
+SystemID
+SystemName
+TaskDefinitionID
+TaskDefinitionName
+TaskID
+UserState
+Tag
+TagID
+TagName
+TagValue
+
+## Slide 7
+
+Notification Examples – Definition
+
+## Slide 8
+
+Notification Examples – Rendering
+
+## Slide 9
+
+Notification Server Settings
+
+Installation Manager | TrakSYS Settings
+SMTP mail server connection and other global Notification Settings
+Maintenance Service Host
+Mail Server Address / Port
+Authentication
+From Email Address
+Notifications sent as in-browser Alerts will still need a Maintenance Service Host configured
+
+## Slide 10
+
+Creating an Alert

@@ -1,0 +1,885 @@
+## Slide 1
+
+TrakSYS Connect
+
+## Slide 2
+
+Overview
+
+Low-Code Payload and Interface Creation
+Connects to external Business Systems for Import and Export of Configuration and Data
+Orchestrates data via TrakSYS Workflow and DMS
+Full Logging of all Interface Transactions
+
+## Slide 3
+
+Components
+
+Payload Definitions
+The message being sent or received by TrakSYS. 
+Interface Definitions
+How TrakSYS will transmit a Payload when receiving or responding.
+
+## Slide 4
+
+Payload Definitions
+
+## Slide 5
+
+Overview
+
+Payload Definitions
+
+The Payload Definition Hub can be access from the Developer page nested under the Connect Hub. 
+Payload Definitions can be nested in a Group folder for organization and maintainability.
+Payload Definitions consist of header information as well as Field Definitions.
+Payload Definitions and their Field Definitions can be manually created or imported if the user has an example message file (CSV, JSON, etc..).
+
+## Slide 6
+
+Common Configuration
+
+Payload Definitions
+
+Name
+Name of Payload Definition. (non-programmatic)
+
+Key
+Unique identifier of the Payload Definition. This is important as it will be used to reference the Payload Definition during data processing.
+
+Enabled
+Whether or not the Payload Definition is enabled and accessible. 
+
+## Slide 7
+
+File Type Dependent Configuration
+
+Payload Definitions
+
+Line Separator (CSV)
+Option for new line in the CSV file. \r\n and \n supported.
+Column Separator (CSV)
+Text field for the column delineator in the CSV file.
+Header Line (CSV)
+Definition of the column numbers in the file. Example would be 0,2,4,5.
+First Row Contains Header (CSV)
+Whether or not the first row of the CSV file contains column headers.
+Root List (JSON)
+When true, this JSON payload is expected to contain a list of objects at the root level.
+Root Content (XML)
+Defines the root node of the XML data. This becomes more important if TrakSYS is sending the Payload, as this content gets added to the file when it’s built.
+
+## Slide 8
+
+Field Definitions
+
+Payload Definitions
+
+Generate Automatically via Import
+Payload Definitions and their Fields can be generated automatically via the Import option. Fields will be automatically assigned a data type which can later be changed through configuration.
+Create Manually
+Instead of importing a sample payload, a Payload Definition can be manually created and Field Definitions can be manually added to it. 
+Nesting
+Fields can be nested into nodes that are then automatically giving the type of Object for referencing in script.
+
+## Slide 9
+
+Field Definition Configuration
+
+Payload Definitions
+
+Name
+Name of the field.  (non-programmatic)
+Key
+Unique identifier of the field. This is important as it will be used to reference the field in script.
+List
+Whether of not the field is a list node.
+Source Path
+Specifies the actual field name in the payload.
+Required Mode
+Whether or not the field is required to be included in the payload.
+Data Type
+Type of data: Object, String, Integer, Double, Boolean, Date Time, Date Time Offset, Enum, Long.
+Format String
+Applies specific string formatting to the data. Commonly use with dates.
+
+## Slide 10
+
+Payload Definitions Creation via Import
+
+## Slide 11
+
+Classes & Objects
+
+Payload Definitions
+
+Upon Payload Definition creating in TrakSYS, a Class (the Key of the Payload Definition) is created for use in scripts.
+Utilizing the newly created methods and classes in TrakSYS, the payload can be converted into the object model for processing. 
+The same works in reverse. TrakSYS contains methods for converting to and from message to Payload.
+
+## Slide 12
+
+Example CSV Payload and Code
+
+Payload Definitions
+
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+Payload (CSV) 
+siteId,areaId,areaName
+1,1,Cutting
+1,2,Heading
+1,3,Threading
+1,4,Cleaning
+1,5,Packaging
+
+Script 
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+var r = new Result<InterfaceFilePullPostModelLoadedInfo<List<PdArea>>>();
+var info = context.CreateInfoObject();
+
+foreach (PdArea entity in info.MessageModel) {
+	var areaModel = new ETS.Core.Api.Models.Data.DbArea();  
+
+	areaModel.SiteID = entity.siteId;
+	areaModel.Name = entity.areaName;
+	areaModel.AltName = entity.areaId.ToVariantString();
+
+	context.Api.Data.DbArea.Save.InsertAsNew(areaModel).ThrowIfFailed();
+}
+
+return r.AsSuccess(info);
+
+## Slide 13
+
+Example XML Payload and Code
+
+Payload Definitions
+
+Script 
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+var r = new Result<InterfaceFilePullPostModelLoadedInfo<PdPo>>();
+var info = context.CreateInfoObject();
+
+var jobModel3 = new ETS.Core.Api.Models.Data.DbJobDiscreteComposite();
+jobModel3.Name = info.MessageModel.name;
+jobModel3.ExternalID = info.MessageModel.name;
+jobModel3.Description = info.MessageModel.description;
+jobModel3.Notes = "Created Via Interface Plugin Script";
+jobModel3.Capture01 = context.InterfaceTransactionID.ToVariantString();         
+jobModel3.Capture02 = info.MessageModel.product; //product
+jobModel3.Capture03 = info.MessageModel.quantity.ToVariantString(); //order qty
+
+context.Api.Data.DbJobDiscreteComposite.Save.InsertAsNew(jobModel3).ThrowIfFailed();
+
+return r.AsSuccess(info);
+
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+Payload (XML) 
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<po> 
+	<id>1</id> 
+	<name>PO1</name> 
+	<description>Production order for 200 units</description> 
+	<product>ProductA</product> 
+	<quantity>200</quantity> 
+	<request>2023-05-20</request> 
+</po> 
+
+## Slide 14
+
+Example JSON Payload and Code
+
+Payload Definitions
+
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+Payload (JSON) 
+{ 
+	"ApplicationArea": 
+	{ 
+		"Sender": "SAP", 	
+		"Receiver": "TrakSYS" 
+	}, 
+	"DataArea": 
+		{ 						
+			"OrderRequestHeader": 
+			{ 				
+				"ID": 10, 
+				"StartTime": "2023-06-28", 
+				"EndTime": "2023-06-30", 
+				"CustomerRequestDate": "2023-07-15", 
+				"Product": "Adravil500", 
+				"Quantity": 2000, 
+				"OrderRequestLine": 
+					{ 
+						"ID": 10, 
+						"Material": "VitaminA", 
+						"MaterialQuantity": 2000, 
+						"PreferredWorkCenter": "TabletLine1" 
+					}, 
+				"BatchNumber": "PO-1001" 
+			}, 
+			"OrderType": "Production" 
+		} 
+} 
+
+Script 
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+var tid = ctx.Args["ETS.InterfaceTransactionID"].ToString().AsInt();
+var trans = ctx.Api.Data.DbInterfaceTransaction.Load.ByID(tid);
+var po = ctx.Api.Connect.Payloads.JsonpojsonPayloadToModel(trans.MessagePayload,tid).Return;
+
+trans.EntityID = po.DataArea.OrderRequestHeader.ID;
+trans.EntityKey = po.DataArea.OrderRequestHeader.BatchNumber;
+
+// JOB CREATE BUSINESS LOGIC
+var job = new ETS.Core.Api.Models.Data.DbJobDiscreteComposite();
+
+job.Name = po.DataArea.OrderRequestHeader.BatchNumber;
+job.ExternalID = po.DataArea.OrderRequestHeader.BatchNumber;
+job.Description = po.ApplicationArea.Sender 
+	+ " >>> " 
+	+ po.ApplicationArea.Receiver 
+	+ ": " 
+	+ po.DataArea.OrderRequestHeader.Quantity 
+	+ " Units of " 
+	+ po.DataArea.OrderRequestHeader.Product;
+      
+var parsCustReqDate = DateTime.Parse(po.DataArea.OrderRequestHeader.CustomerRequestDate);
+job.PlannedStartDateTime = parsCustReqDate;
+
+job.Capture01 = ctx.Args["ETS.InterfaceTransactionID"].ToString(); //InterfaceTransactionID
+job.Capture02 = po.DataArea.OrderRequestHeader.Product; //Product
+job.Capture03 = po.DataArea.OrderRequestHeader.Quantity.ToVariantString(); //Quantity
+
+var result = ctx.Api.Data.DbJobDiscreteComposite.Save.InsertAsNew(job).ThrowIfFailed();
+
+trans.EndDateTime = ctx.Api.Util.DateAndTime.GetCurrentDateTimeForSiteID(1);
+
+ctx.Api.Data.DbInterfaceTransaction.Save.UpdateExisting(trans).ThrowIfFailed();
+
+## Slide 15
+
+Interface Definitions
+
+## Slide 16
+
+Overview
+
+Interface Definitions
+
+Interface Definitions are defined as the pipe, or the way TrakSYS will transmit or receive a Payload.
+There are a few types of Interface Definitions, including… 
+Web Service Endpoint
+Web Service Call
+File Push
+File Pull
+Others
+The Interface Definition Hub can be access from the Developer page nested under the Connect Hub. 
+Interface Definitions can be organized in Groups for organization and maintainability.
+
+## Slide 17
+
+Types of Interfaces
+
+Interface Definitions
+
+Web Service
+Endpoint / Call
+
+File Service
+Push / Pull
+
+## Slide 18
+
+Common Configuration
+
+Interface Definitions
+
+Linked Interface Definition
+Typically, a reference to a parent interface definition
+
+Massage Payload
+The incoming payload definition.
+
+Response Payload
+The outgoing payload definition.
+
+Complete Transaction in Success
+Whether or not the interface transaction status is set to success after receiving payload and triggering post process actions.
+
+Save Payload to Transaction
+Whether or not payload message gets stored in transaction record.
+
+Key
+Unique identifier of the Interface Definition. This is important as it will be used to reference the Interface Definition during data processing
+
+Name
+Name of Interface Definition.  (non-programmatic)
+
+Expiration Hours
+How log transaction will persist in database.
+Module Trigger Key
+DMS module to trigger after transaction.
+Process Definition Key
+Workflow process to trigger after transaction.
+
+## Slide 19
+
+Web Service Endpoint Configuration
+
+Interface Definitions
+
+Route
+Running location of the Web Service.
+HTTP Method
+Supported HTTP Methods: GET, POST, PUT, DELETE
+Permission Set Key
+Controls which user has permission to access the Web Service.
+Permission Item Key
+Controls which user has permission to access the Web Service.
+Permission Action Key
+Controls which user has permission to access the Web Service.
+
+## Slide 20
+
+Web Service Endpoint URL
+
+Interface Definitions
+
+Generated URL
+By clicking on the ‘Copy Endpoint URL’ button on the interface configuration screen, you’ll be able to see the webservice URL.
+
+## Slide 21
+
+Web Service Call Configuration
+
+Interface Definitions
+
+URL
+Running location of the webservice.
+HTTP Method
+Supported HTTP Methods: GET, POST, PUT, DELETE
+Bearer Token
+Token passed to an endpoint ensuring trusted connection.
+
+## Slide 22
+
+File Pull Configuration
+
+Interface Definitions
+
+Root Folder Path
+Location where file service is looking for named folders below.
+Login/Password
+Security context for folder access
+Source Folder Path
+Location where file service is looking for new files.
+Success Folder Path
+Location where file service will move successfully processed files.
+Failure Folder Path
+Location where file service will move unsuccessfully processed files.
+Search Pattern
+File name pattern file service will use when looking for new files.
+Max Files to Process
+Number of files to process during a single pull. (0 = no limit)
+
+## Slide 23
+
+File Push Configuration
+
+Interface Definitions
+
+Target Path
+Location where file service will place output file.
+Login/Password
+Security context for folder access
+Target File Name
+Name of file.
+
+## Slide 24
+
+Data Processing
+
+## Slide 25
+
+Options
+
+Data Processing
+
+DMS Module
+Post Process
+
+Workflow Process
+Post Process
+
+Script
+In-Line
+
+## Slide 26
+
+Considerations
+
+Data Processing
+
+Why
+Allows users to implement business logic in the interface. Common examples include the ability to merge data from a payload into a single field for mapping to TrakSYS entities.
+Parameters Passed
+When interfaces transactions trigger post process actions like DMS and Workflow. Some parameters are passed onto the next step as arguments, such as: Interface Definition ID, Interface Definition Key, and Interface Transaction ID.
+Orchestration Options
+	DMS
+	Ideal for processing a single interface transaction.
+	Workflow 
+	Ideal for organizing events around an interface transaction.
+	Plugin 
+	Ideal for interacting with the interface transaction data before it’s passed downstream and/or for processing synchronously.
+
+## Slide 27
+
+Data Interface Example
+
+## Slide 28
+
+ERP Sending PO to TrakSYS via Web Service
+
+Example
+
+ERP / Middleware
+TrakSYS Connect
+TrakSYS DMS
+TrakSYS Database
+ERP Source calls exposed TrakSYS Connect Web Service and passes a large payload of PO/BOMs.
+TrakSYS Connect Web Service receives the payload and saves it to Interface Transaction structures for later processing.
+TrakSYS Connect Web Service ends the call from the ERP Source indicating that the payload was received.
+TrakSYS Connect Web Service initiates an Async Trigger to fire a Data Management Service Module for processing the payload.
+DMS Module accesses the saved payload for the specified Interface Transaction.
+DMS Module processes the payload, validating business rules and creating the PO/BOM records in TrakSYS.
+DMS Module may optionally trigger a separate TrakSYS Connect Web Service Call Interface to message ERP and indicate the Success or Failure of the PO processing.
+TrakSYS Connect calls ERP hosted Web Service to pass async Success/Failure.
+
+## Slide 29
+
+ERP Sending PO to TrakSYS via Web Service
+
+Example
+
+ERP / Middleware
+TrakSYS Connect
+TrakSYS DMS
+TrakSYS Database
+ERP Source calls exposed TrakSYS Connect Web Service and passes a large payload of PO/BOMs.
+TrakSYS Connect Web Service receives the payload and saves it to Interface Transaction structures for later processing.
+TrakSYS Connect Web Service ends the call from the ERP Source indicating that the payload was received.
+TrakSYS Connect Web Service initiates an Async Trigger to fire a Data Management Service Module for processing the payload.
+DMS Module accesses the saved payload for the specified Interface Transaction.
+DMS Module processes the payload, validating business rules and creating the PO/BOM records in TrakSYS.
+DMS Module may optionally trigger a separate TrakSYS Connect Web Service Call Interface to message ERP and indicate the Success or Failure of the PO processing.
+TrakSYS Connect calls ERP hosted Web Service to pass async Success/Failure.
+
+## Slide 30
+
+ERP Sending PO to TrakSYS via Web Service
+
+Example
+
+ERP / Middleware
+
+TrakSYS Connect
+
+TrakSYS DMS
+
+TrakSYS Database
+
+ERP Source calls exposed TrakSYS Connect Web Service and passes a large payload of PO/BOMs.
+
+TrakSYS Connect Web Service receives the payload and saves it to Interface Transaction structures for later processing.
+
+TrakSYS Connect Web Service ends the call from the ERP Source indicating that the payload was received.
+
+TrakSYS Connect Web Service initiates an Async Trigger to fire a Data Management Service Module for processing the payload.
+
+DMS Module accesses the saved payload for the specified Interface Transaction.
+
+DMS Module processes the payload, validating business rules and creating the PO/BOM records in TrakSYS.
+
+DMS Module may optionally trigger a separate TrakSYS Connect Web Service Call Interface to message ERP and indicate the Success or Failure of the PO processing.
+
+TrakSYS Connect calls ERP hosted Web Service to pass async Success/Failure.
+
+## Slide 31
+
+ERP Sending PO to TrakSYS via Web Service
+
+Example
+
+ERP / Middleware
+TrakSYS Connect
+TrakSYS DMS
+TrakSYS Database
+ERP Source calls exposed TrakSYS Connect Web Service and passes a large payload of PO/BOMs.
+TrakSYS Connect Web Service receives the payload and saves it to Interface Transaction structures for later processing.
+TrakSYS Connect Web Service ends the call from the ERP Source indicating that the payload was received.
+TrakSYS Connect Web Service initiates an Async Trigger to fire a Data Management Service Module for processing the payload.
+DMS Module accesses the saved payload for the specified Interface Transaction.
+DMS Module processes the payload, validating business rules and creating the PO/BOM records in TrakSYS.
+DMS Module may optionally trigger a separate TrakSYS Connect Web Service Call Interface to message ERP and indicate the Success or Failure of the PO processing.
+TrakSYS Connect calls ERP hosted Web Service to pass async Success/Failure.
+
+## Slide 32
+
+ERP Sending PO to TrakSYS via Web Service
+
+Example
+
+ERP / Middleware
+TrakSYS Connect
+TrakSYS DMS
+TrakSYS Database
+ERP Source calls exposed TrakSYS Connect Web Service and passes a large payload of PO/BOMs.
+TrakSYS Connect Web Service receives the payload and saves it to Interface Transaction structures for later processing.
+TrakSYS Connect Web Service ends the call from the ERP Source indicating that the payload was received.
+TrakSYS Connect Web Service initiates an Async Trigger to fire a Data Management Service Module for processing the payload.
+DMS Module accesses the saved payload for the specified Interface Transaction.
+DMS Module processes the payload, validating business rules and creating the PO/BOM records in TrakSYS.
+DMS Module may optionally trigger a separate TrakSYS Connect Web Service Call Interface to message ERP and indicate the Success or Failure of the PO processing.
+TrakSYS Connect calls ERP hosted Web Service to pass async Success/Failure.
+
+## Slide 33
+
+ERP Sending PO to TrakSYS via Web Service
+
+Example
+
+ERP / Middleware
+TrakSYS Connect
+TrakSYS DMS
+TrakSYS Database
+ERP Source calls exposed TrakSYS Connect Web Service and passes a large payload of PO/BOMs.
+TrakSYS Connect Web Service receives the payload and saves it to Interface Transaction structures for later processing.
+TrakSYS Connect Web Service ends the call from the ERP Source indicating that the payload was received.
+TrakSYS Connect Web Service initiates an Async Trigger to fire a Data Management Service Module for processing the payload.
+DMS Module accesses the saved payload for the specified Interface Transaction.
+DMS Module processes the payload, validating business rules and creating the PO/BOM records in TrakSYS.
+DMS Module may optionally trigger a separate TrakSYS Connect Web Service Call Interface to message ERP and indicate the Success or Failure of the PO processing.
+TrakSYS Connect calls ERP hosted Web Service to pass async Success/Failure.
+
+## Slide 34
+
+ERP Sending PO to TrakSYS via Web Service
+
+Example
+
+ERP / Middleware
+TrakSYS Connect
+TrakSYS DMS
+TrakSYS Database
+ERP Source calls exposed TrakSYS Connect Web Service and passes a large payload of PO/BOMs.
+TrakSYS Connect Web Service receives the payload and saves it to Interface Transaction structures for later processing.
+TrakSYS Connect Web Service ends the call from the ERP Source indicating that the payload was received.
+TrakSYS Connect Web Service initiates an Async Trigger to fire a Data Management Service Module for processing the payload.
+DMS Module accesses the saved payload for the specified Interface Transaction.
+DMS Module processes the payload, validating business rules and creating the PO/BOM records in TrakSYS.
+DMS Module may optionally trigger a separate TrakSYS Connect Web Service Call Interface to message ERP and indicate the Success or Failure of the PO processing.
+TrakSYS Connect calls ERP hosted Web Service to pass async Success/Failure.
+
+## Slide 35
+
+ERP Sending PO to TrakSYS via Web Service
+
+Example
+
+ERP / Middleware
+TrakSYS Connect
+TrakSYS DMS
+TrakSYS Database
+ERP Source calls exposed TrakSYS Connect Web Service and passes a large payload of PO/BOMs.
+TrakSYS Connect Web Service receives the payload and saves it to Interface Transaction structures for later processing.
+TrakSYS Connect Web Service ends the call from the ERP Source indicating that the payload was received.
+TrakSYS Connect Web Service initiates an Async Trigger to fire a Data Management Service Module for processing the payload.
+DMS Module accesses the saved payload for the specified Interface Transaction.
+DMS Module processes the payload, validating business rules and creating the PO/BOM records in TrakSYS.
+DMS Module may optionally trigger a separate TrakSYS Connect Web Service Call Interface to message ERP and indicate the Success or Failure of the PO processing.
+TrakSYS Connect calls ERP hosted Web Service to pass async Success/Failure.
+
+## Slide 36
+
+ERP Sending PO to TrakSYS via Web Service
+
+Example
+
+ERP / Middleware
+TrakSYS Connect
+TrakSYS DMS
+TrakSYS Database
+ERP Source calls exposed TrakSYS Connect Web Service and passes a large payload of PO/BOMs.
+TrakSYS Connect Web Service receives the payload and saves it to Interface Transaction structures for later processing.
+TrakSYS Connect Web Service ends the call from the ERP Source indicating that the payload was received.
+TrakSYS Connect Web Service initiates an Async Trigger to fire a Data Management Service Module for processing the payload.
+DMS Module accesses the saved payload for the specified Interface Transaction.
+DMS Module processes the payload, validating business rules and creating the PO/BOM records in TrakSYS.
+DMS Module may optionally trigger a separate TrakSYS Connect Web Service Call Interface to message ERP and indicate the Success or Failure of the PO processing.
+TrakSYS Connect calls ERP hosted Web Service to pass async Success/Failure.
+
+## Slide 37
+
+Logging
+
+## Slide 38
+
+Overview
+
+Logging
+
+Built in logging for every interface transaction.
+Filter transactions to locate for monitoring and troubleshooting.
+Transaction specific view and retry actions.
+View transmitted payload for monitoring and troubleshooting.
+
+## Slide 39
+
+Transaction vs Log
+
+Logging
+
+tInterfaceTransaction
+Top level information for the transaction.  One entry for every call or receive.
+tInterfaceTransactionLog
+Child information concerning a specific transaction.
+
+## Slide 40
+
+Content Pages
+
+Logging
+
+Interface Transaction Viewer
+Standard log page specific to an Interface Definition
+Payload Viewer
+Standard view payload page. Note: this page is already referenced as part of the Interface Transaction Viewer page.
+
+## Slide 41
+
+Transaction Log Page Overview
+
+Logging
+
+Filters
+Standard table filtering functions.
+Transactions
+List of interface transactions associated with the interface definition referencing in the page properties
+Details
+More information from the transaction when its row is clicked on.
+Logs
+A sub-log for the interface transaction where additional messages about the transaction can be stored and viewed.
+
+## Slide 42
+
+Transaction Log Page Configuration
+
+Logging
+
+Interface Definition ID
+Interface for which the page with reference when displaying information.
+Action Links
+A set of up to 5 links that can be added to the transaction view table. These links will have access to transaction specific details and can use those as parameters when loading pages.
+
+## Slide 43
+
+Transaction Log Walkthrough

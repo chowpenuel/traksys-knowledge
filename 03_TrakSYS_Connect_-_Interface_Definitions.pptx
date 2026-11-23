@@ -1,0 +1,138 @@
+## Slide 1
+
+Interface Definitions
+
+## Slide 2
+
+Overview
+
+Interface Definitions
+
+Interface Definitions are defined as the pipe, or the way TrakSYS will transmit or receive a Payload.
+There are a few types of Interface Definitions, including: 
+Web Service Endpoint
+Web Service Call
+File Push
+File Pull
+Others
+The Interface Definition Hub can be accessed from the Developer page nested under the Connect Hub. 
+Interface Definitions can be organized in Groups for organization and maintainability.
+
+## Slide 3
+
+Types of Interfaces
+
+Interface Definitions
+
+Web Service
+Endpoint / Call
+
+File Service
+Push / Pull
+
+## Slide 4
+
+Common Configuration
+
+Interface Definitions
+
+Linked Interface Definition
+Typically, a reference to a parent interface definition
+
+Massage Payload
+The incoming payload definition
+
+Response Payload
+The outgoing payload definition
+
+Complete Transaction in Success
+Whether or not the interface transaction status is set to success after receiving payload and triggering post process actions.
+
+Save Payload to Transaction
+Whether or not payload message gets stored in transaction record
+
+Key
+Unique identifier of the Interface Definition. This is important as it will be used to reference the Interface Definition during data processing.
+
+Name
+Name of Interface Definition (non-programmatic)
+
+Expiration Hours
+How log transaction will persist in database
+Module Trigger Key
+DMS module to trigger after transaction
+Process Definition Key
+Workflow process to trigger after transaction
+
+## Slide 5
+
+Web Service Endpoint Configuration
+
+Interface Definitions
+
+Route
+Running location of the Web Service
+HTTP Method
+Supported HTTP Methods: GET, POST, PUT, DELETE
+Permission Set Key
+Controls which user has permission to access the Web Service
+Permission Item Key
+Controls which user has permission to access the Web Service
+Permission Action Key
+Controls which user has permission to access the Web Service
+
+## Slide 6
+
+Web Service Endpoint URL
+
+Interface Definitions
+
+Generated URL
+By clicking on the ‘Copy Endpoint URL’ button on the interface configuration screen, you’ll be able to see the webservice URL.
+
+## Slide 7
+
+Web Service Call Configuration
+
+Interface Definitions
+
+URL
+Running location of the webservice
+HTTP Method
+Supported HTTP Methods: GET, POST, PUT, DELETE
+Bearer Token
+Token passed to an endpoint ensuring trusted connection
+
+## Slide 8
+
+File Pull Configuration
+
+Interface Definitions
+
+Root Folder Path
+Location where file service is looking for named folders below
+Login/Password
+Security context for folder access
+Source Folder Path
+Location where file service is looking for new files
+Success Folder Path
+Location where file service will move successfully processed files
+Failure Folder Path
+Location where file service will move unsuccessfully processed files
+Search Pattern
+File name pattern file service will use when looking for new files
+Max Files to Process
+Number of files to process during a single pull (0 = no limit)
+
+## Slide 9
+
+File Push Configuration
+
+Interface Definitions
+
+Target Path
+Location where file service will place output file
+Login/Password
+Security context for folder access
+Target File Name
+Name of file

@@ -1,0 +1,95 @@
+## Slide 1
+
+Content Parts: Filter Parts
+
+## Slide 2
+
+Review | Types and Initialization Order
+
+Each part on a page has an Initialization Order integer setting.  In general parts fall into one of three categories.
+Filter Parts
+Order = 2.  Retrieve information from a User and pass on to other Parts to use.
+Data Provider Parts
+Order = 5.  Consume filter information and other values, retrieve data from the TrakSYS database or other source.  Pass data on to other Parts to use.
+Data Consumer Parts
+Order = 10.  Retrieve data from providers and format for display to the user interface.
+The Initialization Order of a part can be modified for special situations.
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 3
+
+Content Parts | Common Filter Properties
+
+Have a Caption to describe the Filter
+Target Values Key determines how the part Reads and Writes to the Values Dictionary
+Additional Formatting properties determine the appearance
+Includes the TextBox and Checkbox filters
+
+Filters
+Data Providers
+Data Consumers
+
+Properties Example
+Rendering
+SomeKey = ‘Default Value’
+Values Dictionary
+
+## Slide 4
+
+Content Parts | Data-Driven Filters
+
+Have similar properties to Basic Filters
+Requires a Data table for their Source Values Key
+Use Row-Based Expression Syntax for their display properties
+Includes Drop Downs, Check Lists, Tree Views and more
+
+Filters
+Data Providers
+Data Consumers
+
+Properties Example
+Values Dictionary
+Products = ‘6760,6759,6755’
+Rendering
+
+## Slide 5
+
+Content Parts | Date/Time Filter
+
+Can be configured for Date or Date/Time Mode
+Emits selected range to the Values Dictionary as two pairs
+Produces multiple Values Dictionary Keys all with an identified Prefix
+
+Filters
+Data Providers
+Data Consumers
+
+SD = 2019-01-01
+ED = 2019-12-31
+SDT = 2019-01-01 00:00:00
+EDT = 2020-01-01 00:00:00
+Values Dictionary
+Properties Example
+Rendering
+
+## Slide 6
+
+Content Parts | Refresh Filter Button
+
+Necessary when using Filter Parts
+After the User modifies Filter Values, this special Refresh button collects Filter values and re-navigates (GET) to the current Page passing the Filter values on the QueryString.
+
+Filters
+Data Providers
+Data Consumers
+
+## Slide 7
+
+A Simple Filter
+
+## Slide 8
+
+Multiple Filters and Filters with Data Providers

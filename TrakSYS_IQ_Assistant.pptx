@@ -1,0 +1,285 @@
+## Slide 1
+
+TrakSYS IQ Assistant
+
+## Slide 2
+
+Introduction
+
+Natural Language access to TrakSYS Data
+Supports OEE, Events, Orders, Material Data, and much more
+Generates summaries, insights, and charts
+Read-only access to data (no data modification)
+
+## Slide 3
+
+Introduction
+
+Natural Language access to TrakSYS Data
+Supports OEE, Events, Orders, Material Data, and much more
+Generates summaries, insights, and charts
+Read-only access to data (no data modification)
+
+## Slide 4
+
+Topics & Capabilities
+
+Tasks
+When was the last Labeler PM task completed on Line 1?
+Inventory
+Create a chart showing the materials and quantities located in shipping.
+Materials
+List materials and quantities one batch of Adravil 500 consumes?
+Recall
+There's been a recall on Vitamin A Show me orders I need to quarantine.
+Orders
+What do you suggest I prioritize to mitigate the impact of shortages?
+Events
+What are the top causes for downtime at my site?
+Journals
+Any recent concerning journal entries I should be aware of?
+Production
+What's the typical output quantity per day for my site?
+Equipment & Areas
+Can you provide a list of the Site, Area, System hierarchy for my Site?
+
+Ask about everything* from “What was OEE yesterday?” to “Which machine is causing the most downtime?” 
+
+## Slide 5
+
+Topics & Capabilities
+
+Inventory
+Create a chart showing the materials and quantities located in shipping.
+Tasks
+When was the last Labeler PM task completed on Line 1?
+Recall
+There's been a recall on Vitamin A Show me orders I need to quarantine.
+Events
+What are the top causes for downtime at my site?
+Production
+What's the typical output quantity per day for my site?
+Orders
+What do you suggest I prioritize to mitigate the impact of shortages?
+Materials
+List materials and quantities one batch of Adravil 500 consumes?
+Journals
+Any recent concerning journal entries I should be aware of?
+Equipment & Areas
+Can you provide a list of the Site, Area, System hierarchy for my Site?
+
+## Slide 6
+
+Topics & Capabilities
+
+Inventory
+Create a chart showing the materials and quantities located in shipping.
+Tasks
+When was the last Labeler PM task completed on Line 1?
+Recall
+There's been a recall on Vitamin A Show me orders I need to quarantine.
+Events
+What are the top causes for downtime at my site?
+Production
+What's the typical output quantity per day for my site?
+Orders
+What do you suggest I prioritize to mitigate the impact of shortages?
+Materials
+List materials and quantities one batch of Adravil 500 consumes?
+Journals
+Any recent concerning journal entries I should be aware of?
+Equipment & Areas
+Can you provide a list of the Site, Area, System hierarchy for my Site?
+
+## Slide 7
+
+Ask IQ Assistant About Everything…
+
+Ask about everything* from “What was OEE yesterday?” to “Which machine is causing the most downtime?” 
+
+## Slide 8
+
+High-Level Architecture
+
+MES / MOM Data Collection
+
+Azure Cloud
+AI Services
+
+TrakSYS Users
+
+TrakSYS Cloud
+TrakSYS IQ
+
+TrakSYS
+TrakSYS IQ
+
+Interact with TrakSYS Data
+
+Explore with Natural Language
+
+Leverage General LLM Knowledgebase
+
+Minimal Data Flow to Cloud
+
+Azure Region Backed Governance
+
+Secure Data Access with Roles
+
+Sure! Here's a summary of key events that have occurred at the plant over the last two weeks, grouped by areas, systems, major events, and shifts. I’ll break down the events to make them easy to follow…
+TrakSYS
+
+## Slide 9
+
+Data Privacy & Security
+
+Encrypted communication
+
+Local Queries – no data lake necessary
+
+Isolated per-customer AI instance in the Azure Cloud
+
+Microsoft Azure compliance
+Encrypted communication
+
+Private, per-customer AI instance
+
+No global data sharing or model training
+
+Role-based permissions enforced
+Threads are user specific.
+
+## Slide 10
+
+Data Privacy & Security
+
+Encrypted communication
+
+Local Queries – no data lake necessary
+
+Isolated per-customer AI instance in the Azure Cloud
+
+Microsoft Azure compliance
+Encrypted communication
+
+Private, per-customer AI instance
+
+No global data sharing or model training
+
+Role-based permissions enforced
+Threads are user specific.
+
+## Slide 11
+
+Pre-Requisites
+
+TrakSYS 14
+TrakSYS Agent
+TrakSYS Cloud connection enabled (port 80 and 443 inbound and outbound)
+Outbound HTTPS access required
+Licensed IQ Assistant module
+User roles and permissions configured
+
+TrakSYS 14
+
+TrakSYS Agent
+
+TrakSYS Cloud connection enabled (port 80 and 443 inbound and outbound)
+
+Outbound HTTPS access required
+
+Licensed IQ Assistant module
+
+User roles and permissions configured
+
+## Slide 12
+
+Pre-Requisites
+
+TrakSYS 14
+
+TrakSYS Agent
+
+TrakSYS Cloud connection enabled (port 80 and 443 inbound and outbound)
+
+Outbound HTTPS access required
+
+Licensed IQ Assistant module
+
+User roles and permissions configured
+
+## Slide 13
+
+Setup & Configuration
+
+## Slide 14
+
+Setup & Configuration
+
+## Slide 15
+
+Setup & Configuration
+
+## Slide 16
+
+Setup & Configuration
+
+## Slide 17
+
+Examples – Conversational Analytics
+
+Ask about Material and Inventory Shortages
+Identify Trends and Key Impacts
+
+Identify Operations Impact
+Draft communications and start Workflows
+
+## Slide 18
+
+Examples – Charting & Visualization
+
+Add Chart Features
+
+Basic Line Chart
+
+Color-Coding Data Points
+
+Adding Trend Line
+
+Extending Trend Line Prediction
+
+## Slide 19
+
+Management via TS Cloud
+
+## Slide 20
+
+Management via TS Cloud
+
+## Slide 21
+
+Best Practices
+
+Question is passed to TrakSYS Assistant
+If necessary, Query is built and executed to collect relevant Data.
+Data is processed into a readable response
+
+Be Clear and Specific
+
+Validate Responses using the Tools
+
+Change Threads when Changing Topics
+
+## Slide 22
+
+Best Practices
+
+Question is passed to TrakSYS Assistant
+If necessary, Query is built and executed to collect relevant Data.
+Data is processed into a readable response
+
+Be Clear and Specific
+
+Validate Responses using the Tools
+
+Change Threads when Changing Topics

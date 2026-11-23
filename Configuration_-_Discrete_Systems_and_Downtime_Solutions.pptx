@@ -1,0 +1,166 @@
+## Slide 1
+
+Discrete Systems
+
+## Slide 2
+
+Review – Discrete Systems
+
+Used to model Manufacturing Equipment which produce / process Discrete Items (Cans, Cases, Widgets, etc…)
+May represent a Production Line (S95), or Work Cell (S95) / Individual Equipment (e.g. Packaging Line, Labeler, Caser, Sealer, etc…)
+May include Sub-Systems (Work Cells) to represent smaller components within the main System
+Contain child configuration elements to model Stoppages, Tasks, SPC Sampling and KPI Calculations 
+
+## Slide 3
+
+Sub-Systems
+
+Allows for organizing and grouping Event Definitions by smaller pieces of a larger System (Equipment on a Line)
+Settings applied at the System level effect all Event Definitions defined within the System
+Settings applied at the Sub-System override similar settings at the System Level
+Grouping Event Definitions in Sub-Systems does NOT effect Triggering or Priority Logic
+
+## Slide 4
+
+Discrete System Properties 
+
+Event Split settings allow Events to be automatically End and Restart Events when specific transitions occur…
+Day Change
+Shift Change
+Job Change
+Specify how Events behave in Display and Categorization User Interfaces
+Allow Interaction
+Display Delay
+Auto Acknowledge
+
+## Slide 5
+
+Event Definitions
+
+## Slide 6
+
+Review - Event Definitions 
+
+Packaging Line 1
+Filler
+Changeover
+Jam
+Tipped Bottle
+Labeler
+Jam
+No Labels
+Event Records
+Event Definition
+
+Represent configurable data entry fields to be collected during execution of a specific Event
+An Event represents a span of time (typically downtime) associated with a specific asset (System)
+Configurable at the System OR Sub-System Level
+A Discrete Trigger Tag property indicates when an Event Starts and Ends
+
+Configuration
+
+Loaded and executed by the Logic Service
+Events contain reference to related information such as Job, Batch, Product, Shift, OEE Type, Category, etc…
+Only one Event at a time can be active for a given System 
+
+Execution
+
+## Slide 7
+
+Event Definition Properties 
+
+By default, only one Event Definition can be active on a System
+Subsequent triggered Events are recorded as Sub-Events related to the primary active Event
+Event Definitions settings control how the active Event is determined when multiple Triggers are active at the same time… 
+Trigger Tag
+Priority
+Re-Evaluate System Event on Start/End
+Isolation Type
+
+## Slide 8
+
+Example 1 | No Re-Evaluation
+
+## Slide 9
+
+Example 2 | Re-Evaluate on Start
+
+## Slide 10
+
+Example 3 | Re-Evaluate on End
+
+## Slide 11
+
+Example 4 | Mixed Re-Evaluation
+
+## Slide 12
+
+Comparison
+
+None
+
+Start
+
+End
+
+Mixed
+
+## Slide 13
+
+Event Configuration
+
+## Slide 14
+
+Event Categories
+
+## Slide 15
+
+Event Categories 
+
+Hierarchical list (up to 10 levels) of reasons or descriptions that may be manually assigned to Events
+Provides details about Events that cannot be automatically determined from the Process Automation
+Categories can be defined to be used for specific Event Definitions, or can be added as Global (available to all Event Definitions)
+
+## Slide 16
+
+Event Categories 
+
+Optional Event Codes and OEE Types can be related to each Event Category
+Event Codes are associated with higher level Business Classifications
+OEE Types follow the standard OEE and TEEP groupings and are used by KPI Calculations
+These concepts will be revisited in the modules relating to KPI Calculations and Event Reporting
+
+## Slide 17
+
+Event Category Assignment
+
+Relate Event Category Groups (collections of Categories) with a…
+System
+Sub-System
+Event Definition
+An Event will display Event Categories from a combination of all assignments from its related Entities
+Global type Event Category Groups will be displayed for every Event
+
+## Slide 18
+
+Event Categorization
+
+## Slide 19
+
+Event Extensibility
+
+## Slide 20
+
+Event Script Events 
+
+The following transitions are monitored by the Logic Service for Event records…
+On Start
+On End
+On OEE Type Changed
+TrakSYS allows for these transitions to be used to trigger real-time functionality such as…
+Email Notifications
+Entity Script Class Events
+
+## Slide 21
+
+Event Data Structures

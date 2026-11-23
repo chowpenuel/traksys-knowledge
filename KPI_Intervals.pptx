@@ -1,0 +1,101 @@
+## Slide 1
+
+KPI Interval Extensibility
+
+## Slide 2
+
+KPI Calculation for Non-OEE
+
+KPI Interval Extensibility
+
+While KPI Calculations are typically used to capture the raw data needed to tabulate OEE KPIs, they are also very useful for capturing the building blocks for nearly any production related KPI.
+
+Intervals
+KPI data is collected and stored in an Interval table called tOeeInterval (named for OEE, the most common KPI used).
+
+Columns
+The Interval table contains columns for nearly every related entity for report grouping and filtering within a production environment including...
+System
+Date / Time
+Job
+Product
+Batch
+Shift
+Team
+More…
+
+Time (Events)
+The KPI engine within Logic Track automatically rolls up Event occurrences and stores them in standard time bucket columns including…
+Legal Loss
+System Not Scheduled
+Availability Loss
+Performance Loss
+
+Flow (Counters)
+The KPI Counter configuration and mechanism can be used to monitor a constantly increasing flow Tag and intelligently accumulate incrementation within each Interval.  Uses include…
+Production Counts
+Flow of Material
+Utility (WAGES) Meters
+
+## Slide 3
+
+KPI Calculation for Non-OEE
+
+KPI Interval Extensibility
+
+While KPI Calculations are typically used to capture the raw data needed to tabulate OEE KPIs, they are also very useful for capturing the building blocks for nearly any production related KPI.
+
+Intervals
+KPI data is collected and stored in an Interval table called tOeeInterval (named for OEE, the most common KPI used).
+
+Columns
+The Interval table contains columns for nearly every related entity for report grouping and filtering within a production environment including...
+System
+Date / Time
+Job
+Product
+Batch
+Shift
+Team
+More…
+
+Time (Events)
+The KPI engine within Logic Track automatically rolls up Event occurrences and stores them in standard time bucket columns including…
+Legal Loss
+System Not Scheduled
+Availability Loss
+Performance Loss
+
+Flow (Counters)
+The KPI Counter configuration and mechanism can be used to monitor a constantly increasing flow Tag and intelligently accumulate incrementation within each Interval.  Uses include…
+Production Counts
+Flow of Material
+Utility (WAGES) Meters
+
+Intervals
+KPI data is collected and stored in an Interval table called tOeeInterval (named for OEE, the most common KPI used).
+
+## Slide 4
+
+Interval Capture and Seconds Fields
+
+KPI Interval Extensibility
+
+For situations where the standard Interval columns are not adequate or additional values or accumulations need to be stored, the tOeeInterval table includes 20 extensibility columns.  Capture for string values (Capture01 – Capture10) and Seconds for integer values (Seconds01 – Seconds10).
+
+The following are the recommended strategies for populating these extensibility columns…
+
+Logic Service Scripting
+Logic-driven, real-time business rules to calculate capture values can be implemented as System Script Classes executed within the Logic Service.  The following methods can be overridden to use the API to update the current Interval record as its created, update and ended in real time…
+PostScanOeeIntervalStart
+Fires just after an Interval is created.
+PostScanOeeIntervalUpdate
+Fires each time an Interval is updated (usually every minute).
+PostScanOeeIntervalEnd
+Fires just after an Interval ends.
+
+spUpdateOeeInterval
+For updates to the extensibility columns at the database level, custom SQL added to the following stored procedures will be executed each time an Interval is updated…
+spUpdateOeeInterval_Extension
+spUpdateOeeInterval_ExtensionTable
+There are various built-in SQL functions that aid in tabulating different types of Events that may cover the Interval.

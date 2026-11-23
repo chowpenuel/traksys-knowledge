@@ -1,0 +1,73 @@
+## Slide 1
+
+Advanced Script Tags
+
+## Slide 2
+
+Advanced Script Tags
+
+Produce a value using an embedded .NET Script
+Simple
+Single-Line expression written in VB.NET
+Advanced
+Multi-Line function written in C#.NET
+Must return a value of the Data Type assigned to the Tag
+May reference other Tags in the Configuration
+this.Tags
+Collection of objects for all Tags loaded and evaluated by the Logic Service
+this.Context
+Includes methods for creating Tag History or Sample Sub-Group data, writing values to Virtual Tags, and retrieving Data Tables from the TrakSYS Database
+
+## Slide 3
+
+Advanced Script Tag Example
+
+Example of a Tag that will return 1 if a Line…
+Job is NOT Running
+Is within a scheduled Period
+And is waiting on Tasks to be Completed
+
+## Slide 4
+
+Example Advanced Script Tag
+
+## Slide 5
+
+Logic Service Script Classes
+
+## Slide 6
+
+Logic Service Script Classes
+
+Allows for development of C#.NET Classes
+Standard Scripts
+C# classes for implementing utility Functions
+Instanced and called from Script Tags / Script Classes
+Entity Scripts
+Implement special functionality for select configuration entities (Systems, Event Definitions, Task Definitions, etc…)
+Methods triggered by entity behavior (Logic Service Scan, Job Start/End, Event Start/End, etc…)
+Classes must be explicitly assigned to Entities
+
+## Slide 7
+
+Standard Script Class Example
+
+Example of a Task Utility Class that will lookup the number of Open (incomplete) Tasks that are currently in progress for a specified Line (specified by System Key).
+
+## Slide 8
+
+Entity Script Class Example
+
+Example of a System Script Class that runs whenever a Task is Late. The first two times the task is late, the Task’s UserState is changed. The third time it is late, the Task automatically fails, and a notification will  be sent.
+
+## Slide 9
+
+Entity Script Class Assignment
+
+Script Classes are assigned using the .NET Class Name
+Class Name is added to the Script Class Name property in the Advanced Tab (for the target entity)
+Multiple Script Classes can be assigned to a single Entity ( separate Class Names with a semi-colon ; )
+
+## Slide 10
+
+Example Logic Service Scripting

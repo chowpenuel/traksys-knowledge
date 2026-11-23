@@ -1,0 +1,279 @@
+## Slide 1
+
+Visual Workflow Overview
+
+## Slide 2
+
+Concept Overview
+
+Definition of Workflow
+A sequence of processes that create or add value
+Example Workflow
+When a Job Ends, set a Job on hold, schedule a QC check, and notify the QC team.
+If the QC check is late, re-notify the QC team.
+When the Task is completed, update the Job Status and continue the process.
+
+## Slide 3
+
+Implied Workflow
+
+Production Monitoring
+Detect Job completion and similar triggers.
+Scripting and CPI
+Business rule logic, decision making, timing, state storage and execution.
+Task Management
+Define required tasks, inputs and triggers.
+Electronic Forms
+Form user interfaces and data structures.
+Messaging and Notification
+Define messages, user groups, and send notifications.
+
+## Slide 4
+
+Visual Workflow
+
+## Slide 5
+
+Workflow Service
+
+Decision Control and Orchestration Engine
+Executes Processes over long periods of time
+Records Process Logs and execution history
+Designed to be stateless to withstand restarts and outages without disrupting business logic
+Supports versioning and parallel execution of Processes
+
+Supports Multiple and/or Distributed Instances
+
+## Slide 6
+
+Process Definitions
+
+Represent configurable workflows to be executed
+A Process represents an execution of a workflow with associated set of logs and history records
+Processes consist of a set of Process Steps that determine the logical flow and sequences
+Each Process can be provided a set of parameters for use in the workflow logic
+A DbProcessSinkStart record determines when a Process is started.
+
+Configuration
+
+Loaded and executed by the Workflow Service
+Processes contain reference to execution information such as ProcessSteps, ProcessLogs, ProcessParameters, etc…
+Multiple executions of a Process Definition can be active at once, and each could be a different version
+
+Execution
+
+## Slide 7
+
+Process Definitions: Examples
+
+Concept: 
+Route product information to multiple users for input and approval
+Escape Logic: 
+None
+Parameters:
+Product ID
+
+Concept: 
+Check for inventory allocated to a job, schedule and verify inventory movement
+Escape Logic: 
+Job is rescheduled
+Parameters:
+Job ID
+
+Concept: 
+Send notifications to increasingly larger groups after set intervals
+Escape Logic: 
+Triggering workflow kills the process
+Parameters:
+Notification Target IDs
+Interval Durations
+
+Product Approval
+
+Inventory Processing
+
+Notification Escalations
+
+## Slide 8
+
+Workflow Scenarios
+
+Finite Lifespans
+Processes that do not run indefinitely
+
+Complex Decision Logic
+Processes with multiple paths that benefit from visualization
+
+Waiting
+Processes that require User Interactions to proceed
+
+## Slide 9
+
+Visual Workflow Configuration
+
+## Slide 10
+
+Process Definitions
+
+A Process Definition is a collection of business logic that will be executed by the Workflow Service
+Process Definitions support versioning, with the ability to create drafts and to activate/retire versions.
+Processes can be Started and Stopped through API Calls. 
+Multiple instances of a Process can be running in parallel. Each Process will have independent data and parameters.
+
+## Slide 11
+
+Visual Designer
+
+The Visual Designer provides an interface that eliminates the need to examine script to understand a Workflow
+Process Step Definitions can be dragged onto the Visual Designer from the Step Catalogue
+Process Path Definitions can be created by dragging Connection Points from one Process Step to another
+Containers and Notes can be added to provide comments or additional visual indicators
+
+## Slide 12
+
+Step Types
+
+Pre-Defined Steps exist for common functionality including:
+Waiting for certain Entity updates
+Waiting a set amount of time, or for a specific time
+Sending Notifications
+Creating or Waiting for Tasks
+Reading/Writing Tag Values
+Starting or Waiting for other Processes
+Developer Script and SQL parts exist for extensibility
+
+## Slide 13
+
+Process Step Definitions
+
+A Process Step is a distinct set of logic that is run within a parent Process Definition
+Each Process Step has configurable options based upon the type of Step
+Process Steps can output information to the next step in the Process
+Process Steps can read information from the previous step in the Process
+
+## Slide 14
+
+Step Outputs
+
+Each Process Step will produce certain common outputs as well as specifics outputs for the Step Type
+Process Step outputs automatically can be used by the next step in the process
+Process Step outputs can also be mapped to Process Parameters for use later in the Process
+
+## Slide 15
+
+Paths and Symbols
+
+A Process Path Definition is used to connect two Process Step Definitions
+A Process Step Definition can have multiple inbound and/or outbound paths
+For each Process Path Definition, conditional requirements can be set to determine when that Path is used
+Based upon the inbound and outbound paths, symbols are added to the Process Step Definition to visually identify the resulting logic
+
+Multiple inbound paths
+Multiple outbound paths
+Conditional outbound paths
+
+## Slide 16
+
+Process Parameter Definitions
+
+Process Parameters Definitions identify values that need to be maintained throughout an entire Process
+Process Steps will be able to read/write Parameter values
+Each instance of a Process will have independent values for each Parameter definitions
+
+## Slide 17
+
+Configuring a Workflow
+
+## Slide 18
+
+Visual Workflow Execution
+
+## Slide 19
+
+Starting Processes
+
+A Process can be started…
+
+… through standard pages for testing
+
+… through standard API for execution
+
+## Slide 20
+
+Process Visualization
+
+Workflows Related to Manufacturing Entities
+Real-Time view of a Specific Process Execution
+Steps that have already been Executed
+Steps that are currently Executing
+Steps that have not yet been Executed
+
+## Slide 21
+
+Process Steps
+
+When a Process is started, a Process Step record is created for each Process Step Definition of the parent Process Definition
+Each Process Step contains an Execution State to display the step’s current activity, including the following states
+Complete Error/Success/Timeout
+Executing Waiting/InScript
+None
+These states are used to in when visualizing the steps of a process
+
+## Slide 22
+
+Process Step History
+
+Process Steps can execute multiple times during a single Process execution
+Each time a Process Step executes, a Process Step History will be created
+Process Step History records contain the timestamps and state data for a single execution of a Process Step
+
+## Slide 23
+
+Ending Processes
+
+A Process can be ended…
+
+… through standard pages
+
+… through standard API
+
+… naturally by reaching an end
+
+context.Api.Workflow
+	.KillProcess(processID)
+	.ThrowIfFailed();
+
+## Slide 24
+
+Executing a Workflow
+
+## Slide 25
+
+Workflow Troubleshooting
+
+## Slide 26
+
+Troubleshooting
+
+Use the Validate option in the Visual Editor
+Process Step History record State Data
+Timestamps 
+Results
+Parameters
+A Workflow Service has individual Logs and Content Pages for troubleshooting
+Process Definition are Versioned, allowing drafts and retired copies to be inspected
+
+## Slide 27
+
+Error Handling
+
+Create Process Step Paths that account for all possible results
+Success
+Timeout
+Error
+Use timeouts on steps keep process moving if data is not received
+Use multiple end steps help kill processes to ensure completion
+
+## Slide 28
+
+Workflow Data Structures

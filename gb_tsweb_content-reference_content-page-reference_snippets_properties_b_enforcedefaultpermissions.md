@@ -1,0 +1,3 @@
+# Properties\_B\_EnforceDefaultPermissions
+
+Ensures that only users with valid permissions can use this page. Each standard page may have specific permission Set/Item/Action requirements built-in. If this property is set to No, then the built-in permission requirements are suppressed. This page requires the following permissions...

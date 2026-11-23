@@ -1,0 +1,194 @@
+## Slide 1
+
+Job Table Structures
+
+## Slide 2
+
+Introduction
+
+Job Table Structures
+
+## Slide 3
+
+Job Types
+
+Job Table Structures
+
+Conceptual
+tJobDiscrete
+ID
+Name
+PlannedStart
+Etc…
+PlannedCount
+PlannedCountUnits
+Etc…
+tJobBatch
+ID
+Name
+PlannedStart
+Etc…
+RecipeID
+PlannedBatches
+PlannedBatchSize
+Etc…
+
+1 : 1
+1 : 1
+Actual
+tJobDiscrete
+PlannedCount
+PlannedCountUnits
+Etc…
+tJobBatch
+RecipeID
+PlannedBatches
+PlannedBatchSize
+Etc…
+tJob
+ID
+Name
+PlannedStart
+Etc…
+
+## Slide 4
+
+Sub Jobs
+
+Job Table Structures
+
+ParentJobID
+ParentJobID
+ParentJobID
+ParentJobID
+tJob
+tJob
+tJob
+tJob
+tJob
+tJob
+
+Sub-Job Examples
+Cases where a header/parent is required…
+Campaign
+Job 1
+Job 2
+Job 3
+Production Segments
+Batching Segment
+Packaging Segment
+Parallel Lines
+Line 1 Job
+Line 2 Job
+
+## Slide 5
+
+Sub Jobs
+
+Job Table Structures
+
+Sub-Job Examples
+Cases where a header/parent is required…
+Campaign
+Job 1
+Job 2
+Job 3
+Production Segments
+Batching Segment
+Packaging Segment
+Parallel Lines
+Line 1 Job
+Line 2 Job
+
+ParentJobID
+ParentJobID
+ParentJobID
+ParentJobID
+tJob
+tJob
+tJob
+tJob
+tJob
+tJob
+
+Sub-Job Examples
+Cases where a header/parent is required…
+Campaign
+Job 1
+Job 2
+Job 3
+Production Segments
+Batching Segment
+Packaging Segment
+Parallel Lines
+Line 1 Job
+Line 2 Job
+
+Sub-Job Examples
+Cases where a header/parent is required…
+Campaign
+Job 1
+Job 2
+Job 3
+Production Segments
+Batching Segment
+Packaging Segment
+Parallel Lines
+Line 1 Job
+Line 2 Job
+
+ParentJobID
+ParentJobID
+ParentJobID
+ParentJobID
+tJob
+tJob
+tJob
+tJob
+tJob
+tJob
+
+Job Fields
+Planned Product
+External ID
+
+## Slide 6
+
+Job Planned vs. Actual
+
+Job Table Structures
+
+Planned
+Describes which System on which a Job will run.
+Could be populated when Job is imported/created from ERP.
+Could be populated as a result of TrakSYS APS.
+
+Actual
+Record of actual System (and times) on which a Job was run.
+Populated automatically by the Logic Service when it detects start and end points for a Job.
+ Can contain many child records for a single parent Job.
+
+tJob
+tJobSystemPlanned
+tJobSystemActual
+1 : N
+
+## Slide 7
+
+Material Planned vs. Actual
+
+Job Table Structures
+
+Planned
+Sometimes known as the Bill of Materials (BOM)
+Lists Materials and quantities to be consumed for a Job
+Typically populated when Job is imported/created from ERP
+
+Actual
+Record of actual Material consumptions for a Job
+Includes actual Quantities and source Batch/Lot Identifiers
+Typically populated as consumptions are logged using user interfaces or scripts.
+
+tJob
+tMaterialUsePlanned
+tMaterialUseActual

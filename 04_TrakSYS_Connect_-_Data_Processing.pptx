@@ -1,0 +1,36 @@
+## Slide 1
+
+Data Processing
+
+## Slide 2
+
+Options
+
+Data Processing
+
+DMS Module
+Post Process
+
+Workflow Process
+Post Process
+
+Script
+In-Line
+
+## Slide 3
+
+Considerations
+
+Data Processing
+
+Why
+Allows users to implement business logic in the interface. Common examples include the ability to merge data from a payload into a single field for mapping to TrakSYS entities.
+Parameters Passed
+When interfaces transactions trigger post process actions like DMS and Workflow. Some parameters are passed onto the next step as arguments, such as: Interface Definition ID, Interface Definition Key, and Interface Transaction ID.
+Orchestration Options
+	DMS
+	Ideal for processing a single interface transaction.
+	Workflow 
+	Ideal for organizing events around an interface transaction.
+	Plugin 
+	Ideal for interacting with the interface transaction data before it’s passed downstream and/or for processing synchronously.

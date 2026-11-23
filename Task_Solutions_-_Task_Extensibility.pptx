@@ -1,0 +1,107 @@
+## Slide 1
+
+Task Extensibility
+
+## Slide 2
+
+Extended Creation
+
+Task Extensibility
+
+When a Task is created, a child Task Item record is created for each Task Form Item associated with the corresponding Task Definition. 
+After creation, a Task can have additional Task Items created and associated to the Task record. By using Logic Service Script Classes or by adding additional API when programmatically creating a Task, new Task Items can be added according to any definable logic. 
+By using Custom Properties in combination with this technique, Tasks can easily have dynamically generated Task Items based upon Job, Product, Shift, or any other context.
+Note that this does not work when viewing a brand-new Task record, as the Task Definition script will now have had the chance to execute.
+
+## Slide 3
+
+Extended Creation
+
+Task Extensibility
+
+When a Task is created, a child Task Item record is created for each Task Form Item associated with the corresponding Task Definition. 
+After creation, a Task can have additional Task Items created and associated to the Task record. By using Logic Service Script Classes or by adding additional API when programmatically creating a Task, new Task Items can be added according to any definable logic. 
+By using Custom Properties in combination with this technique, Tasks can easily have dynamically generated Task Items based upon Job, Product, Shift, or any other context.
+Note that this does not work when viewing a brand-new Task record, as the Task Definition script will now have had the chance to execute.
+
+## Slide 4
+
+Extended Creation
+
+Task Extensibility
+
+The example below depicts a sample Task Definition and various Task iterations based upon the Product associated to the Task. 
+
+## Slide 5
+
+Extended Creation
+
+Task Extensibility
+
+The example below depicts a sample Task Definition and various Task iterations based upon the Product associated to the Task. 
+
+## Slide 6
+
+Extended Processing
+
+Task Extensibility
+
+While Task Form Items have basic validation options, Tasks can have additional validation applied to them. 
+Alternatively, Tasks can have post-processing applied using Logic Service Script Classes to define either validate or finalize a Task.
+
+In this first example, the Task has validation applied on Web Page as part of the Save_Click method. It uses multiple input values for the validation. Validation errors can be shown as Errors or Warnings, with feedback displayed immediately on the page.
+
+In this next example, the Task has processing applied after  being saved as part of a Task Definition Script Class.  The result is being saved as part of the Task record, as both the PassFail state and the User State for later visualization. 
+
+## Slide 7
+
+Extended Processing
+
+Task Extensibility
+
+While Task Form Items have basic validation options, Tasks can have additional validation applied to them. 
+Alternatively, Tasks can have post-processing applied using Logic Service Script Classes to define either validate or finalize a Task.
+
+In this first example, the Task has validation applied on Web Page as part of the Save_Click method. It uses multiple input values for the validation. Validation errors can be shown as Errors or Warnings, with feedback displayed immediately on the page.
+
+In this next example, the Task has processing applied after  being saved as part of a Task Definition Script Class.  The result is being saved as part of the Task record, as both the PassFail state and the User State for later visualization. 
+
+## Slide 8
+
+Extended Visualization
+
+Task Extensibility
+
+The Task Items Content Part provide default visualization for TaskData objects on a Visual Page. Using the AddCustomTaskParts method, individual parts can be overridden to use any TrakSYS control. This allows for situational control over how a Task is displayed. In additional to changing how the Input is Visualized, additional properties and fields from the Task Item can be mapped to allow for additional data collection. 
+In the example below, each Input is being replaced with a more suitable part rendering. While this uses existing Content Parts, the properties that drive them have been programmatically set to allow for implementation-specific requirements to be met.
+
+## Slide 9
+
+Extended Visualization
+
+Task Extensibility
+
+The Task Items Content Part provide default visualization for TaskData objects on a Visual Page. Using the AddCustomTaskParts method, individual parts can be overridden to use any TrakSYS control. This allows for situational control over how a Task is displayed. In additional to changing how the Input is Visualized, additional properties and fields from the Task Item can be mapped to allow for additional data collection. 
+In the example below, each Input is being replaced with a more suitable part rendering. While this uses existing Content Parts, the properties that drive them have been programmatically set to allow for implementation-specific requirements to be met.
+
+## Slide 10
+
+Extended Visualization
+
+Task Extensibility
+
+An example of the AddCustomTaskParts method is shown below. To assist with readability, it has been refactored to have each Task Item processed in individual methods based upon the associated Task Form Item’s Key. An example of this can be seen in the method below it, which is being used to create the Timestamp input.
+In this example, a TsInputDateTime object is being created. This matches the same Part Key of the Date Time Picker part that can be found the Parts Catalogue in a Visual Page. Unlike a Visual Page, there is no Part Property Editor. Instead, each Part Property is being set through the matching object’s properties, using similar or matching property names. 
+Many of the Properties can be set automatically using the AddTaskItemPartInfo object, which is provided by the method as the “info” object. As seen in this example, it contains basic information, like the default CaptionEx and FormKey values. Using this info object, an input can easily be rendered using the standard configuration options. All standard TrakSYS Content Parts can be added using this pattern. 
+If custom visualization is not needed for an input, it can be skipped by having the AddCustomTaskParts method return false. In the example shown, the method will only return true if one of the four defined Keys are found. For any other value, the default case of the case statement will be used, which returns false and will instead result in the standard Visualization being used.
+
+## Slide 11
+
+Extended Visualization
+
+Task Extensibility
+
+An example of the AddCustomTaskParts method is shown below. To assist with readability, it has been refactored to have each Task Item processed in individual methods based upon the associated Task Form Item’s Key. An example of this can be seen in the method below it, which is being used to create the Timestamp input.
+In this example, a TsInputDateTime object is being created. This matches the same Part Key of the Date Time Picker part that can be found the Parts Catalogue in a Visual Page. Unlike a Visual Page, there is no Part Property Editor. Instead, each Part Property is being set through the matching object’s properties, using similar or matching property names. 
+Many of the Properties can be set automatically using the AddTaskItemPartInfo object, which is provided by the method as the “info” object. As seen in this example, it contains basic information, like the default CaptionEx and FormKey values. Using this info object, an input can easily be rendered using the standard configuration options. All standard TrakSYS Content Parts can be added using this pattern. 
+If custom visualization is not needed for an input, it can be skipped by having the AddCustomTaskParts method return false. In the example shown, the method will only return true if one of the four defined Keys are found. For any other value, the default case of the case statement will be used, which returns false and will instead result in the standard Visualization being used.

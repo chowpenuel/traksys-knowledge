@@ -1,0 +1,55 @@
+## Slide 1
+
+Single Instance Multi-Site
+(SIMS)
+
+## Slide 2
+
+What is SIMS?
+
+## Slide 3
+
+Root Site
+
+## Slide 4
+
+Site Access Control
+
+## Slide 5
+
+Centralized Architecture
+
+## Slide 6
+
+Distributed Architecture
+
+## Slide 7
+
+Global Deployment
+
+## Slide 8
+
+SIMS Licensing - Introduction
+
+## Slide 9
+
+Considerations
+
+Server Load
+While data collection Services can be distributed, the database and web server are shared.
+Remote Communication
+Network visibility/ports must be  open and accessible between local automation devices and client browsers.
+Speed and Availability
+Network speeds and connection availability must be adequate for the application requirements.
+Governance
+A clear plan should be in place for who manages system upgrades, support renewals, and other global decisions.
+Upgrades and Maintenance
+Any system maintenance or upgrades will affect all Sites housed within the shared implementation.
+
+## Slide 10
+
+Splitting and Combining
+
+## Slide 11
+
+Example SIMS Implementation

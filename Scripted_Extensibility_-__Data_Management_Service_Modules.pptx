@@ -1,0 +1,89 @@
+## Slide 1
+
+Data Management Service
+
+## Slide 2
+
+Review - Data Management Service
+
+Independent multi-threaded service used for executing Non-Real Time Operations
+Facilitates processing large Data Aggregation
+Connects to external Business Systems for Import and Export of Configuration and Data
+Schedules periodic execution of scripted Modules
+
+## Slide 3
+
+Data Management Modules
+
+A Module is a collection of business rules to be executed by the Data Management Service
+Modules contain one or more Module Steps that implement specific Functionality
+Module Steps are executed sequentially (no parallel processing within a Module)
+Modules can be scheduled to execute periodically or triggered externally by API Calls
+
+## Slide 4
+
+Module Steps
+
+A Module Step is a distinct operation to be run from within a parent Module
+Module Steps contain configured options for Conditional Execution and responses to unhandled Errors/Exceptions
+Module Step Types
+SQL Module Step
+Database Read/Writes
+Script Module Step
+API Calls, File Read/Writes, Web Services
+Metric Calculator Module Step
+
+## Slide 5
+
+SQL Module Steps
+
+Step functionality is implemented using Structured Query Language (SQL)
+The Execute SQL setting contains all T-SQL to be executed against an OLEDB-compliant database Connection
+Built-in handling of database Connections, Timeouts, and Errors
+Connection String may be left blank to connect to the TrakSYS Database
+The Parameter SQL setting creates a record set over which to run the Execute SQL
+Allows for multiple executions of the main SQL query over a list of identifiers or parameters
+Can execute insert/update/delete statements against a different database than the Parameter SQL
+
+## Slide 6
+
+Example: Parameter and Execute SQL Queries
+
+## Slide 7
+
+Script Module Steps
+
+Step functionality is implemented using TrakSYS Advanced Scripting (Microsoft C#.NET)
+The Load() method is run once when the Module is first loaded.  Anything instantiated at the class level and populated here is maintained across Module execution calls
+The Execute() method is run each time the Modules is executed when the Script Step is reached.
+The TrakSYS API is available and passed into the Execute method via the ctx Argument
+
+## Slide 8
+
+Module Development
+
+## Slide 9
+
+Module Control
+
+## Slide 10
+
+Module Control
+
+The Data Management Service should always be Running (Windows Services Automatic)
+Modules may be Started, Stopped or Restarted from the Services Administration | Services Hub
+Running does not mean Executing
+If the Service Restarts, Modules resume their previous running State
+
+## Slide 11
+
+Module Triggers
+
+Modules will trigger periodically if configured
+Modules may be Executed through the Script and Module Control (one-time run)
+Must be Running
+Must have a Trigger Key
+
+## Slide 12
+
+Triggering a Module

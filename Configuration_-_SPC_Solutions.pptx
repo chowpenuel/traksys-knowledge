@@ -1,0 +1,138 @@
+## Slide 1
+
+Sample Definitions
+
+## Slide 2
+
+Statistical Process Control (SPC)
+
+Method of quality control based on statistical methods and algorithms.
+Perform random sampling of various product attributes and process parameters.
+Monitor process variability in real-time using a catalog of different control charts and graphs.
+Define business rules to be applied to sample values as they are collected and trigger Notifications based on rule violations.
+Enabled manufacturing adjustments to improve the overall quality of final goods produced (quality by design).
+
+## Slide 3
+
+SPC in TrakSYS
+
+Provides SPC functionality for data collected from a manufacturing process.
+Allows definition of the different types of values to be sampled and recorded, along with one or more statistical rules to be applied to the data.
+Data may be collected automatically in real-time or manually through web-based user interfaces.
+Standard set of SPC Content Parts available for data capture, reporting, and analysis
+
+## Slide 4
+
+Review – Sample Definitions
+
+Defines the parameters for taking quality SPC samples of a specific type to record instances of Sample Sub-Group records in the TrakSYS Database
+An Sample Sub-Group represents a set of 1-N samples measured together and associated with a specific asset (System)
+Configurable at the System Level Only
+Constants or Tags can be defined to specify SPC Limits
+
+Configuration
+
+SPC data typically logged against a Sample Definition via user interface data entry Forms
+Sample Sub-Groups contain reference to related information such as Job, Batch, Product, Shift, etc…
+Automated SPC sampling can be achieved using the API and Scripting to capture values and create Sample Sub-Groups
+
+Execution
+
+## Slide 5
+
+Sample Definitions
+
+Calculation Type
+Determines if the measurement is of Variable or Attribute type.
+Sample Count
+Specifies the number of Samples to be taken during one Sample Sub-Group.
+Limits
+Specifies constant or Tag-based values for the Target, Control, and Specification limits.
+Control Limits
+Charts and user interfaces can be configured to use these presets, or auto-calculate them based on a data range.
+
+## Slide 6
+
+Sample Sub-Groups and Samples
+
+Sample Definition
+A type of measurement performed on a specific System.
+IE: Fill Weight, Bottle Inspection
+Sample Sub-Group
+A set of one or more measurements taken for a given Sample Definition, at a specific time.  This set of is typically combined to form aggregated values which represent the entire group.
+IE: Mean, Range, Sigma
+Sample
+An individual sample values taken within a Sample Sub-Group.
+
+## Slide 7
+
+SPC Rule Definitions
+
+Business Rules applied to new Sample Sub-Groups as they are Recorded
+For detecting “out-of-control” Processes and other actionable Conditions
+Based on a variety of data inputs…
+Single Sample Value
+Aggregation of all Samples in a Sub-Group
+Data trends for up to the last 100 Sample Sub-Groups
+Rule violations are related with the Sample Sub-Group data from which they were Triggered
+May be used to trigger Notifications, or other scripted Business Rules
+
+## Slide 8
+
+SPC Rule Definitions - Standard
+
+Standard Rules exist that model the Western Electric Rules that require no scripting
+Business Rules added to an SPC Rule Definition are scripted using C#.NET
+Several supporting classes and methods available for creating a Rule
+this.SampleSubGroups.Current[]
+Last 100 Sample Sub Groups recorded for current Process Target value.
+this.SampleSubGroups.Last[]
+Last 100 Sample Sub Groups recorded.
+this.Api.Spc.Variable and this.Api.Spc.Attribute
+API functions for calculating SPC aggregations.
+Scripted Rules can be built as a Custom Rule for re-use
+
+## Slide 9
+
+Sample Categories
+
+Used for Attribute Control type Sample Definitions
+Classifies quantities/counts within the Sample Sub-Group
+Defined in related Groups
+A Sample Category Group is assigned to an Attribute Sample Definition
+Users relate available Sample Categories to individual Sample Values
+
+## Slide 10
+
+SPC Data Collection
+
+SPC data may be collected in multiple ways…
+Manually using standard Content Pages
+Manually using custom Page Definitions
+Automatic via Logic Service Script / API
+Automatic via Data Management Service Modules / API
+A combination of these may be used for a single Sample Definition
+
+## Slide 11
+
+SPC Configuration
+
+## Slide 12
+
+SPC Extensibility
+
+## Slide 13
+
+SPC Script Events
+
+The following transitions are monitored by the Logic Service for SPC Sample Sub-Group records…
+On Created
+The following transitions are monitored by the Logic Service for SPC Rule records…
+On Rule (Fail)
+TrakSYS allows for these transitions to be used to trigger real-time functionality such as…
+Email Notifications
+Entity Script Class Events
+
+## Slide 14
+
+SPC Data Structures

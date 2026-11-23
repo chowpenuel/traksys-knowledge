@@ -1,0 +1,174 @@
+## Slide 1
+
+SPC Visualizations
+
+## Slide 2
+
+Context Data
+
+When a Sample Sub-Group is created, a variety of context is recorded as part of the record. This includes…
+Aggregate Information
+Sample Count
+Sample Calculation
+Defect Count
+Constant and Tag-Based Limits at Time of Capture
+UCL/LCL
+USL/LSL
+Process Target
+Production Context
+Job ID
+Product ID
+Additional Properties of the Sample Sub-Group can be leveraged to help with operational flow or reporting. This includes the use of…
+Upper/Lower Custom Specification Limits
+Related Task ID
+10 Capture Fields on the Sample Sub-Group
+5 Capture Fields on the Sample
+An Excluded Option
+
+## Slide 3
+
+Context Data
+
+When a Sample Sub-Group is created, a variety of context is recorded as part of the record. This includes…
+Aggregate Information
+Sample Count
+Sample Calculation
+Defect Count
+Constant and Tag-Based Limits at Time of Capture
+UCL/LCL
+USL/LSL
+Process Target
+Production Context
+Job ID
+Product ID
+Additional Properties of the Sample Sub-Group can be leveraged to help with operational flow or reporting. This includes the use of…
+Upper/Lower Custom Specification Limits
+Related Task ID
+10 Capture Fields on the Sample Sub-Group
+5 Capture Fields on the Sample
+An Excluded Option
+
+When a Sample Sub-Group is created, a variety of context is recorded as part of the record. This includes…
+Aggregate Information
+Sample Count
+Sample Calculation
+Defect Count
+Constant and Tag-Based Limits at Time of Capture
+UCL/LCL
+USL/LSL
+Process Target
+Production Context
+Job ID
+Product ID
+
+## Slide 4
+
+Standard Rules
+
+Standard SPC Rules can be evaluated against each Sample Sub-Group. As Logic Service collects SPC data, each point is evaluated against any configured rule in real-time, with violations being recorded as Sample Sub-Group Rule records.
+Standard SPC Rules include the list shown on the right. These are designed to include the basic Western Electric and Nelson rules. 
+Each rule follows the same core pattern…
+Each Sample Sub-Group is evaluated in the context of the last 100 groups that share the same Target value.
+Average and Standard Deviation is calculated against the 100 groups.
+Center Line and Sigma Bands are determined using the calculated Average and Standard Deviation.
+Violations are then checked for against the most recent point.
+Where the Standard Rules do not fulfill the requirements, Custom Script or Custom Rules can be applied.
+
+## Slide 5
+
+Standard SPC Rules can be evaluated against each Sample Sub-Group. As Logic Service collects SPC data, each point is evaluated against any configured rule in real-time, with violations being recorded as Sample Sub-Group Rule records.
+Standard SPC Rules include the list shown on the right. These are designed to include the basic Western Electric and Nelson rules. 
+Each rule follows the same core pattern…
+Each Sample Sub-Group is evaluated in the context of the last 100 groups that share the same Target value.
+Average and Standard Deviation is calculated against the 100 groups.
+Center Line and Sigma Bands are determined using the calculated Average and Standard Deviation.
+Violations are then checked for against the most recent point.
+Where the Standard Rules do not fulfill the requirements, Custom Script or Custom Rules can be applied.
+
+Standard Rules
+
+Standard SPC Rules can be evaluated against each Sample Sub-Group. As Logic Service collects SPC data, each point is evaluated against any configured rule in real-time, with violations being recorded as Sample Sub-Group Rule records.
+
+## Slide 6
+
+Custom Rules
+
+Custom Rules can be created through the Developer options of a TrakSYS implementation. Custom Rules can be written once and then configured against multiple Sample Definitions.
+The sample Script Class for a Custom Rule provides context about the different variables provided. It includes…
+The last 100 Sample Sub-Groups with the same Process Target
+The last 100 Sample Sub-Groups for the Sample Definition
+An instance of the API
+The SampleDefinitionID
+Using these components, any Standard Rule can be recreated with any desired modification.  Some examples of adjustments include…
+Changing the context or number of points used in the calculation of sigma, centerline, or other key variables.
+Changing the calculation of sigma, centerline or other key variables, or setting their values to historical reference values.
+Changing the number of points required to violate common patterns (such as requiring 7 points trending in a direction instead of 6).
+
+## Slide 7
+
+Custom Rules
+
+Custom Rules can be created through the Developer options of a TrakSYS implementation. Custom Rules can be written once and then configured against multiple Sample Definitions.
+The sample Script Class for a Custom Rule provides context about the different variables provided. It includes…
+The last 100 Sample Sub-Groups with the same Process Target
+The last 100 Sample Sub-Groups for the Sample Definition
+An instance of the API
+The SampleDefinitionID
+Using these components, any Standard Rule can be recreated with any desired modification.  Some examples of adjustments include…
+Changing the context or number of points used in the calculation of sigma, centerline, or other key variables.
+Changing the calculation of sigma, centerline or other key variables, or setting their values to historical reference values.
+Changing the number of points required to violate common patterns (such as requiring 7 points trending in a direction instead of 6).
+
+## Slide 8
+
+Charting Options
+
+Processing and Visualization of Sample Sub-Groups are done independently. Any SPC chart can be used with any SPC data, based upon the desired result. 
+Below are examples of the different, specialized SPC Charts available in TrakSYS…
+
+Paired SPC Charts [ Xbar-R, X-Bar-S, and I-M ]
+
+Moving Average Charts [ Individual, Weighted, and Exponential Weighted ]
+
+Histogram Chart
+
+## Slide 9
+
+Charting Options
+
+Processing and Visualization of Sample Sub-Groups are done independently. Any SPC chart can be used with any SPC data, based upon the desired result. 
+Below are examples of the different, specialized SPC Charts available in TrakSYS…
+
+Paired SPC Charts [ Xbar-R, X-Bar-S, and I-M ]
+
+Moving Average Charts [ Individual, Weighted, and Exponential Weighted ]
+
+Histogram Chart
+
+## Slide 10
+
+Charting Options
+
+Compared to the standard Charts, each SPC chart has an extended set of properties to allow for more significant control over the visualization.
+SPC Charting Properties include…
+Hide/Show Sigma Bands
+Auto-Calculate or Set Control Limits
+Visualization Settings for all Limits
+Special Data Visualization for Groups with Violations
+Special On-Click Overrides for Groups with Violations
+And more…
+
+In this next example, the Task has processing applied after  being saved as part of a Task Definition Script Class.  The result is being saved as part of the Task record, as both the PassFail state and the User State for later visualization. 
+
+## Slide 11
+
+Charting Options
+
+Compared to the standard Charts, each SPC chart has an extended set of properties to allow for more significant control over the visualization.
+SPC Charting Properties include…
+Hide/Show Sigma Bands
+Auto-Calculate or Set Control Limits
+Visualization Settings for all Limits
+Special Data Visualization for Groups with Violations
+Special On-Click Overrides for Groups with Violations
+And more…

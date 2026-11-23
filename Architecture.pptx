@@ -1,0 +1,168 @@
+## Slide 1
+
+Architecture
+
+TrakSYS Infrastructure
+
+## Slide 2
+
+Simple Architecture
+
+Real-Time Operations
+Business Intelligence
+Solution Configuration
+Integration and Development
+Web User Interface
+Automation Connectivity
+Business Rule Execution
+Data Exchange / Synchronization
+Background Application Tasks
+Service Components
+Standard Configuration and Data Capture Schemas 
+TrakSYS Database
+
+TS Academy Orientation
+
+## Slide 3
+
+Unified User Interface
+
+Historical Data Analysis
+Ad-Hoc Exploration
+Regulatory Record Keeping
+Reporting & Analysis
+Day to Day Operation
+Real-Time Status
+Human Related Data Transactions
+Manufacturing Operations
+Process Model Evolution
+Business Rule Maintenance
+Users and Permissions
+Business Configuration
+Initial Process Models
+User Interface Configuration
+Troubleshooting and Diagnostics
+Integrator and Developer
+
+TS Academy Orientation
+
+## Slide 4
+
+Technology Stack
+
+On-Prem, Cloud or Data Center | Physical or Virtual | Server or Containers 
+Hardware / Server Abstraction
+Microsoft SQL Server | Traditional or PaaS
+Database Platform
+.NET Scripting Environment | TrakSYS .NET and Web Service API
+Scripting and Extensibility
+Internet Information Services
+Web Server
+.NET Services and Web Application
+TrakSYS Components
+bootstrap | jquery | mxGraph | chartjs | …
+Frameworks
+Windows Server
+Server Environment
+
+TS Academy Orientation
+
+## Slide 5
+
+Component
+Architecture
+
+components
+And services
+
+Data Management
+Service
+Data Exchange
+and Aggregation
+OPC DA | OPC UA | OPC HDA | API | Structured Data
+Manufacturing Process and Automation
+Business
+Applications
+ERP
+Quality
+Maintenance
+Data Warehouses
+Central TrakSYS™
+etc…
+Logic
+Service
+Real-Time
+Execution and Collection
+Historian
+Service
+Process Variable
+Tag Historian
+TrakSYS
+Database
+Configuration and
+Data Storage
+TrakSYS
+Web
+User Interfaces
+Operations
+Business Intelligence
+Configuration
+Workflow
+Service
+Process
+Orchestration
+
+## Slide 6
+
+OPC
+
+Standard interfaces
+Read / write
+
+PLCs and Devices
+Database
+Services
+Web
+TrakSYS
+Ethernet
+Data Highway
+Modbus
+Etc..
+OPC DA
+OPC HDA
+OPC UA
+OPC Server (3rd Party)
+Ethernet
+
+## Slide 7
+
+Database Backed
+
+Manufacturing structures
+
+Business Applications
+
+Data Management Service
+
+Equipment Model
+Automation Signals
+Specifications
+KPIs and Events
+Quality Data
+Production Records
+Master Data
+Logging
+Process
+Orders
+
+## Slide 8
+
+Services
+
+Components
+
+## Slide 9
+
+Services
+
+Components

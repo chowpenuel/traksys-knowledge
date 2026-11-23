@@ -1,0 +1,292 @@
+## Slide 1
+
+Task Definitions
+
+## Slide 2
+
+Review – Task Definitions
+
+Allows the real-time examination of an input condition to record instances of Task records in the TrakSYS Database
+A Task represents a request with pre-defined user inputs required (a form) associated with a specific asset (System)
+Task Definitions are configured to require 1 or more user input fields (Task Form Items)
+Configurable at the System OR Sub-System Level
+A Discrete Trigger Tag property indicates when a Task is Generated
+
+Loaded and executed by the Logic Service
+Tasks contain reference to related information such as Job, Batch, Product, Shift, etc…
+Task Forms are implemented and completed in the TS Web User Interface
+
+Configuration 
+
+Execution 
+
+Packaging Line 1
+Filler
+Hourly Log Entry
+Safety Check
+Task Records
+Task Definition
+
+## Slide 3
+
+Review – Task Definitions
+
+Packaging Line 1
+Filler
+Hourly Log Entry
+Safety Check
+
+Task Records
+
+Task Definition
+
+Allows the real-time examination of an input condition to record instances of Task records in the TrakSYS Database
+A Task represents a request with pre-defined user inputs required (a form) associated with a specific asset (System)
+Task Definitions are configured to require 1 or more user input fields (Task Form Items)
+Configurable at the System OR Sub-System Level
+A Discrete Trigger Tag property indicates when a Task is Generated
+
+Configuration 
+
+Loaded and executed by the Logic Service
+Tasks contain reference to related information such as Job, Batch, Product, Shift, etc…
+Task Forms are implemented and completed in the TS Web User Interface
+Execution 
+
+## Slide 4
+
+Task Definition and Task Forms 
+
+Task Definitions
+When configured without a Task Form, all properties and assignments can be made directly to a Task Definition. However, to simply repeated configuration, Task Forms should be used.
+Task Forms
+A Task Form is a non-system specific entity that can be assigned to a Task Definition. It defines a set of common inputs and can be repeated across multiple Task Definitions. 
+Trigger Type
+When using Task Forms, a configurable Trigger Type can be assigned. This includes triggering based on Tags, Schedules, and various Data hooks. Additional properties will appear based on the Type selected.
+
+IMAGES NEED UPDATE
+
+## Slide 5
+
+Task Definition and Task Forms 
+
+Task Definitions
+When configured without a Task Form, all properties and assignments can be made directly to a Task Definition. However, to simply repeated configuration, Task Forms should be used.
+Task Forms
+A Task Form is a non-system specific entity that can be assigned to a Task Definition. It defines a set of common inputs and can be repeated across multiple Task Definitions. 
+Trigger Type
+When using Task Forms, a configurable Trigger Type can be assigned. This includes triggering based on Tags, Schedules, and various Data hooks. Additional properties will appear based on the Type selected.
+
+## Slide 6
+
+Task Form Properties 
+
+Versioning
+Task Forms can be versioned. The creation and management of the version is controlled in the configuration screens through dedicated menu options.
+Task Completion Seconds
+Drives logic that determines when a Task is considered late (optional).  This can drive scripted business rules and Notifications.
+
+## Slide 7
+
+Task Form Properties 
+
+Versioning
+Task Forms can be versioned. The creation and management of the version is controlled in the configuration screens through dedicated menu options.
+Task Completion Seconds
+Drives logic that determines when a Task is considered late (optional).  This can drive scripted business rules and Notifications.
+
+## Slide 8
+
+Task Form Items 
+
+Represents configurable data entry fields to be collected during completion of a specific Task
+Task Form Items are organized into groups called Task Form Item Groups
+One or more Task Form Item Groups are assigned to a Task Definition defining the fields to be captured in the UI Form
+
+Task Forms in the TS Web UI render the defined Task Form Items as form input fields…
+Text Boxes
+Dropdown Lists
+Check Boxes
+Support basic validation (min, max, required)
+
+Configuration 
+
+Execution
+
+## Slide 9
+
+Task Form Items 
+
+Task Forms in the TS Web UI render the defined Task Form Items as form input fields…
+Text Boxes
+Dropdown Lists
+Check Boxes
+Support basic validation (min, max, required)
+Execution
+
+Represents configurable data entry fields to be collected during completion of a specific Task
+Task Form Items are organized into groups called Task Form Item Groups
+One or more Task Form Item Groups are assigned to a Task Definition defining the fields to be captured in the UI Form
+Configuration 
+
+## Slide 10
+
+Task Form Groups
+
+Task Form Groups
+An organizational only level of grouping to help manage large numbers of Task Forms
+Task Forms
+A collection of Task Form that can be assigned to a Task Definition.  They can be assigned to multiple Task Definitions
+
+## Slide 11
+
+Task Form Groups
+
+Task Form Groups
+An organizational only level of grouping to help manage large numbers of Task Forms
+Task Forms
+A collection of Task Form that can be assigned to a Task Definition.  They can be assigned to multiple Task Definitions
+
+## Slide 12
+
+Task Form Item Groups
+
+Task Form Item Groups
+An organizational only level of grouping within a Task Form
+Task Form Items
+The individual inputs within a Task that are collected. They contain various properties that determine how they render and how they are validated
+
+## Slide 13
+
+Task Form Item Groups
+
+Task Form Item Groups
+An organizational only level of grouping within a Task Form.
+
+Task Form Items
+The individual inputs within a Task that are collected. They contain various properties that determine how they render and how they are validated.
+
+## Slide 14
+
+Task Form Item Properties 
+
+Data Type
+Drives the displayed form input type and validation in standard Pages and Parts.
+Render Type
+Overrides the standard rendering based on Data Type.
+Prompt
+An alternate label displayed on standard Pages and Parts.
+Default Value
+The value of the item when the Task is created and before it is edited by a User.
+Minimum/Maximum
+Used for automatic validation in standard Pages and Parts.
+Require Change
+If checked, a User must change the item’s value to something different than the Default Value.
+
+## Slide 15
+
+Task Form Item Properties 
+
+Data Type
+Drives the displayed form input type and validation in standard Pages and Parts.
+Render Type
+Overrides the standard rendering based on Data Type.
+Prompt
+An alternate label displayed on standard Pages and Parts.
+Default Value
+The value of the item when the Task is created and before it is edited by a User.
+Minimum/Maximum
+Used for automatic validation in standard Pages and Parts.
+Require Change
+If checked, a User must change the item’s value to something different than the Default Value.
+
+## Slide 16
+
+Task Form Item Properties 
+
+Conditionals
+Task Form Items can also be assigned Conditional Logic. When marked “Is Conditional”, new Tasks will hide the Task Item until the Condition is met.
+
+Conditional Logic
+Conditional Logic can reference other Task Items within the same Task. The logic is evaluated each time the Task is saved.
+
+## Slide 17
+
+Task Form Item Properties 
+
+Conditionals
+Task Form Items can also be assigned Conditional Logic. When marked “Is Conditional”, new Tasks will hide the Task Item until the Condition is met.
+
+Conditional Logic
+Conditional Logic can reference other Task Items within the same Task. The logic is evaluated each time the Task is saved.
+
+## Slide 18
+
+Task Entities 
+
+Controls the creation and processing of  task records
+Tasks hold the required inputs from users and required timestamps.
+Examples
+Line 1 HACCP
+Line 2 HACCP
+Line 3 HACCP
+Task Definition
+A grouping mechanism that is referenced by Task Forms.
+When the task is shown, the Task Form Item Groups represent headers.
+Examples
+Common signatures
+Cleaning checks
+Task Form Item
+Group
+Individual inputs housed in Task Form Item Groups
+When the task is shown, the Task Form Items represent individual inputs.
+Examples
+Name
+Number of tablets
+Task Form Item
+A grouping mechanism that gets assigned to Task Definitions.
+It includes versioning and shared content.
+Examples
+HACCP
+Quality Check
+Changeover Checklist
+Task Forms
+
+## Slide 19
+
+Task Entities 
+
+Controls the creation and processing of  task records
+Tasks hold the required inputs from users and required timestamps.
+Examples
+Line 1 HACCP
+Line 2 HACCP
+Line 3 HACCP
+Task Definition
+
+A grouping mechanism that is referenced by Task Forms.
+When the task is shown, the Task Form Item Groups represent headers.
+Examples
+Common signatures
+Cleaning checks
+Task Form Item
+Group
+
+Individual inputs housed in Task Form Item Groups
+When the task is shown, the Task Form Items represent individual inputs.
+Examples
+Name
+Number of tablets
+Task Form Item
+
+A grouping mechanism that gets assigned to Task Definitions.
+It includes versioning and shared content.
+Examples
+HACCP
+Quality Check
+Changeover Checklist
+Task Forms
+
+## Slide 20
+
+Task Configuration

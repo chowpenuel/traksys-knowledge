@@ -1,0 +1,134 @@
+## Slide 1
+
+Advanced Custom Properties
+
+## Slide 2
+
+Configuration Hierarchy
+
+Advanced Custom Properties
+
+tCustomPropertyScheme
+Scheme
+A collection of Custom Properties that can be applied to one or more Entities.
+tCustomPropertyGroup
+Group
+A simple grouping mechanism for organizing large numbers of Custom Properties within a Scheme.
+tCustomProperty
+Property
+A single attribute definition that can hold entity specific values.
+Example
+A collection of properties applied to a System called Packaging Line.
+Example
+Properties separates into two groups, Front of Line and End of Line.
+Property
+End of Line properties Packaging Mode, Allow Dual Packing, and Require Labeling. 
+…
+…
+…
+
+## Slide 3
+
+Views
+
+Advanced Custom Properties
+
+Views
+Extends the configuration tables with Custom Property Columns
+Built-In and part of the standard Schema
+Automatically updated as Properties are Managed
+viewCustomPropertyArea
+viewCustomPropertyDevice
+viewCustomPropertyEventCategory
+viewCustomPropertyEvenCode
+…
+
+tSystem
+ID
+Name
+…
+TrakSYS System Properties
+…
+
+viewCustomPropertySystem
+ID
+Name
+…
+Custom Property 1
+Custom Property 2
+…
+
+1 : 1
+
+.
+CP_KEY
+Custom Property Key
+Custom Property Scheme Key
+CP_SCHEME_KEY
+
+## Slide 4
+
+Type Specific Schemes
+
+Advanced Custom Properties
+
+Entities supporting Type
+Area
+Event Category
+Event Code
+Event Definition
+Function Definition
+Journal Category
+KPI Calculation
+KPI Counter
+Location
+Parameter Definition
+Product
+Recipe Step Definition
+Recipe
+Sample Definition
+Step Category
+Step Code
+System
+Task Definition
+Transfer Definition
+User
+The following entities may have Custom Property Schemes that are only displayed for specific Type values…
+
+## Slide 5
+
+API Techniques
+
+Advanced Custom Properties
+
+var ed = this.Ets.Api.Data.DbEventDefinition.Load.ByID(38);
+bool cpValue = ed.CustomProperties.GetAsBool("PD_SCHEME_KEY.PD_KEY“, false);
+Loading Single Entity
+When loading a single entity, the Custom Property values are automatically loaded.
+
+var eds = this.Ets.Api.Data.DbEventDefinition.GetList.ForSystemID(4);
+foreach (var ed in eds)
+{
+  this.Ets.Api.Data.CustomProperty.LoadModel(ed);
+  bool cpValue = ed.CustomProperties.GetAsBool("PD_SCHEME_KEY.PD_KEY“, false);
+}
+Loading List of Entities
+When loading a list of entities, the Custom Property values are NOT automatically loaded and must be done for each entity.
+
+Note that error handling is omitted for brevity and clarity.
+
+## Slide 6
+
+API Techniques
+
+Advanced Custom Properties
+
+var uow = this.Ets.Api.CreateUnitOfWork();
+var ed = this.Ets.Api.Data.DbEventDefinition.Load.ByID(38);
+ed.CustomProperties["PD_SCHEME_KEY.PD_KEY"].Value = "new value";
+this.Ets.Api.Data.CustomProperty.MergeCustomProperties(ed.CustomProperties, ed.ID, "EventDefinition", uow);
+this.Ets.Api.Data.DbEventDefinition.Save.UpdateExisting(ed, uow);
+Updating Custom Properties
+A special merge command must be included when updating custom property values.
+
+Note that error handling is omitted for brevity and clarity.
